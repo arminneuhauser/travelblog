@@ -15,6 +15,13 @@ import BottomFooter from '~/components/BottomFooter.vue'
 import SvgSprite from '~/components/SvgSprite.vue'
 
 export default {
+  head () {
+    return {
+      meta: [
+        { hid: 'robots', name: 'robots', content: 'noindex' }
+      ]
+    }
+  },
   components: {
     TopHeader,
     BottomFooter,
