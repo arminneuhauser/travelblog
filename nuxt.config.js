@@ -34,13 +34,23 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/components',
+    '~/plugins/filters'
   ],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
+    ['storyblok-nuxt', {accessToken: 'k5Y8ixzNl1kB4Vq6F5ufBQtt', cacheProvider: 'memory'}],
+    ['@nuxtjs/style-resources']
   ],
+
+  styleResources: {
+      scss: [
+        '~/assets/scss/styles.scss',
+      ]
+  },
 
   /*
   ** Build configuration
@@ -50,7 +60,7 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-      
+
     }
   }
 }

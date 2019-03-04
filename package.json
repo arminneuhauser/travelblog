@@ -11,8 +11,11 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/style-resources": "^0.1.2",
     "cross-env": "^5.2.0",
-    "nuxt": "^2.4.0"
+    "marked": "^0.6.1",
+    "nuxt": "^2.4.0",
+    "storyblok-nuxt": "^1.0.1"
   },
   "devDependencies": {
     "css-loader": "^2.1.0",

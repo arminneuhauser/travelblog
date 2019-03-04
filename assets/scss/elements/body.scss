@@ -1,0 +1,16 @@
+:root {
+  font-size: 62.5%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $background-color;
+  font-family: $fs-sans;
+  line-height: 1.4;
+  color: $tint;
+  margin: 0;
+  padding: 0;
+}

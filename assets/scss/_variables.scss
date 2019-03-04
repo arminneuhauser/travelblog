@@ -1,0 +1,23 @@
+$background-color: #F5F1EB;
+$tint: #343434;
+
+$fs-sans: 'Work Sans', sans-serif;
+$fs-serif: 'Crimson Text', serif;
+
+/* --------------------------------------------------
+
+   Breakpoint Settings
+   -------------------------------------------------- */
+
+// min or max
+$media-direction: min;  // min / max — default is min (mobile first)
+
+// Breakpoints
+// A Sass Map for all Breakpoints you need. But keep it simple! Just add Sizes that you need several times.
+// Here are my basic set. I change the values a bit from project to project
+$breakpoints: (
+  s:  480px,
+  m:  768px,
+  l:  960px,
+  xl: 1220px
+);
