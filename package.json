@@ -8,11 +8,13 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "deploy": "nuxt generate && netlify deploy"
   },
   "dependencies": {
     "@nuxtjs/style-resources": "^0.1.2",
     "cross-env": "^5.2.0",
+    "http-auth": "^3.2.3",
     "marked": "^0.6.1",
     "nuxt": "^2.4.0",
     "storyblok-nuxt": "^1.0.1"
