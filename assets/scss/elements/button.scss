@@ -1,6 +1,7 @@
 @mixin button {
   border: 1px solid rgba(0,0,0,0.5);
   border-radius: 4px;
+  font-weight: 500;
   padding: 7px 15px;
   text-decoration: none;
   transition: all 0.2s ease;

@@ -5,14 +5,16 @@
         <svg><use xlink:href="#logo"></use></svg>
       </a>
       <button @click="showMobileMenu = !showMobileMenu">
-        <div class="site-header__icon"><div></div><div></div></div><span>Menü öffnen</span>
+        <div class="site-header__icon"><div></div><div></div><div></div></div><span>Menü öffnen</span>
       </button>
       <nav>
         <ul>
-          <li :key="index" v-for="(navitem, index) in $store.state.settings.main_navi">
-            <nuxt-link class="site-header__link" :to="navitem.link.cached_url" :class="{ 'cta': navitem.cta === true }">
+          <li :key="index" v-for="(navitem, index) in $store.state.settings.main_navi" :class="{ 'cta': navitem.cta === true }">
+            <svg v-if="navitem.cta" xmlns="http://www.w3.org/2000/svg" width="52.5" height="33.4" viewBox="0 0 52.5 33.4"><path d="M6,18-2.3-.4" transform="translate(4.3 13.4)" style="stroke-linecap: round;stroke-miterlimit: 10" fill="none" stroke-width="4"></path><path d="M22,16.1V-11.4" transform="translate(4.3 13.4)" style="stroke-linecap: round;stroke-miterlimit: 10" fill="none" stroke-width="4"></path><path d="M37.9,18,46.2-1.4" transform="translate(4.3 13.4)" style="stroke-linecap: round;stroke-miterlimit: 10" fill="none" stroke-width="4"></path></svg>
+            <nuxt-link class="site-header__link" :to="navitem.link.cached_url">
               {{ navitem.name }}
             </nuxt-link>
+            <svg v-if="navitem.cta" xmlns="http://www.w3.org/2000/svg" width="52.5" height="33.4" viewBox="0 0 52.5 33.4"><path d="M6,18-2.3-.4" transform="translate(4.3 13.4)" style="stroke-linecap: round;stroke-miterlimit: 10" fill="none" stroke-width="4"></path><path d="M22,16.1V-11.4" transform="translate(4.3 13.4)" style="stroke-linecap: round;stroke-miterlimit: 10" fill="none" stroke-width="4"></path><path d="M37.9,18,46.2-1.4" transform="translate(4.3 13.4)" style="stroke-linecap: round;stroke-miterlimit: 10" fill="none" stroke-width="4"></path></svg>
           </li>
         </ul>
       </nav>
@@ -65,21 +67,25 @@ export default {
 
       div {
         background-color: #000;
-        border-radius: 1px;
-        height: 2px;
-        left: 0;
+        //border-radius: 1px;
+        border-radius: 2px;
+        //height: 2px;
+        height: 4px;
+        left: 50%;
         position: absolute;
         top: 50%;
+        transform: translate(-2px, -2px);
         transform-origin: center center;
-        transition: background-color .4s,transform .4s cubic-bezier(.77,0,.175,1);
-        width: 100%;
+        transition: all .4s cubic-bezier(.77,0,.175,1);
+        //width: 100%;
+        width: 4px;
 
         &:first-child {
-          transform: translateY(-5px);
+          transform: translate(-2px, -10px);
         }
 
         &:last-child {
-          transform: translateY(3px);
+          transform: translate(-2px, 6px);
         }
       }
     }
@@ -99,13 +105,20 @@ export default {
       .site-header__icon {
         div {
           background-color: #fff;
+          left: 0;
+          height: 2px;
+          width: 100%;
+
+          &:not(:first-child):not(:last-child) {
+            opacity: 0;
+          }
 
           &:first-child {
-            transform: translateY(-.2rem) rotate(-45deg);
+            transform: translateY(-1px) rotate(-45deg);
           }
 
           &:last-child {
-            transform: translateY(-.2rem) rotate(45deg);
+            transform: translateY(-1px) rotate(45deg);
           }
         }
       }
@@ -160,8 +173,8 @@ export default {
         position: relative;
         transform: translateY(500px);
 
-        &::after {
-          border-bottom: 1px solid #b8b7ad;
+        &::before {
+          border-bottom: 1px solid #D1D0CB;
           content: '';
           left: 30%;
           opacity: 0.3;
@@ -169,20 +182,53 @@ export default {
           width: 40%;
         }
 
-        &:last-child {
-          &::after {
-            display: none;
-          }
-        }
-
         a {
           display: block;
-          color: #b8b7ad;
+          color: #D1D0CB;
           font-size: 2rem;
           font-weight: 500;
           text-align: center;
           text-decoration: none;
           padding: 20px 0;
+        }
+
+        &.cta {
+          margin-top: 20px;
+
+          &::before {
+            display: none;
+          }
+
+          a {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            //text-transform: uppercase;
+          }
+
+          svg {
+            height: 18px;
+            left: 50%;
+            pointer-events: none;
+            position: absolute;
+            stroke: #D1D0CB;
+            width: 28px;
+
+            &:first-of-type {
+              top: 0;
+              transform: translateX(-50%) translateY(-3px);
+            }
+
+            &:last-of-type {
+                bottom: 0;
+                transform: translateX(-50%) translateY(8px) rotate(180deg);
+            }
+          }
+        }
+
+        &:first-child {
+          &::before {
+            display: none;
+          }
         }
       }
     }
@@ -254,7 +300,7 @@ export default {
           opacity: 1;
           transform: translateY(0) !important;
 
-          &::after {
+          &::before {
             display: none;
           }
 
@@ -262,8 +308,10 @@ export default {
             color: $tint;
             font-size: 1.5rem;
             font-weight: normal;
+          }
 
-            &:not(.cta) {
+          &:not(.cta) {
+            a {
               margin-right: 10px;
               opacity: 0.8;
               padding: 7px 15px;
@@ -278,26 +326,38 @@ export default {
                 bottom: 5px;
                 left: 15px;
                 border-bottom: 2px solid $tint;
-                width: calc(100% - 30px);
-                visibility: hidden;
+                border-radius: 1px;
                 opacity: 0;
-                transition: all 0.2s ease;
+                transform: scaleX(0);
+                transition: all 0.3s cubic-bezier(.12,.845,.305,1);
+                visibility: hidden;
+                width: 1px;
               }
 
               &:hover {
                 opacity: 1;
 
                 &::after {
-                  visibility: visible;
                   opacity: 1;
+                  transform: scaleX(1);
+                  visibility: visible;
+                  width: calc(100% - 30px);
                 }
               }
             }
+          }
 
-            &.cta {
+          &.cta {
+            margin: 0;
+
+            a {
               @include button();
 
               margin-left: 15px;
+            }
+
+            svg {
+              display: none;
             }
           }
 
