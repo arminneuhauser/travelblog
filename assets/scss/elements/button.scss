@@ -1,14 +1,19 @@
 @mixin button {
-  border: 1px solid rgba(0,0,0,0.5);
+  display: inline-block;
+  color: #fff;
+  background-color: $tint;
+  border: 1px solid $tint;
   border-radius: 4px;
-  font-weight: 500;
+  font-weight: 400;
   padding: 7px 15px;
   text-decoration: none;
   transition: all 0.2s ease;
 
   &:hover {
-    border-color: rgba(0,0,0,0.8);
+    background-color: darken($tint, 10%);
+    border-color: darken($tint, 10%);
     box-shadow: 0px 3px 5px -2px rgba(0,0,0,0.2);
+    transform: scale(1.02);
   }
 
   &:active {
@@ -16,6 +21,21 @@
   }
 }
 
+@mixin ghost-button {
+  background-color: transparent;
+  border-color: rgba(0,0,0,0.5);
+  color: $tint;
+
+  &:hover {
+    background-color: transparent;
+    border-color: rgba(0,0,0,0.8);
+  }
+}
+
 .button {
   @include button();
+
+  &.--ghost {
+    @include ghost-button();
+  }
 }

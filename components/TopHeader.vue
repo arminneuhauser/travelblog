@@ -66,19 +66,20 @@ export default {
       z-index: 3;
 
       div {
-        background-color: #000;
-        //border-radius: 1px;
+        background-color: $tint;
         border-radius: 2px;
-        //height: 2px;
-        height: 4px;
         left: 50%;
         position: absolute;
         top: 50%;
         transform: translate(-2px, -2px);
         transform-origin: center center;
-        transition: all .4s cubic-bezier(.77,0,.175,1);
-        //width: 100%;
+        transition: all .2s cubic-bezier(.77,0,.175,1);
+        height: 4px;
         width: 4px;
+
+        &:first-child, &:last-child {
+          transition-duration: .4s;
+        }
 
         &:first-child {
           transform: translate(-2px, -10px);
@@ -104,13 +105,15 @@ export default {
     button {
       .site-header__icon {
         div {
-          background-color: #fff;
-          left: 0;
-          height: 2px;
-          width: 100%;
-
           &:not(:first-child):not(:last-child) {
             opacity: 0;
+          }
+
+          &:first-child, &:last-child {
+            background-color: #fff;
+            left: 0;
+            height: 2px;
+            width: 100%;
           }
 
           &:first-child {
@@ -176,10 +179,10 @@ export default {
         &::before {
           border-bottom: 1px solid #D1D0CB;
           content: '';
-          left: 30%;
+          left: 40%;
           opacity: 0.3;
           position: absolute;;
-          width: 40%;
+          width: 20%;
         }
 
         a {
@@ -352,6 +355,7 @@ export default {
 
             a {
               @include button();
+              @include ghost-button();
 
               margin-left: 15px;
             }

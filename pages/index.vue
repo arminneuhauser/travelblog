@@ -3,11 +3,11 @@
     <section class="container">
       <component v-if="home.story.content.component" :key="home.story.content._uid" :blok="home.story.content" :is="home.story.content.component"></component>
     </section>
-    <div :key="blogPost.content._uid" v-for="blogPost in posts.stories" class="blog__overview">
+    <section :key="blogPost.content._uid" v-for="blogPost in posts.stories" class="blog container">
       <h2>
         {{ blogPost.content.title }}
       </h2>
-    </div>
+    </section>
   </div>
 </template>
 

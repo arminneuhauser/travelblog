@@ -1,5 +1,5 @@
 :root {
-  font-size: 62.5%;
+  font-size: 62.5%; // 1rem = 10px
 }
 
 * {
@@ -9,6 +9,7 @@
 body {
   background-color: $background-color;
   font-family: $fs-sans;
+  font-size: 1.6rem;
   line-height: 1.4;
   color: $tint;
   margin: 0;
