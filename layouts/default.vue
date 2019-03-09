@@ -1,17 +1,17 @@
 <template>
   <div>
-    <top-header/>
-    <main id="main" role="main">
+    <site-header/>
+    <main class="main" role="main">
       <nuxt/>
     </main>
-    <!--<bottom-footer/>-->
+    <site-footer/>
     <svg-sprite/>
   </div>
 </template>
 
 <script>
-import TopHeader from '~/components/TopHeader.vue'
-import BottomFooter from '~/components/BottomFooter.vue'
+import SiteHeader from '~/components/SiteHeader.vue'
+import SiteFooter from '~/components/SiteFooter.vue'
 import SvgSprite from '~/components/SvgSprite.vue'
 
 export default {
@@ -23,8 +23,8 @@ export default {
     }
   },
   components: {
-    TopHeader,
-    BottomFooter,
+    SiteHeader,
+    SiteFooter,
     SvgSprite
   }
 }

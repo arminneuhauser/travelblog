@@ -1,8 +1,12 @@
 $background-color: #F5F1EB;
-$tint: #343434;
+$tint: #241E15;
+$tint-inv: #D1D0CB;
+$cta: #087E8B;
+$home-background-color: #F9D339;
 
-$fs-sans: 'Work Sans', sans-serif;
-$fs-serif: 'Crimson Text', serif;
+// Workaround weil SASS compressed aus "Crimson" #dc143c kompiliert
+$fs-sans: "Work Sans", sans-serif;
+$fs-serif: var(--fs-serif); // "Crimson Text", serif;
 
 /* --------------------------------------------------
 

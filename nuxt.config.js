@@ -1,6 +1,5 @@
 const pkg = require('./package')
 
-
 module.exports = {
   mode: 'universal',
 
@@ -15,7 +14,8 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Crimson+Text:400,600|Work+Sans:400,500,600' }
     ]
   },
 
@@ -28,6 +28,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
+    '~/assets/scss/styles.scss'
   ],
 
   /*
@@ -35,7 +36,8 @@ module.exports = {
   */
   plugins: [
     '~/plugins/components',
-    '~/plugins/filters'
+    '~/plugins/filters',
+    '~/plugins/helper'
   ],
 
   /*
@@ -48,7 +50,7 @@ module.exports = {
 
   styleResources: {
       scss: [
-        '~/assets/scss/styles.scss',
+        './assets/scss/*.scss'
       ]
   },
 

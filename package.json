@@ -1,21 +1,23 @@
 {
   "name": "travelblog",
   "version": "1.0.0",
-  "description": "My super-duper Nuxt.js project",
-  "author": "Armin Neuhauser",
+  "description": "Unser Travelblog",
+  "author": "Armin Neuhauser <mail@arminneuhauser.at>",
   "private": true,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "deploy": "nuxt generate && netlify deploy"
+    "deploy": "nuxt generate && netlify deploy",
+    "deploy-prod": "nuxt generate && netlify deploy --prod"
   },
   "dependencies": {
     "@nuxtjs/style-resources": "^0.1.2",
     "cross-env": "^5.2.0",
     "http-auth": "^3.2.3",
     "marked": "^0.6.1",
+    "moment": "^2.24.0",
     "nuxt": "^2.4.0",
     "storyblok-nuxt": "^1.0.1"
   },

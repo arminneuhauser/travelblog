@@ -1,9 +1,9 @@
 <template>
-  <header class="site-header" :data-mobile-menu="showMobileMenu">
+  <header class="site-header" :data-mobile-menu="showMobileMenu" :data-scrolled="scrolled" :data-transition="transition">
     <div class="container">
-      <a href="/" class="site-header__logo">
+      <nuxt-link class="site-header__logo" to="/" @click.native="showMobileMenu = false; scrollToTop();">
         <svg><use xlink:href="#logo"></use></svg>
-      </a>
+      </nuxt-link>
       <button @click="showMobileMenu = !showMobileMenu">
         <div class="site-header__icon"><div></div><div></div><div></div></div><span>Menü öffnen</span>
       </button>
@@ -11,7 +11,7 @@
         <ul>
           <li :key="index" v-for="(navitem, index) in $store.state.settings.main_navi" :class="{ 'cta': navitem.cta === true }">
             <svg v-if="navitem.cta" xmlns="http://www.w3.org/2000/svg" width="52.5" height="33.4" viewBox="0 0 52.5 33.4"><path d="M6,18-2.3-.4" transform="translate(4.3 13.4)" style="stroke-linecap: round;stroke-miterlimit: 10" fill="none" stroke-width="4"></path><path d="M22,16.1V-11.4" transform="translate(4.3 13.4)" style="stroke-linecap: round;stroke-miterlimit: 10" fill="none" stroke-width="4"></path><path d="M37.9,18,46.2-1.4" transform="translate(4.3 13.4)" style="stroke-linecap: round;stroke-miterlimit: 10" fill="none" stroke-width="4"></path></svg>
-            <nuxt-link class="site-header__link" :to="navitem.link.cached_url">
+            <nuxt-link class="site-header__link" :to="navitem.link.cached_url" @click.native="showMobileMenu = false">
               {{ navitem.name }}
             </nuxt-link>
             <svg v-if="navitem.cta" xmlns="http://www.w3.org/2000/svg" width="52.5" height="33.4" viewBox="0 0 52.5 33.4"><path d="M6,18-2.3-.4" transform="translate(4.3 13.4)" style="stroke-linecap: round;stroke-miterlimit: 10" fill="none" stroke-width="4"></path><path d="M22,16.1V-11.4" transform="translate(4.3 13.4)" style="stroke-linecap: round;stroke-miterlimit: 10" fill="none" stroke-width="4"></path><path d="M37.9,18,46.2-1.4" transform="translate(4.3 13.4)" style="stroke-linecap: round;stroke-miterlimit: 10" fill="none" stroke-width="4"></path></svg>
@@ -23,27 +23,87 @@
 </template>
 
 <script>
-
 export default {
   data () {
     return {
-      showMobileMenu : false
+      showMobileMenu: false,
+      lastScrollTop: 0,
+      scrolled: false,
+      transition: false
     }
+  },
+  watch: {
+    showMobileMenu: function () {
+      document.body.style.overflow = this.showMobileMenu ? 'hidden' : ''
+    }
+  },
+  methods: {
+    handleScroll () {
+      let st = window.pageYOffset || document.documentElement.scrollTop;
+      let threshold1 = window.innerWidth < 768 ? 0 : 30;
+      let threshold2 = window.innerWidth < 768 ? 90 : 30;
+
+      if (st <= threshold1) {
+        this.scrolled = false;
+        this.transition = false;
+      } else if (st > threshold2) {
+        if ( st > this.lastScrollTop) {
+          this.scrolled = "down";
+        } else {
+          this.scrolled = "up";
+          this.transition = "transform";
+        }
+      }
+      this.lastScrollTop = st <= 0 ? 0 : st;
+    },
+    scrollToTop() {
+      window.scrollTo(0,0);
+    }
+  },
+  beforeMount () {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeDestroy () {
+    window.removeEventListener('scroll', this.handleScroll);
   }
 }
 </script>
 
 <style lang="scss">
 .site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
   display: flex;
   align-items: center;
-  height: 100px;
+  height: 90px;
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background-color .2s ease, border-color .2s ease;
+
+  &[data-scrolled] {
+    position: fixed;
+    background-color: #fff;
+    border-color: #dbd9d2;
+    transform: translateY(-100%);
+  }
+
+  &[data-scrolled="up"] {
+    transform: translateY(0);
+  }
+
+  &[data-transition="transform"] {
+    transition: transform .2s ease, background-color .2s ease, border-color .2s ease;
+  }
 
   .container {
     align-items: center;
     justify-content: space-between;
     display: flex;
     flex-grow: 1;
+    padding: 0 20px;
 
     > a:not(.site-header__logo) {
       color: $tint;
@@ -110,7 +170,7 @@ export default {
           }
 
           &:first-child, &:last-child {
-            background-color: #fff;
+            background-color: $tint-inv;
             left: 0;
             height: 2px;
             width: 100%;
@@ -129,19 +189,21 @@ export default {
   }
 
   .site-header__logo {
+    line-height: 0;
     z-index: 2;
 
     svg {
       fill: $tint;
       height: 70px;
       width: 110px;
+      transition: all .2s ease-out;
     }
   }
 
   &[data-mobile-menu="true"] {
     .site-header__logo {
       svg {
-        fill: #fff;
+        fill: $tint-inv;
       }
     }
   }
@@ -157,9 +219,9 @@ export default {
     display: flex;
     opacity: 0;
     pointer-events: none;
-    transition: opacity .4s cubic-bezier(.165,.84,.44,1);
     transition: opacity .4s cubic-bezier(0.7,0,0.3,1);
     z-index: 1;
+    height: 100vh;
 
     ul {
       display: flex;
@@ -177,7 +239,7 @@ export default {
         transform: translateY(500px);
 
         &::before {
-          border-bottom: 1px solid #D1D0CB;
+          border-bottom: 1px solid $tint-inv;
           content: '';
           left: 40%;
           opacity: 0.3;
@@ -187,7 +249,7 @@ export default {
 
         a {
           display: block;
-          color: #D1D0CB;
+          color: $tint-inv;
           font-size: 2rem;
           font-weight: 500;
           text-align: center;
@@ -205,7 +267,6 @@ export default {
           a {
             font-weight: 600;
             letter-spacing: 0.5px;
-            //text-transform: uppercase;
           }
 
           svg {
@@ -213,7 +274,7 @@ export default {
             left: 50%;
             pointer-events: none;
             position: absolute;
-            stroke: #D1D0CB;
+            stroke: $tint-inv;
             width: 28px;
 
             &:first-of-type {
@@ -246,19 +307,12 @@ export default {
         li {
           opacity: 1;
           transform: translateY(0);
-          transition: all .4s cubic-bezier(0.7,0,0.3,1);
+          transition: all .3s cubic-bezier(0.7,0,0.3,1);
 
-          &:nth-child(1) {
-            transition-delay: .3s;
-          }
-          &:nth-child(2) {
-          	transition-delay: .4s;
-          }
-          &:nth-child(3) {
-          	transition-delay: .45s;
-          }
-          &:nth-child(4) {
-          	transition-delay: .5s;
+          @for $i from 1 through 6 {
+            &:nth-child(#{$i}) {
+              transition-delay: .05s + $i/20;
+            }
           }
         }
       }
@@ -266,11 +320,26 @@ export default {
   }
 
   @include breakpoint(m) {
-    height: 150px;
+    top: 30px;
+
+    &[data-scrolled] {
+      transform: translateY(0);
+      top: 0;
+
+      .site-header__logo {
+        svg {
+          height: 70px;
+          width: 110px;
+        }
+      }
+    }
+
+    .container {
+      padding: 0 30px 0 20px;
+    }
 
     .site-header__logo {
       svg {
-        fill: $tint !important;
         height: 97px;
         width: 152px;
       }
@@ -317,8 +386,8 @@ export default {
             a {
               margin-right: 10px;
               opacity: 0.8;
-              padding: 7px 15px;
-              margin-right: 10px;
+              padding: 7px 10px;
+              margin-right: 0;
               position: relative;
               transition: all 0.2s ease;
 
@@ -368,6 +437,21 @@ export default {
           &:last-child {
             a {
               margin-right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include breakpoint(l) {
+    nav {
+      ul {
+        li {
+          &:not(.cta) {
+            a {
+              margin-right: 10px;
+              padding: 7px 15px;
             }
           }
         }

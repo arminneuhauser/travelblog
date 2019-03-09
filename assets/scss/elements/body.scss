@@ -1,5 +1,11 @@
 :root {
+  --fs-serif: "Crimson Text", serif;
+
   font-size: 62.5%; // 1rem = 10px
+}
+
+::selection {
+  background: desaturate(lighten($cta, 50%), 50%);
 }
 
 * {
@@ -14,4 +20,11 @@ body {
   color: $tint;
   margin: 0;
   padding: 0;
+}
+
+.page-enter-active, .page-leave-active {
+  transition: opacity .2s ease-out;
+}
+.page-enter, .page-leave-active {
+  opacity: 0;
 }

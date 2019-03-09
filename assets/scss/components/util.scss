@@ -1,12 +1,73 @@
 .container {
-  max-width: 1316px;
+  max-width: 1336px; // 1276px for container
   margin-left: auto;
   margin-right: auto;
-  padding: 0 20px;
+  padding: 0 30px;
   box-sizing: border-box;
 }
 
+.main {
+  > div, > article {
+    padding-top: 90px;
+
+    @include breakpoint(m) {
+      padding-top: 150px;
+    }
+
+    &.hero--home {
+      background: $home-background-color;
+    }
+  }
+}
+
 img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
+}
+
+figure {
+  margin: 0;
+
+  img {
+    display: block;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $tint;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $fs-serif;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 30px 0 20px;
+}
+
+h1 {
+  font-size: 3.6rem;
+  line-height: 1.1;
+}
+h2 {
+  font-size: 2.8rem;
+}
+h3 {
+  font-size: 2.4rem;
+}
+h4, h5, h6 {
+  font-size: 2.1rem;
+}
+
+p {
+  margin: 0 0 16px;
+  color: rgba($tint,.86);
+}
+
+strong, b {
+  font-weight: 600;
+}
+
+i, cite, em, var, address, dfn {
+  font-style: normal; // Work Sans has no italics
 }
