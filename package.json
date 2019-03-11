@@ -19,7 +19,9 @@
     "marked": "^0.6.1",
     "moment": "^2.24.0",
     "nuxt": "^2.4.0",
-    "storyblok-nuxt": "^1.0.1"
+    "reading-time": "^1.1.3",
+    "storyblok-nuxt": "^1.0.1",
+    "vue-scroll-progressbar": "^0.1.4"
   },
   "devDependencies": {
     "css-loader": "^2.1.0",

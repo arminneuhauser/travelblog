@@ -3,8 +3,13 @@
     <div class="container">
       <div class="teaser__text">
         <h1>{{ blok.headline }}</h1>
-        <p>{{ blok.text }}</p>
-        <a href="#" class="button">{{ blok.button_text }}</a>
+        <figure>
+          <img :src="resize(blok.avatar_image, '88x88')">
+        </figure>
+        <div>
+          <p>{{ blok.text }}</p>
+          <a href="#" class="button">{{ blok.button_text }}</a>
+        </div>
       </div>
       <figure class="teaser__figure">
         <img :src="resize(blok.image, '520x390')">
@@ -36,10 +41,25 @@ export default {
   }
 
   .teaser__text {
+    display: flex;
+    flex-wrap: wrap;
     margin-bottom: 40px;
+
+    figure {
+      flex-basis: 66px;
+
+      img {
+        border-radius: 100%;
+      }
+
+      + div {
+        flex-basis: calc(100% - 66px);
+        padding-left: 20px;
+      }
+    }
   }
 
-  figure {
+  .teaser__figure {
     position: relative;
     width: calc(100% + 30px);
     max-width: 520px;
@@ -73,7 +93,7 @@ export default {
   }
 
   p {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     margin-bottom: 20px;
   }
 
@@ -82,7 +102,17 @@ export default {
       flex-wrap: nowrap;
     }
 
-    figure {
+    .teaser__text {
+      figure {
+        flex-basis: 88px;
+
+        + div {
+          flex-basis: calc(100% - 88px);
+        }
+      }
+    }
+
+    .teaser__figure {
       position: static;
       flex-basis: 50%;
       flex-shrink: 0;
@@ -107,14 +137,13 @@ export default {
       margin-left: 40px;
     }
 
-    figure {
+    .teaser__figure {
       margin-left: 40px;
     }
 
     h1 {
       font-size: 5rem;
       line-height: 5.4rem;
-      margin-bottom: 30px;
     }
 
     p {
@@ -127,7 +156,7 @@ export default {
       margin-left: 70px;
     }
 
-    figure {
+    .teaser__figure {
       margin-left: 70px;
 
       /*&::before {

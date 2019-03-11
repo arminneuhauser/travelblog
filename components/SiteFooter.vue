@@ -47,7 +47,7 @@ export default {
 
 <style lang="scss">
 .site-footer {
-  @include bg-pattern($tint,darken($tint-inv,50%));
+  @include bg-pattern($tint,darken($tint-inv,55%));
 
   color: $tint-inv;
   padding: 30px 0;

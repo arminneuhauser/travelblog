@@ -11,7 +11,7 @@
         <ul>
           <li :key="index" v-for="(navitem, index) in $store.state.settings.main_navi" :class="{ 'cta': navitem.cta === true }">
             <svg v-if="navitem.cta" xmlns="http://www.w3.org/2000/svg" width="52.5" height="33.4" viewBox="0 0 52.5 33.4"><path d="M6,18-2.3-.4" transform="translate(4.3 13.4)" style="stroke-linecap: round;stroke-miterlimit: 10" fill="none" stroke-width="4"></path><path d="M22,16.1V-11.4" transform="translate(4.3 13.4)" style="stroke-linecap: round;stroke-miterlimit: 10" fill="none" stroke-width="4"></path><path d="M37.9,18,46.2-1.4" transform="translate(4.3 13.4)" style="stroke-linecap: round;stroke-miterlimit: 10" fill="none" stroke-width="4"></path></svg>
-            <nuxt-link class="site-header__link" :to="navitem.link.cached_url" @click.native="showMobileMenu = false">
+            <nuxt-link class="site-header__link" :to="'/' + navitem.link.cached_url" @click.native="showMobileMenu = false">
               {{ navitem.name }}
             </nuxt-link>
             <svg v-if="navitem.cta" xmlns="http://www.w3.org/2000/svg" width="52.5" height="33.4" viewBox="0 0 52.5 33.4"><path d="M6,18-2.3-.4" transform="translate(4.3 13.4)" style="stroke-linecap: round;stroke-miterlimit: 10" fill="none" stroke-width="4"></path><path d="M22,16.1V-11.4" transform="translate(4.3 13.4)" style="stroke-linecap: round;stroke-miterlimit: 10" fill="none" stroke-width="4"></path><path d="M37.9,18,46.2-1.4" transform="translate(4.3 13.4)" style="stroke-linecap: round;stroke-miterlimit: 10" fill="none" stroke-width="4"></path></svg>
@@ -29,7 +29,8 @@ export default {
       showMobileMenu: false,
       lastScrollTop: 0,
       scrolled: false,
-      transition: false
+      transition: false,
+      scrollTimer: null
     }
   },
   watch: {
@@ -61,7 +62,7 @@ export default {
     }
   },
   beforeMount () {
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('scroll', this.handleScroll, {capture: true,passive: true});
   },
   beforeDestroy () {
     window.removeEventListener('scroll', this.handleScroll);
@@ -80,14 +81,23 @@ export default {
   align-items: center;
   height: 90px;
   background-color: transparent;
-  border-bottom: 1px solid transparent;
+  //border-bottom: 1px solid transparent;
   transition: background-color .2s ease, border-color .2s ease;
 
   &[data-scrolled] {
     position: fixed;
-    background-color: #fff;
-    border-color: #dbd9d2;
+    height: 70px;
+    background-color: rgba(#fff,0.97);
+    //border-color: #dbd9d2;
+    box-shadow: 0 4px 12px 0 rgba(0,0,0,.05);
     transform: translateY(-100%);
+
+    .site-header__logo {
+      svg {
+        height: 55px;
+        width: 86px;
+      }
+    }
   }
 
   &[data-scrolled="up"] {
@@ -162,6 +172,8 @@ export default {
   }
 
   &[data-mobile-menu="true"] {
+    z-index: 5;
+
     button {
       .site-header__icon {
         div {
@@ -320,9 +332,13 @@ export default {
   }
 
   @include breakpoint(m) {
+    opacity: 1;
     top: 30px;
+    transition: opacity .2s ease, background-color .2s ease, border-color .2s ease !important;
 
     &[data-scrolled] {
+      height: 90px;
+      opacity: 0;
       transform: translateY(0);
       top: 0;
 
@@ -332,6 +348,10 @@ export default {
           width: 110px;
         }
       }
+    }
+
+    &[data-scrolled="up"] {
+      opacity: 1;
     }
 
     .container {
@@ -385,7 +405,7 @@ export default {
           &:not(.cta) {
             a {
               margin-right: 10px;
-              opacity: 0.8;
+              opacity: 0.86;
               padding: 7px 10px;
               margin-right: 0;
               position: relative;
@@ -426,7 +446,9 @@ export default {
               @include button();
               @include ghost-button();
 
+              font-size: 1.5rem;
               margin-left: 15px;
+              padding: 9px 10px;
             }
 
             svg {

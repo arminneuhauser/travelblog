@@ -1,0 +1,64 @@
+.blog {
+  background-color: $background-color;
+  padding: 20px 0 50px;
+
+  article {
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    padding: 30px 0;
+
+    > a {
+      display: flex;
+      flex-wrap: wrap;
+
+      &:hover {
+        h1 {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    figure {
+      flex-basis: 100%;
+    }
+
+    h1 {
+      color: $cta;
+      font-family: $fs-serif;
+      font-size: 2.6rem;
+      line-height: 3rem;
+      margin: 10px 0;
+    }
+
+    .meta {
+      font-size: 1.4rem;
+      margin: 0;
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  @include breakpoint(m) {
+    article {
+      > a {
+        flex-wrap: nowrap;
+      }
+
+      figure {
+        flex-basis: 33%;
+        flex-shrink: 0;
+        margin-right: 20px;
+        max-width: 375px;
+      }
+    }
+  }
+
+  @include breakpoint(l) {
+    article {
+      figure {
+        margin-right: 35px;
+      }
+    }
+  }
+}

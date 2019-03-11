@@ -1,6 +1,12 @@
 import crypto from 'crypto'
 import marked from 'marked'
 import moment from 'moment'
+import readingTime from 'reading-time'
+
+export function readTime(text) {
+  let read_text = readingTime(text).minutes;
+  return Math.ceil(read_text);
+}
 
 export function formatDate(string) {
   require('moment/locale/de')

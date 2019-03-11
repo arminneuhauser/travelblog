@@ -1,0 +1,192 @@
+@mixin text-field {
+  position: relative;
+  margin: 20px 0;
+
+  input, textarea {
+    font-size: 18px;
+    padding: 10px 15px;
+    display: block;
+    width: 100%;
+    border: 1px solid #757575;
+    border-radius: 4px;
+    font-family: $fs-sans;
+    resize: vertical;
+    max-width: 560px;
+
+    &::placeholder {
+      color: transparent !important;
+    }
+
+    &:not(:placeholder-shown), &:-webkit-autofill, &:focus {
+      ~ label {
+        top: -8px;
+        font-size: 1.2rem;
+        background-color: $background-color;
+        background-image: linear-gradient($background-color, #fff);
+        opacity: 1;
+        padding: 0 4px;
+      }
+    }
+
+    &:-webkit-autofill {
+      ~ label {
+        background-image: linear-gradient($background-color, rgb(232, 240, 254));
+      }
+    }
+
+    &:focus {
+      border-color: $cta;
+      box-shadow: inset 0px 0px 0px 1px $cta;
+      outline: none;
+
+      ~ label {
+        color: $cta;
+      }
+    }
+  }
+
+  label {
+    opacity: 0.7;
+    font-size: 1.6rem;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 15px;
+    top: 10px;
+    transition: 0.2s ease all;
+  }
+}
+
+@mixin checkbox {
+  position: relative;
+  margin: 15px 0;
+  text-align: left;
+
+  label {
+    cursor: pointer;
+    display: inline;
+    line-height: 1.8rem;
+    vertical-align: top;
+    padding-left: 8px;
+    clear: both;
+
+    &:before, &:after {
+      content: '';
+      box-sizing: border-box;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    &:before {
+      width: 18px;
+      height: 18px;
+      background-color: #fff;
+      border: 1px solid #757575;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+  }
+
+  input[type="checkbox"] {
+    outline: 0;
+    visibility: hidden;
+    width: 18px;
+    margin: 0;
+    display: block;
+    float: left;
+    font-size: inherit;
+
+    &:checked {
+      + label {
+        &::before {
+          background-color: $cta;
+          border-color: $cta;
+        }
+
+        &::after {
+          transform: translate(4px, 5px) rotate(-45deg);
+          width: 10px;
+          height: 5px;
+          border: 2px solid #fff;
+          border-top-style: none;
+          border-right-style: none;
+        }
+      }
+    }
+  }
+}
+
+@mixin radio {
+  position: relative;
+  margin: 15px 0;
+  text-align: left;
+
+  label {
+    cursor: pointer;
+    display: inline;
+    line-height: 1.8rem;
+    vertical-align: top;
+    padding-left: 8px;
+    clear: both;
+
+    &::before, &::after {
+      content: '';
+      box-sizing: border-box;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    &::before {
+      width: 18px;
+      height: 18px;
+      background-color: #fff;
+      border: 1px solid #757575;
+      border-radius: 9px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+  }
+
+  input[type="radio"] {
+    outline: 0;
+    visibility: hidden;
+    width: 18px;
+    margin: 0;
+    display: block;
+    float: left;
+    font-size: inherit;
+
+    &:checked {
+      + label {
+        &::before {
+          border-color: $cta;
+          border-width: 2px;
+        }
+
+        &::after {
+          width: 10px;
+          height: 10px;
+          border-radius: 5px;
+          background-color: $cta;
+          top: 4px;
+          left: 4px;
+        }
+      }
+    }
+  }
+}
+
+.checkbox {
+  @include checkbox;
+}
+
+.radio {
+  @include radio;
+}
+
+.text-field {
+  @include text-field;
+}
