@@ -1,7 +1,7 @@
 <template>
   <div>
-    <site-header/>
-    <main class="main" role="main">
+    <site-header class="inverted"/>
+    <main class="main elevated" role="main">
       <nuxt/>
     </main>
     <site-footer/>
@@ -25,7 +25,7 @@ export default {
   components: {
     SiteHeader,
     SiteFooter,
-    SvgSprite,
+    SvgSprite
   }
 }
 </script>

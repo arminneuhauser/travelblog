@@ -1,0 +1,9 @@
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .pagination__link--next {
+    margin-left: auto;
+  }
+}

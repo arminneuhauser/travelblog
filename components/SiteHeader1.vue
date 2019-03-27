@@ -42,7 +42,7 @@ export default {
     handleScroll () {
       let st = window.pageYOffset || document.documentElement.scrollTop;
       let threshold1 = window.innerWidth < 768 ? 0 : 30;
-      let threshold2 = window.innerWidth < 768 ? 10 : 150;
+      let threshold2 = window.innerWidth < 768 ? 90 : 30;
 
       if (st <= threshold1) {
         this.scrolled = false;
@@ -90,6 +90,7 @@ export default {
     background-color: rgba(#fff,0.97);
     //border-color: #dbd9d2;
     box-shadow: 0 4px 12px 0 rgba(0,0,0,.05);
+    transform: translateY(-100%);
 
     .site-header__logo {
       svg {
@@ -97,6 +98,14 @@ export default {
         width: 86px;
       }
     }
+  }
+
+  &[data-scrolled="up"] {
+    transform: translateY(0);
+  }
+
+  &[data-transition="transform"] {
+    transition: transform .2s ease, background-color .2s ease, border-color .2s ease;
   }
 
   .container {
@@ -232,7 +241,7 @@ export default {
       flex-grow: 1;
       list-style: none;
       margin: 0;
-      padding: 100px 20px;
+      padding: 120px 20px;
       height: 100%;
       flex-basis: 80%;
 
@@ -325,11 +334,13 @@ export default {
   @include breakpoint(m) {
     opacity: 1;
     top: 30px;
+    transition: opacity .2s ease, background-color .2s ease, border-color .2s ease !important;
 
     &[data-scrolled] {
       height: 90px;
+      opacity: 0;
+      transform: translateY(0);
       top: 0;
-      transform: translateY(-110%);
 
       .site-header__logo {
         svg {
@@ -340,11 +351,7 @@ export default {
     }
 
     &[data-scrolled="up"] {
-      transform: translateY(0);
-    }
-
-    &[data-transition="transform"] {
-      transition: transform .2s ease, background-color .2s ease, border-color .2s ease;
+      opacity: 1;
     }
 
     .container {
@@ -469,31 +476,6 @@ export default {
               padding: 7px 15px;
             }
           }
-        }
-      }
-    }
-  }
-
-  &.elevated:not([data-scrolled]) {
-    .site-header__logo svg {
-      fill: #fff;
-    }
-    button .site-header__icon div {
-      background-color: #fff;
-    }
-
-    @include breakpoint(m) {
-      nav ul li {
-        a {
-          color: #fff;
-        }
-
-        &:not(.cta) a::after {
-          border-color: #fff;
-        }
-
-        &.cta a {
-          border-color: #fff;
         }
       }
     }

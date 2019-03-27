@@ -6,7 +6,8 @@ const createStore = () => {
       cacheVersion: '',
       settings: {
         main_navi: []
-      }
+      },
+      layout: 'default'
     },
     mutations: {
       setSettings (state, settings) {
@@ -14,6 +15,9 @@ const createStore = () => {
       },
       setCacheVersion (state, version) {
         state.cacheVersion = version
+      },
+      setLayout (state, layout) {
+        state.layout = layout
       }
     },
     actions: {

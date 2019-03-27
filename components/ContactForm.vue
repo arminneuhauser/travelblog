@@ -1,5 +1,5 @@
 <template>
-  <div class="teaser" v-editable="blok">
+  <div class="contactform narrow margin-auto padding-bottom" v-editable="blok">
     <h1>{{ blok.headline }}</h1>
     <form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
       <p class="hidden">

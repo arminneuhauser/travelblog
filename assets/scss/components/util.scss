@@ -10,7 +10,23 @@
   }
 }
 
-.main {
+.narrow {
+  max-width: 700px;
+}
+
+.margin-auto {
+  margin: 0 auto;
+}
+
+.padding-bottom {
+  padding-bottom: 40px;
+
+  @include breakpoint(l) {
+    padding-bottom: 50px;
+  }
+}
+
+.main:not(.elevated) {
   > div, > article, > section {
     padding-top: 90px;
 
@@ -43,4 +59,19 @@ figure {
   img {
     display: block;
   }
+}
+
+hr {
+  border-color: rgba($tint,0.25);
+  border-width: 1px 0 0 0;
+  margin: 30px 0;
+}
+
+.snackbar {
+  position: fixed;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: $tint;
+  color: #fff;
 }

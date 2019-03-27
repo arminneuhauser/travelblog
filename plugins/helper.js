@@ -8,9 +8,9 @@ export function readTime(text) {
   return Math.ceil(read_text);
 }
 
-export function formatDate(string) {
+export function formatDate(string, format = 'DD.MM.YYYY') {
   require('moment/locale/de')
-  return moment(String(string)).format('DD. MMMM YYYY')
+  return moment(String(string)).format(format)
 }
 
 export function markdown(string, param) {

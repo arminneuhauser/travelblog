@@ -7,8 +7,8 @@
         </nuxt-link>
         <nav>
           <ul>
-            <li v-if="!navitem.cta" :key="index" v-for="(navitem, index) in $store.state.settings.main_navi">
-              <nuxt-link class="site-footer__link" :to="navitem.link.cached_url">
+            <li v-if="!navitem.cta" :key="index" v-for="(navitem, index) in $store.state.settings.footer_navi">
+              <nuxt-link class="site-footer__link" :to="'/' + navitem.link.cached_url">
                 {{ navitem.name }}
               </nuxt-link>
             </li>
@@ -20,7 +20,7 @@
         <nav class="social">
           <ul>
             <li v-if="!navitem.cta" :key="index" v-for="(navitem, index) in $store.state.settings.social_navi">
-              <nuxt-link class="site-footer__link" :to="navitem.link.cached_url">
+              <nuxt-link class="site-footer__link" :to="'/' + navitem.link.cached_url">
                 <svg><use :xlink:href="getIconName(navitem.name)"></use></svg>
                 <span>{{ navitem.name }}</span>
               </nuxt-link>
@@ -75,10 +75,12 @@ export default {
 
     a {
       border-bottom: 2px solid transparent;
+      text-decoration: none;
       transition: border-color .2s ease;
 
       &:hover {
         border-color: $cta;
+        text-decoration: none;
       }
     }
   }

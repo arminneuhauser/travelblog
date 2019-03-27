@@ -40,12 +40,13 @@ export default {
     let version = context.query._storyblok || context.isDev ? 'draft' : 'published'
 
     let home = await context.app.$storyapi.get('cdn/stories/home', {
-      version: version
+      version: version,
+      cv: context.store.state.cacheVersion
     })
 
     let posts = await context.app.$storyapi.get('cdn/stories', {
       version: version,
-      starts_with: `posts/`,
+      starts_with: `blog/`,
       cv: context.store.state.cacheVersion
     })
 
