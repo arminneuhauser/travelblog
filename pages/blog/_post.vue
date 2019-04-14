@@ -1,49 +1,16 @@
 <template>
-  <div>
-    <site-header :class="post.content.layout"/>
-    <main class="main" role="main" :class="post.content.layout">
-      <article class="post" :class="post.content.layout" v-editable="story.content">
-
-        <div v-if="post.content.layout == 'elevated'" class="post__header" :style="{ 'background-image': 'url(' + resize(post.content.image, '1920x1080') + ')' }">
-          <div>
-            <h3>
-              <nuxt-link v-for="category in categories" :to="'/' + category.full_slug">
-                <span>{{ category.content.name }}</span>
-              </nuxt-link>
-            </h3>
-            <h1>{{ post.content.title }}</h1>
-            <p>{{ post.content.intro }}</p>
-          </div>
-        </div>
-        <div v-else class="post__header container">
-          <div>
-            <h3>
-              <nuxt-link v-for="category in categories" :to="'/' + category.full_slug">
-                <span>{{ category.content.name }}</span>
-              </nuxt-link>
-            </h3>
-            <h1>{{ post.content.title }}</h1>
-            <p>{{ post.content.intro }}</p>
-            <div class="meta">
-              <figure>
-                <img :src="resize(author.content.avatar, '60x60')" :alt="author.content.name">
-              </figure>
-              <div>
-                <h2>Geschrieben von <nuxt-link :to="'/' + author.full_slug">{{ author.content.name }}</nuxt-link></h2>
-                <p>{{ formatDate(post.first_published_at, 'DD. MMMM YYYY') }} • {{ readTime(post.content.body) }} Min. Lesezeit</p>
-              </div>
-            </div>
-          </div>
-          <figure class="post__image">
-            <img
-              :src="resize(post.content.image, '300x0')"
-              :srcset="resize(post.content.image, '375x300') + ' 300w, ' +
-              resize(post.content.image, '638x0') + ' 600w'">
-          </figure>
-        </div>
-
-        <div class="container">
-          <div v-if="post.content.layout == 'elevated'" class="meta">
+  <article class="post" v-editable="story.content">
+    <div class="container">
+      <div class="post__header">
+        <div>
+          <h3>
+            <nuxt-link v-for="category in categories" :to="'/' + category.full_slug">
+              <span>{{ category.content.name }}</span>
+            </nuxt-link>
+          </h3>
+          <h1>{{ post.content.title }}</h1>
+          <p>{{ post.content.intro }}</p>
+          <div class="meta">
             <figure>
               <img :src="resize(author.content.avatar, '60x60')" :alt="author.content.name">
             </figure>
@@ -52,15 +19,22 @@
               <p>{{ formatDate(post.first_published_at, 'DD. MMMM YYYY') }} • {{ readTime(post.content.body) }} Min. Lesezeit</p>
             </div>
           </div>
-          <div class="post__body">
-            <div v-html="body"></div>
-            <article-tool/>
-          </div>
         </div>
-        <progress-bar/>
-      </article>
-    </main>
-  </div>
+        <figure class="post__image">
+          <img
+            :src="resize(post.content.image, '300x0')"
+            :srcset="resize(post.content.image, '375x300') + ' 300w, ' +
+            resize(post.content.image, '638x0') + ' 600w'">
+        </figure>
+      </div>
+
+      <div class="post__body">
+        <div v-html="body"></div>
+        <article-tool/>
+      </div>
+    </div>
+    <progress-bar/>
+  </article>
 </template>
 
 <script>
@@ -80,7 +54,6 @@ export default {
       },
     }
   },
-  layout: 'clean', // layout should depend on layout variable of post (async data)
   components: {
     SiteHeader,
     ProgressBar,
@@ -184,7 +157,6 @@ export default {
 
   .meta {
     margin: 40px 0;
-    justify-content: center;
 
     a:hover {
       text-decoration: underline;
@@ -196,6 +168,33 @@ export default {
     margin: 0 auto 100px;
     position: relative;
 
+    /*@include breakpoint(l) {
+      &::before, &::after {
+        position: absolute;
+        right: calc(100% + 35px);
+        width: 10vw;
+      }
+
+      &::before {
+        background: linear-gradient(0deg,$background-color,hsla(0,0%,100%,0));
+        bottom: 0;
+        content: '';
+        height: 200px;
+        z-index: -1;
+      }
+
+      &::after {
+        @include bg-pattern(transparent,#ccc);
+
+        content: '';
+        height: 100%;
+        top: 0;
+        opacity: 0.5;
+        z-index: -2;
+      }
+    }*/
+
+
     p, ul, ol, table {
       font-family: $fs-serif;
       font-size: 2rem; //1.7rem;
@@ -206,6 +205,19 @@ export default {
       @include breakpoint(l) {
         font-size: 2.2rem; //1.8rem;
       }
+    }
+
+    hr, &::after {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggly' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='%23777777' stroke-width='1' class='st0' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+      display: block;
+      border: none;
+      height: 5px;
+      margin: 40px auto;
+      opacity: 0.5;
+    }
+
+    &::after {
+      content: '';
     }
 
     > div {
@@ -279,7 +291,7 @@ export default {
     }
   }
 
-  &.elevated {
+  /*&.elevated {
     .post__header {
       position: relative;
       background-size: cover;
@@ -324,6 +336,9 @@ export default {
         }
       }
     }
-  }
+    .meta {
+      justify-content: center;
+    }
+  }*/
 }
 </style>

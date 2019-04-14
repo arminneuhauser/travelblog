@@ -28,6 +28,16 @@ export default {
     line-height: 1.7;
     margin-bottom: 30px;
 
+    a {
+      color: $cta;
+      text-decoration: underline;
+      transition: all .1s ease-out;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
     @include breakpoint(l) {
       font-size: 1.9rem;//2.2rem;
     }

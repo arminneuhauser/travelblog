@@ -36,7 +36,7 @@
 
     &.hero--home {
       //background: $home-background-color;
-      @include bg-pattern($home-background-color,darken($home-background-color,14%));
+      @include bg-pattern($home-background-color,darken($home-background-color,22%));
     }
   }
 }
@@ -65,13 +65,4 @@ hr {
   border-color: rgba($tint,0.25);
   border-width: 1px 0 0 0;
   margin: 30px 0;
-}
-
-.snackbar {
-  position: fixed;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: $tint;
-  color: #fff;
 }

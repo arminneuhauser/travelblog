@@ -1,6 +1,6 @@
 <template>
   <div>
-    <site-header class="inverted"/>
+    <site-header class="elevated"/>
     <main class="main elevated" role="main">
       <nuxt/>
     </main>
@@ -15,13 +15,6 @@ import SiteFooter from '~/components/SiteFooter.vue'
 import SvgSprite from '~/components/SvgSprite.vue'
 
 export default {
-  head () {
-    return {
-      meta: [
-        { hid: 'robots', name: 'robots', content: 'noindex' }
-      ]
-    }
-  },
   components: {
     SiteHeader,
     SiteFooter,
