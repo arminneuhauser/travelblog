@@ -6,9 +6,12 @@
         <h1>{{category.name}}</h1>
         <p>{{category.content.about}}</p>
       </div>
+      <a href="#" v-scroll-to="'#blog'" class="arrow-button">
+        <svg><use xlink:href="#down"></use></svg>
+      </a>
     </div>
 
-    <div class="blog">
+    <div id="blog" class="blog">
       <div class="container">
         <article :key="post.id" v-for="post in posts">
           <nuxt-link :to="'/' + post.full_slug">
@@ -33,6 +36,22 @@ import storyblokLivePreview from '@/mixins/storyblokLivePreview'
 import { resize, formatDate, readTime } from '@/plugins/helper'
 
 export default {
+  head () {
+    return {
+      title: this.category.name + ' - Travelcouple', // TODO: change to real name
+      meta: [
+        { hid: 'description', name: 'description', content: this.category.content.about },
+        { hid: 'og:type', propery: 'og:type', content: 'article' },
+        { hid: 'og:title', propery: 'og:title', content: this.category.name },
+        { hid: 'og:description', propery: 'og:description', content: this.category.content.about },
+        { hid: 'og:image', propery: 'og:image', content: 'https:' + resize(this.category.content.image, '1200x630') },
+        { hid: 'og:url', property: 'og:url', content: 'https://travelcouple.netlify.com' + this.$route.fullPath }, // TODO: change to real domain
+        { hid: 'twitter:title', name: 'twitter:title', content: this.category.name },
+        { hid: 'twitter:description', name: 'twitter:description', content: this.category.content.about },
+        { hid: 'twitter:image', name: 'twitter:image', content: 'https:' + resize(this.category.content.image, '1200x630') }
+      ]
+    }
+  },
   data () {
     return { story: { content: {} } }
   },
@@ -99,6 +118,11 @@ export default {
   p {
     color: #fff;
     text-shadow: 0 0 30px rgba(0,0,0,0.1);
+  }
+
+  .arrow-button {
+    position: absolute;
+    bottom: 40px;
   }
 
   @include breakpoint(m) {

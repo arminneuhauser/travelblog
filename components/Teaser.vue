@@ -8,7 +8,9 @@
         </figure>
         <div>
           <p>{{ blok.text }}</p>
-          <a href="#" class="button">{{ blok.button_text }}</a>
+          <nuxt-link class="button" :to="'/' + blok.button_link.cached_url">
+            {{ blok.button_text }}
+          </nuxt-link>
         </div>
       </div>
       <figure class="teaser__figure">

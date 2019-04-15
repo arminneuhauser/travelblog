@@ -2,7 +2,6 @@
   <section class="container">
     <div class="sitemap">
       <h1>Sitemap</h1>
-
       <ul>
         <sitemap-item
           v-if="item.item.name != 'Settings'"

@@ -1,36 +1,41 @@
 <template>
-  <article class="container" v-editable="author.content">
+  <div v-editable="author.content">
 
-    <div class="author">
-      <h1>{{author.name}}</h1>
-      <img class="author__image" :src="resize(author.content.avatar, '100x100')" :alt="author.name">
-      <p>{{author.content.about}}</p>
-
-      <ul class="author__socials">
-        <li :key="social_link._uid" v-for="social_link in author.content.socials">
-          <a :href="social_link.link.cached_url" target="_blank" rel="noopener nofollow">{{social_link.type}}</a>
-        </li>
-      </ul>
+    <div class="author container">
+      <figure>
+        <img class="author__image" :src="resize(author.content.avatar, '150x150')" :alt="author.name">
+      </figure>
+      <div>
+        <h1>{{author.name}}</h1>
+        <p>{{author.content.about}}</p>
+        <ul class="author__socials">
+          <li :key="social_link._uid" v-for="social_link in author.content.socials">
+            <a :href="social_link.link.cached_url" target="_blank" rel="noopener nofollow">{{social_link.name}}</a>
+          </li>
+        </ul>
+      </div>
     </div>
-
-    <h2 class="author__posts-by">Posts by {{author.name}}</h2>
 
     <div class="blog">
-      <article :key="post.id" v-for="post in posts">
-        <nuxt-link :to="'/' + post.full_slug">
-          <figure>
-            <img :src="resize(post.content.image, '375x228')">
-          </figure>
-          <div>
-            <h1>{{ post.content.title }}</h1>
-            <p>{{ post.content.intro }}</p>
-            <p class="meta">{{ formatDate(post.first_published_at) }} • {{ readTime(post.content.body) }} Min. Lesezeit</p>
-          </div>
-        </nuxt-link>
-      </article>
+      <div class="container">
+        <hr>
+        <h2>Blogbeiträge von {{author.name}}</h2>
+        <article :key="post.id" v-for="post in posts">
+          <nuxt-link :to="'/' + post.full_slug">
+            <figure>
+              <img :src="resize(post.content.image, '375x228')">
+            </figure>
+            <div>
+              <h1>{{ post.content.title }}</h1>
+              <p>{{ post.content.intro }}</p>
+              <p class="meta">{{ formatDate(post.first_published_at) }} • {{ readTime(post.content.body) }} Min. Lesezeit</p>
+            </div>
+          </nuxt-link>
+        </article>
+      </div>
     </div>
 
-  </article>
+  </div>
 </template>
 
 <script>
@@ -65,31 +70,45 @@ export default {
 <style lang="scss" scoped>
 .author {
   text-align: center;
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 40px 0px;
+
+  figure img {
+    margin: 0 auto;
+  }
+
+  @include breakpoint(m) {
+    display: flex;
+    justify-content: center;
+    text-align: left;
+
+    figure {
+      flex-basis: 150px;
+      flex-shrink: 0;
+      margin: 30px 35px 0 0;
+    }
+  }
 }
 
 .author__image {
   border-radius: 50%;
-  border: 1px solid #d8d8d8;
 }
 
 .author__socials {
   margin: 0;
   padding: 0;
   list-style-type: none;
+
   li {
     display: inline-block;
+
     & + li {
       margin-left: 10px;
     }
   }
+
   a {
-    border: 1px solid #d8d8d8;
-    display: inline-block;
-    padding: 10px 15px;
-    border-radius: 4px;
+    @include button();
+    @include ghost-button();
+    @include small-button();
   }
 }
 

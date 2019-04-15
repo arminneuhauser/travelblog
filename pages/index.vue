@@ -59,4 +59,8 @@ export default {
 .blog {
   background-color: $background-color;
 }
+
+.hero--home {
+  @include bg-pattern($home-background-color,darken($home-background-color,22%));
+}
 </style>

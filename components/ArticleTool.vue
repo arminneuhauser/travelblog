@@ -5,25 +5,25 @@
       <ul>
         <li>
           <a href="#" title="Artikel auf Facebook teilen">
-            <span>Artikel auf Facebook teilen</span>
+            <span>auf Facebook teilen</span>
             <svg><use xlink:href="#facebook"></use></svg>
           </a>
         </li>
         <li>
           <a href="#" title="Artikel auf Twitter teilen">
-            <span>Artikel auf Twitter teilen</span>
+            <span>auf Twitter teilen</span>
             <svg><use xlink:href="#twitter"></use></svg>
           </a>
         </li>
         <li>
-          <a href="#" title="Artikel auf WhatsApp teilen">
-            <span>Artikel auf WhatsApp teilen</span>
+          <a href="#" title="Artikel in WhatsApp senden">
+            <span>in WhatsApp senden</span>
             <svg><use xlink:href="#whatsapp"></use></svg>
           </a>
         </li>
         <li class="copy-url" :class="{ 'active': this.active }">
           <input id="url" type="hidden" :value="this.url">
-          <button @click.stop.prevent="copyURL" class="btn-copy" title="URL kopieren">
+          <button @click.stop.prevent="copyURL" class="btn-copy" title="Link kopieren">
             <span :class="{ 'active': this.active }">{{message}}</span>
             <svg><use xlink:href="#share"></use></svg>
           </button>
@@ -38,7 +38,7 @@ export default {
   data() {
     return {
       url: '',
-      message: 'URL kopieren',
+      message: 'Link kopieren',
       active: false
     }
   },
@@ -54,10 +54,10 @@ export default {
       try {
         var successful = document.execCommand('copy');
         var msg = successful ? 'erfolgreich' : 'nicht';
-        this.message = 'URL wurde ' + msg + ' kopiert';
+        this.message = 'Link wurde ' + msg + ' kopiert';
         this.active = true;
       } catch (err) {
-        this.message = 'URL konnte nicht kopiert werden';
+        this.message = 'Link konnte nicht kopiert werden';
       }
 
       /* unselect the range */
@@ -67,7 +67,7 @@ export default {
       // reset message
       var self = this;
       setTimeout(function(){
-        self.message = 'URL kopieren';
+        self.message = 'Link kopieren';
         self.active = false;
       }, 3000);
     }

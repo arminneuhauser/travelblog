@@ -438,10 +438,9 @@ export default {
             a {
               @include button();
               @include ghost-button();
+              @include small-button();
 
-              font-size: 1.5rem;
               margin-left: 15px;
-              padding: 9px 10px;
             }
 
             svg {

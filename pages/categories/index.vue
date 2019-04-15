@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <h1>Kategorien</h1>
+    <h1 class="text-center">Kategorien</h1>
     <ul class="categories">
       <li :key="category.id" v-for="category in categories">
         <nuxt-link class="category" :to="'/' + category.full_slug">
-          <img class="category__image" :src="resize(category.content.image, '60x60')" :alt="category.name">
+          <img class="category__image" :src="resize(category.content.image, '400x0')" :alt="category.name">
           <h2>{{category.name}}</h2>
           <p>{{category.content.about}}</p>
         </nuxt-link>
@@ -18,6 +18,16 @@ import storyblokLivePreview from '@/mixins/storyblokLivePreview'
 import { resize } from '@/plugins/helper'
 
 export default {
+  head () {
+    return {
+      title: 'Kategorien - Travelcouple', // TODO: change to real name
+      meta: [
+        { hid: 'og:title', propery: 'og:title', content: 'Kategorien - Travelcouple' },
+        { hid: 'og:url', property: 'og:url', content: 'https://travelcouple.netlify.com' + this.$route.fullPath }, // TODO: change to real domain
+        { hid: 'twitter:title', name: 'twitter:title', content: 'Kategorien - Travelcouple' }
+      ]
+    }
+  },
   methods: {
     resize
   },
@@ -33,30 +43,42 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .categories {
-  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 40px -15px 0;
   padding: 0;
   list-style-type: none;
-}
 
-.category {
-  color: inherit;
-  text-decoration: none;
-  display: block;
-  margin-bottom: 30px;
-  transition: transform 500ms ease, box-shadow 500ms ease;
-  border: 1px solid #ddd;
-  padding: 20px;
-  &:hover, &:focus {
-    transform: translateY(-1px);
-    box-shadow: 0px 1px 10px 0px #ccc;
+  li {
+    flex-basis: 100%;
+    padding: 0 15px;
+    margin-bottom: 30px;
+
+    @include breakpoint(m) {
+      flex-basis: 50%;
+    }
+
+    @include breakpoint(l) {
+      flex-basis: 33%;
+    }
   }
 }
 
-.category__image {
-  display: inline;
-  border-radius: 50%;
-  border: 1px solid #d8d8d8;
+.category {
+  display: block;
+  text-align: center;
+
+  h2 {
+    font-size: 2.8rem;
+    margin: 10px 0;
+  }
+
+  &:hover {
+    h2 {
+      text-decoration: underline;
+    }
+  }
 }
 </style>

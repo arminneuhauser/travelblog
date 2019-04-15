@@ -9,13 +9,25 @@ module.exports = {
   */
   head: {
     title: pkg.name,
+    //titleTemplate: '%s - ' + pkg.name,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description },
       { name: 'msapplication-TileColor', content: '#241E15' },
       { name: 'msapplication-TileImage', content: '/favicon/ms-icon-144x144.png' },
-      { name: 'theme-color', content: '#241E15' }
+      { name: 'theme-color', content: '#241E15' },
+      { hid: 'description', name: 'description', content: pkg.description },
+      { hid: 'og:type', propery: 'og:type', content: 'website' },
+      { hid: 'og:title', propery: 'og:title', content: pkg.name },
+      { hid: 'og:description', propery: 'og:description', content: pkg.description },
+      { hid: 'og:image', propery: 'og:image', content: 'http://img2.storyblok.com/1200x630/f/54536/2048x1365/306b0b6caf/12034365_10205045344112624_7076641627775926331_o.jpg' },
+      { hid: 'og:site_name', propery: 'og:site_name', content: pkg.name },
+      { hid: 'og:url', property: 'og:url', content: 'https://www.travelcouple.com' },
+      { hid: 'twitter:card', name: 'twitter:card', content: 'summary' },
+      { hid: 'twitter:site', name: 'twitter:site', content: '@travelcouple' }, // TODO: change to real name
+      { hid: 'twitter:title', name: 'twitter:title', content: pkg.name },
+      { hid: 'twitter:description', name: 'twitter:description', content: pkg.description },
+      { hid: 'twitter:image', name: 'twitter:image', content: 'http://img2.storyblok.com/1200x630/f/54536/2048x1365/306b0b6caf/12034365_10205045344112624_7076641627775926331_o.jpg' }
     ],
     link: [
       { rel: 'apple-touch-icon', sizes: '57x57', href: '/favicon/apple-icon-57x57.png' },
@@ -63,7 +75,8 @@ module.exports = {
   */
   modules: [
     ['storyblok-nuxt', {accessToken: 'k5Y8ixzNl1kB4Vq6F5ufBQtt', cacheProvider: 'memory', excludeHeaderScript: false}],
-    ['@nuxtjs/style-resources']
+    ['@nuxtjs/style-resources'],
+    ['vue-scrollto/nuxt', { duration: 300 }]
   ],
 
   styleResources: {

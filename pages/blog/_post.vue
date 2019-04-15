@@ -21,10 +21,11 @@
           </div>
         </div>
         <figure class="post__image">
-          <img
+          <img :src="resize(post.content.image, '860x0')">
+          <!--<img
             :src="resize(post.content.image, '300x0')"
             :srcset="resize(post.content.image, '375x300') + ' 300w, ' +
-            resize(post.content.image, '638x0') + ' 600w'">
+            resize(post.content.image, '638x0') + ' 600w'">-->
         </figure>
       </div>
 
@@ -45,13 +46,64 @@ import storyblokLivePreview from '@/mixins/storyblokLivePreview'
 import { markdown, resize, formatDate, readTime } from '@/plugins/helper'
 import ProgressBar from '~/components/ProgressBar.vue'
 import ArticleTool from '~/components/ArticleTool.vue'
+import mediumZoom from 'medium-zoom'
+
+const initAfterMount = () => {
+  mediumZoom('img:not(.medium-zoom-image)')
+}
 
 export default {
+  head () {
+    return {
+      title: this.post.content.title + ' - Travelcouple', // TODO: change to real name
+      meta: [
+        { hid: 'description', name: 'description', content: this.post.content.intro },
+        { hid: 'og:type', propery: 'og:type', content: 'article' },
+        { hid: 'og:title', propery: 'og:title', content: this.post.content.title },
+        { hid: 'og:description', propery: 'og:description', content: this.post.content.intro },
+        { hid: 'og:image', propery: 'og:image', content: 'https:' + resize(this.post.content.image, '1200x630') },
+        { hid: 'og:url', property: 'og:url', content: 'https://travelcouple.netlify.com' + this.$route.fullPath }, // TODO: change to real domain
+        { hid: 'twitter:title', name: 'twitter:title', content: this.post.content.title },
+        { hid: 'twitter:description', name: 'twitter:description', content: this.post.content.intro },
+        { hid: 'twitter:image', name: 'twitter:image', content: 'https:' + resize(this.post.content.image, '1200x630') }
+      ],
+      __dangerouslyDisableSanitizers: ['script'],
+      script: [{ innerHTML: JSON.stringify({
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": "https://travelcouple.netlify.com" + this.$route.fullPath, // TODO: change to real domain
+        "headline": this.post.content.title,
+        "datePublished": this.post.first_published_at,
+        "dateModified": this.post.published_at,
+        "description": this.post.content.intro,
+        "author": {
+            "@type": "Person",
+            "name": this.author.content.name
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Travelcouple",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://travelcouple.netlify.com/travelcouple-logo.png", // TODO: change to real domain
+                "width": "200",
+                "height": "200"
+            }
+        },
+        "image": {
+            "@type": "ImageObject",
+            "url": 'https:' + resize(this.post.content.image, '1200x630'),
+            "width": "1200",
+            "height": "630"
+        }
+      }), type: 'application/ld+json' }]
+    }
+  },
   data () {
     return {
       story: {
         content: { body: '' }
-      },
+      }
     }
   },
   components: {
@@ -63,6 +115,10 @@ export default {
     body () {
       return markdown(this.post.content.body, '860x0')
     }
+  },
+  mounted: function() {
+    // this will be called when any component is mounted!
+    initAfterMount()
   },
   mixins: [storyblokLivePreview],
   methods: {
@@ -207,7 +263,7 @@ export default {
       }
     }
 
-    hr, &::after {
+    &::after {
       background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggly' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='%23777777' stroke-width='1' class='st0' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
       display: block;
       border: none;

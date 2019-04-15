@@ -18,7 +18,7 @@ export default {
   components: {
     SiteHeader,
     SiteFooter,
-    SvgSprite,
+    SvgSprite
   }
 }
 </script>

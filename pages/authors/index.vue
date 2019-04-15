@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <h1>Authoren</h1>
+    <h1 class="text-center">Autoren</h1>
     <ul class="authors">
       <li :key="author.id" v-for="author in authors">
         <nuxt-link class="author" :to="'/' + author.full_slug">
-          <img class="author__image" :src="resize(author.content.avatar, '60x60')" :alt="author.name">
+          <img class="author__image" :src="resize(author.content.avatar, '200x200')" :alt="author.name">
           <h2>{{author.name}}</h2>
           <p>{{author.content.about}}</p>
         </nuxt-link>
@@ -33,30 +33,46 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .authors {
-  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 40px -15px 0;
   padding: 0;
   list-style-type: none;
+
+  li {
+    flex-basis: 100%;
+    padding: 0 15px;
+    margin-bottom: 30px;
+
+    @include breakpoint(m) {
+      flex-basis: 50%;
+    }
+
+    @include breakpoint(l) {
+      flex-basis: 33%;
+    }
+  }
 }
 
 .author {
-  color: inherit;
-  text-decoration: none;
   display: block;
-  margin-bottom: 30px;
-  transition: transform 500ms ease, box-shadow 500ms ease;
-  border: 1px solid #ddd;
-  padding: 20px;
-  &:hover, &:focus {
-    transform: translateY(-1px);
-    box-shadow: 0px 1px 10px 0px #ccc;
+  text-align: center;
+
+  h2 {
+    font-size: 2.8rem;
+    margin: 10px 0;
+  }
+
+  &:hover {
+    h2 {
+      text-decoration: underline;
+    }
   }
 }
 
 .author__image {
-  display: inline;
-  border-radius: 50%;
-  border: 1px solid #d8d8d8;
+  border-radius: 100%;
 }
 </style>
