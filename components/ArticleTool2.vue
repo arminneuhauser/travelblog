@@ -1,35 +1,35 @@
 <template>
   <aside class="article-tool" :class="{ 'active': this.active }">
-    <nav>
-      <h3>Artikel teilen</h3>
-      <ul>
-        <li>
-          <a @click="facebookLink()" title="Artikel auf Facebook teilen" class="facebook">
-            <span>auf Facebook teilen</span>
-            <svg><use xlink:href="#facebook"></use></svg>
-          </a>
-        </li>
-        <li>
-          <a @click="twitterLink()" title="Artikel auf Twitter teilen" class="twitter">
-            <span>auf Twitter teilen</span>
-            <svg><use xlink:href="#twitter"></use></svg>
-          </a>
-        </li>
-        <li>
-          <a @click="whatsappLink(title + ' - Travelcouple')" title="Artikel in WhatsApp senden" class="whatsapp">
-            <span>in WhatsApp senden</span>
-            <svg><use xlink:href="#whatsapp"></use></svg>
-          </a>
-        </li>
-        <li class="copy-url" :class="{ 'active': this.active }">
-          <input id="url" type="hidden" :value="this.url">
-          <button @click.stop.prevent="copyURL" class="btn-copy" title="Link kopieren">
-            <span :class="{ 'active': this.active }">{{message}}</span>
-            <svg><use xlink:href="#share"></use></svg>
-          </button>
-        </li>
-      </ul>
-    </nav>
+    <div>
+      <nav>
+        <div>
+          <h3>Artikel teilen</h3>
+          <ul>
+            <li>
+              <a @click="facebookLink()" title="Artikel auf Facebook teilen" class="facebook">
+                <span>Facebook</span>
+              </a>
+            </li>
+            <li>
+              <a @click="twitterLink()" title="Artikel auf Twitter teilen" class="twitter">
+                <span>Twitter</span>
+              </a>
+            </li>
+            <li>
+              <a @click="whatsappLink(title + ' - Travelcouple')" title="Artikel in WhatsApp senden" class="whatsapp">
+                <span>WhatsApp</span>
+              </a>
+            </li>
+            <li class="copy-url" :class="{ 'active': this.active }">
+              <input id="url" type="hidden" :value="this.url">
+              <button @click.stop.prevent="copyURL" class="btn-copy" title="Link kopieren">
+                <span :class="{ 'active': this.active }">{{message}}</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
   </aside>
 </template>
 
@@ -134,6 +134,12 @@ export default {
       display: flex;
       margin: 0 15px;
 
+      &:hover {
+        svg {
+          fill: $cta;
+        }
+      }
+
       @include breakpoint(899, max) {
         &.copy-url {
           position: relative;
@@ -170,40 +176,8 @@ export default {
       text-decoration: none;
       width: auto;
 
-      > span {
-        display: none;
-        margin: 0 10px 0 5px;
-      }
-
-      svg {
-        fill: rgba($tint,0.86);
-        height: 30px;
-        width: 30px;
-        transition: fill 0.2s ease;
-      }
-
       &:hover {
         background-color: transparent;
-      }
-
-      @include breakpoint(899, max) {
-        &.facebook {
-          svg {
-            fill: #4267b2;
-          }
-        }
-
-        &.twitter {
-          svg {
-            fill: #1DA1F2;
-          }
-        }
-
-        &.whatsapp {
-          svg {
-            fill: #128C7E;
-          }
-        }
       }
     }
   }
@@ -212,76 +186,56 @@ export default {
     position: absolute;
     top: 0;
     bottom: 0;
-    right: -80px;
+    right: -100px;
     z-index: 1;
 
     &:hover, &.active {
       z-index: 3;
     }
 
-    nav {
-      border: none;
+    > div {
       position: sticky;
       top: 110px;
+    }
+
+    nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: none;
+      transform: rotate(90deg);
+      transform-origin: top left;
+      height: 36px;
+      overflow: hidden;
+
+      > div {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        transition: transform .2s ease;
+      }
+
+      &:hover {
+        > div {
+          transform: matrix(1, 0, 0, 1, 0, -38);
+        }
+      }
 
       &:before {
         display: none;
       }
 
       h3 {
-        display: none;
+        font-family: $fs-sans;
+        font-weight: 500;
+        font-size: 1.8rem;
+        margin: 0;
       }
 
       ul {
-        flex-direction: column;
-        align-items: flex-end;
       }
 
       li {
-        border-radius: 4px;
         margin: 0;
         padding: 4px;
-
-        &:hover, &.active {
-          background-color: $background-color;
-          width: auto;
-
-          a, button {
-            border-color: rgba(0,0,0,0.15);
-            box-shadow: 0 5px 10px rgba(0,0,0,.05), 0 1px 2px rgba(0,0,0,.1);
-
-            > span {
-              display: inline;
-            }
-
-            &.facebook {
-              svg {
-                fill: #4267b2;
-              }
-              > span {
-                color: #4267b2;
-              }
-            }
-
-            &.twitter {
-              svg {
-                fill: #1DA1F2;
-              }
-              > span {
-                color: #1DA1F2;
-              }
-            }
-
-            &.whatsapp {
-              svg {
-                fill: #128C7E;
-              }
-              > span {
-                color: #128C7E;
-              }
-            }
-          }
-        }
       }
 
       a, button {
@@ -289,12 +243,6 @@ export default {
         border: 1px solid transparent;
         justify-content: flex-start;
         padding: 10px;
-
-        svg {
-          height: 24px;
-          width: 24px;
-          transition: none;
-        }
       }
     }
   }

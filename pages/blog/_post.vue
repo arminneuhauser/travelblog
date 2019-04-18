@@ -31,7 +31,7 @@
 
       <div class="post__body">
         <div v-html="body"></div>
-        <article-tool/>
+        <article-tool :title="post.content.title"/>
       </div>
     </div>
     <progress-bar/>
@@ -264,12 +264,7 @@ export default {
     }
 
     &::after {
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggly' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='%23777777' stroke-width='1' class='st0' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
-      display: block;
-      border: none;
-      height: 5px;
-      margin: 40px auto;
-      opacity: 0.5;
+      @include squiggly;
     }
 
     &::after {
