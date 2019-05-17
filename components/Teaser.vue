@@ -14,7 +14,10 @@
         </div>
       </div>
       <figure class="teaser__figure">
-        <img :src="resize(blok.image, '520x390')">
+        <picture>
+          <source :srcset="resize(blok.image, '520x390')" media="(min-width: 768px)">
+          <img :src="resize(blok.image, '520x292')" :alt="blok.headline">
+        </picture>
       </figure>
     </div>
   </div>
@@ -34,7 +37,7 @@ export default {
 <style lang="scss">
 .teaser {
   border-bottom: 1px solid rgba($tint, 0.15);
-  padding: 20px 0 40px;
+  padding: 0;
 
   .container {
     position: relative;
@@ -45,7 +48,8 @@ export default {
   .teaser__text {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 40px;
+    margin: 20px 0 40px 0;
+    order: 2;
 
     figure {
       flex-basis: 66px;
@@ -63,10 +67,9 @@ export default {
 
   .teaser__figure {
     position: relative;
-    width: calc(100% + 30px);
     max-width: 520px;
-    margin: 0 -15px;
     //left: -20px;
+    order: 1;
 
     img {
       position: relative;
@@ -99,12 +102,22 @@ export default {
     margin-bottom: 20px;
   }
 
+  @include breakpoint(s, max) {
+    .teaser__text {
+      .button {
+        @include small-button;
+      }
+    }
+  }
+
   @include breakpoint(m) {
     .container {
       flex-wrap: nowrap;
     }
 
     .teaser__text {
+      order: 1;
+
       figure {
         flex-basis: 88px;
 
@@ -115,6 +128,7 @@ export default {
     }
 
     .teaser__figure {
+      order: 2;
       position: static;
       flex-basis: 50%;
       flex-shrink: 0;

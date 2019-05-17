@@ -1,41 +1,49 @@
 <template>
-  <article class="post" v-editable="story.content">
-    <div class="container">
-      <div class="post__header">
-        <div>
-          <h3>
-            <nuxt-link v-for="category in categories" :to="'/' + category.full_slug">
-              <span>{{ category.content.name }}</span>
-            </nuxt-link>
-          </h3>
-          <h1>{{ post.content.title }}</h1>
-          <p>{{ post.content.intro }}</p>
-          <div class="meta">
-            <figure>
-              <img :src="resize(author.content.avatar, '60x60')" :alt="author.content.name">
-            </figure>
-            <div>
-              <h2>Geschrieben von <nuxt-link :to="'/' + author.full_slug">{{ author.content.name }}</nuxt-link></h2>
-              <p>{{ formatDate(post.first_published_at, 'DD. MMMM YYYY') }} • {{ readTime(post.content.body) }} Min. Lesezeit</p>
+  <div>
+    <article class="post" v-editable="story.content">
+      <div class="container">
+        <div class="post__header">
+          <div>
+            <h3>
+              <nuxt-link v-for="category in categories" :to="'/' + category.full_slug">
+                <span>{{ category.content.name }}</span>
+              </nuxt-link>
+            </h3>
+            <h1>{{ post.content.title }}</h1>
+            <p>{{ post.content.intro }}</p>
+            <!--<p>{{ post.content.related_posts }}</p>-->
+            <div class="meta">
+              <figure>
+                <img class="author" :src="resize(author.content.avatar, '60x60')" :alt="author.content.name">
+              </figure>
+              <div>
+                <h2>Geschrieben von <nuxt-link :to="'/' + author.full_slug">{{ author.content.name }}</nuxt-link></h2>
+                <p>{{ formatDate(post.first_published_at, 'DD. MMMM YYYY') }} • {{ readTime(post.content.body) }} Min. Lesezeit</p>
+              </div>
             </div>
           </div>
+          <figure class="post__image">
+            <img :src="resize(post.content.image, '860x0')">
+            <!--<img
+              :src="resize(post.content.image, '300x0')"
+              :srcset="resize(post.content.image, '375x300') + ' 300w, ' +
+              resize(post.content.image, '638x0') + ' 600w'">-->
+          </figure>
         </div>
-        <figure class="post__image">
-          <img :src="resize(post.content.image, '860x0')">
-          <!--<img
-            :src="resize(post.content.image, '300x0')"
-            :srcset="resize(post.content.image, '375x300') + ' 300w, ' +
-            resize(post.content.image, '638x0') + ' 600w'">-->
-        </figure>
-      </div>
 
-      <div class="post__body">
-        <div v-html="body"></div>
-        <article-tool :title="post.content.title"/>
+        <div class="post__body">
+          <div v-html="body"></div>
+          <article-tool :title="post.content.title"/>
+        </div>
       </div>
-    </div>
+    </article>
+    <!--<section class="recent">
+      <div class="container">
+        <recent-posts/>
+      </div>
+    </section>-->
     <progress-bar/>
-  </article>
+  </div>
 </template>
 
 <script>
@@ -46,10 +54,11 @@ import storyblokLivePreview from '@/mixins/storyblokLivePreview'
 import { markdown, resize, formatDate, readTime } from '@/plugins/helper'
 import ProgressBar from '~/components/ProgressBar.vue'
 import ArticleTool from '~/components/ArticleTool.vue'
+import RecentPosts from '~/components/RecentPosts.vue'
 import mediumZoom from 'medium-zoom'
 
 const initAfterMount = () => {
-  mediumZoom('img:not(.medium-zoom-image)')
+  mediumZoom('img:not(.author):not(.medium-zoom-image)')
 }
 
 export default {
@@ -109,7 +118,8 @@ export default {
   components: {
     SiteHeader,
     ProgressBar,
-    ArticleTool
+    ArticleTool,
+    RecentPosts
   },
   computed: {
     body () {
@@ -134,8 +144,22 @@ export default {
       cv: context.store.state.cacheVersion,
       resolve_relations: "author,categories"
     })
+    const postsByRelatedResponse = await context.app.$storyapi.get(`cdn/stories`, {
+      version: 'draft',
+      starts_with: `blog/`,
+      filter_query: {
+        "_uid": {
+          "in_array": data.story.content.related_posts
+        }
+      }
+    })
 
-    return { post: data.story, categories:data.story.content.categories , author: data.story.content.author };
+    return {
+      post: data.story,
+      categories:data.story.content.categories,
+      author: data.story.content.author,
+      related_posts: postsByRelatedResponse.data.stories
+    };
   }
 }
 </script>

@@ -66,14 +66,14 @@ export default {
     // load the content-entry at the current path - will be something like: '/posts/first-post'
     const categoryResponse = await context.app.$storyapi.get(`cdn/stories${context.route.path}`, { version: 'draft' })
     const postsByCategoryResponse = await context.app.$storyapi.get(`cdn/stories`, {
-        version: 'draft',
-        starts_with: `blog/`,
-        filter_query: {
-          "categories": {
-            "in_array": categoryResponse.data.story.uuid
-          }
+      version: 'draft',
+      starts_with: `blog/`,
+      filter_query: {
+        "categories": {
+          "in_array": categoryResponse.data.story.uuid
         }
-      })
+      }
+    })
     return { category: categoryResponse.data.story, posts: postsByCategoryResponse.data.stories }
   }
 }
@@ -86,8 +86,7 @@ export default {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  min-height: 80vh;
-  padding-top: 90px;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;

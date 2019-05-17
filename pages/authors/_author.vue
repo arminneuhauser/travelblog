@@ -19,7 +19,7 @@
     <div class="blog">
       <div class="container">
         <hr>
-        <h2>Blogbeiträge von {{author.name}}</h2>
+        <h3>Blogbeiträge von {{author.name}}</h3>
         <article :key="post.id" v-for="post in posts">
           <nuxt-link :to="'/' + post.full_slug">
             <figure>

@@ -1,8 +1,9 @@
-$background-color: #F9F7F4; //#F5F1EB;
-$tint: #241E15;
-$tint-inv: #D1D0CB;
-$cta: #087E8B;
-$home-background-color: #FAD66B; // #F9D339;
+$background-color: #fff; //#f9f7f4; //#f5f1eb;
+$tint: #241e15;
+$tint-inv: #d1d0cb;
+$cta: #e85b46; //#005744;
+$cta-inv: #ffb500;
+$home-background-color: #f5f1eb; //#fbdd8c; //#FAD66B; // #F9D339;
 
 // Workaround weil SASS compressed aus "Crimson" #dc143c kompiliert
 $fs-sans: "Work Sans", sans-serif;

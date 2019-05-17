@@ -1,8 +1,12 @@
 <template>
   <div class="hero hero--home">
     <component v-if="home.story.content.component" :key="home.story.content._uid" :blok="home.story.content" :is="home.story.content.component"></component>
-    <section class="blog">
+    <section id="blog" class="blog">
       <div class="container">
+        <header>
+          <h3>Aktuelle Blogbeiträge</h3>
+          <hr>
+        </header>
         <article :key="story.content._uid" v-for="story in posts.stories">
           <nuxt-link :to="'/' + story.full_slug">
             <figure>
@@ -58,9 +62,17 @@ export default {
 <style lang="scss" scoped>
 .blog {
   background-color: $background-color;
+
+  header {
+    text-align: center;
+
+    hr {
+      width: 160px;
+    }
+  }
 }
 
 .hero--home {
-  @include bg-pattern($home-background-color,darken($home-background-color,22%));
+  @include bg-pattern($home-background-color,darken($home-background-color,10%));
 }
 </style>

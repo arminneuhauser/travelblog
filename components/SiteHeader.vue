@@ -218,7 +218,7 @@ export default {
     bottom: 0;
     left: 0;
     overflow: hidden;
-    background-color: #373a47;
+    background-color: #17181a; //#373a47;
     display: flex;
     opacity: 0;
     pointer-events: none;
@@ -258,6 +258,10 @@ export default {
           text-align: center;
           text-decoration: none;
           padding: 20px 0;
+
+          &.nuxt-link-active {
+            //color: $cta-inv;
+          }
         }
 
         &.cta {
@@ -398,7 +402,7 @@ export default {
           &:not(.cta) {
             a {
               margin-right: 10px;
-              opacity: 0.86;
+              //opacity: 0.86;
               padding: 7px 10px;
               margin-right: 0;
               position: relative;
@@ -492,7 +496,7 @@ export default {
         }
 
         &.cta a {
-          border-color: #fff;
+          @include white-button;
         }
       }
     }
