@@ -11,7 +11,6 @@
             </h3>
             <h1>{{ post.content.title }}</h1>
             <p>{{ post.content.intro }}</p>
-            <!--<p>{{ post.content.related_posts }}</p>-->
             <div class="meta">
               <figure>
                 <img class="author" :src="resize(author.content.avatar, '60x60')" :alt="author.content.name">
@@ -37,12 +36,27 @@
         </div>
       </div>
     </article>
-    <!--<section class="recent">
+
+    <section class="related" v-if="related !== undefined">
       <div class="container">
-        <recent-posts/>
+        <h1>Ähnliche Beiträge</h1>
+        <article :key="story.content._uid" v-for="story in related">
+          <nuxt-link :to="'/' + story.full_slug">
+            <figure>
+              <img :src="resize(story.content.image, '375x228')">
+            </figure>
+            <div>
+              <h1>{{ story.content.title }}</h1>
+              <p>{{ story.content.intro }}</p>
+              <p class="meta">{{ formatDate(story.first_published_at) }} • {{ readTime(story.content.body) }} Min. Lesezeit</p>
+            </div>
+          </nuxt-link>
+        </article>
       </div>
-    </section>-->
+    </section>
+
     <progress-bar/>
+
   </div>
 </template>
 
@@ -54,7 +68,6 @@ import storyblokLivePreview from '@/mixins/storyblokLivePreview'
 import { markdown, resize, formatDate, readTime } from '@/plugins/helper'
 import ProgressBar from '~/components/ProgressBar.vue'
 import ArticleTool from '~/components/ArticleTool.vue'
-import RecentPosts from '~/components/RecentPosts.vue'
 import mediumZoom from 'medium-zoom'
 
 const initAfterMount = () => {
@@ -118,8 +131,7 @@ export default {
   components: {
     SiteHeader,
     ProgressBar,
-    ArticleTool,
-    RecentPosts
+    ArticleTool
   },
   computed: {
     body () {
@@ -142,23 +154,14 @@ export default {
     const { data } = await context.app.$storyapi.get(`cdn/stories${context.route.path}`, {
       version: version,
       cv: context.store.state.cacheVersion,
-      resolve_relations: "author,categories"
-    })
-    const postsByRelatedResponse = await context.app.$storyapi.get(`cdn/stories`, {
-      version: 'draft',
-      starts_with: `blog/`,
-      filter_query: {
-        "_uid": {
-          "in_array": data.story.content.related_posts
-        }
-      }
+      resolve_relations: "author,categories,related_posts"
     })
 
     return {
       post: data.story,
-      categories:data.story.content.categories,
+      categories: data.story.content.categories,
       author: data.story.content.author,
-      related_posts: postsByRelatedResponse.data.stories
+      related: data.story.content.related_posts
     };
   }
 }
