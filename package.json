@@ -16,6 +16,7 @@
     "@nuxtjs/style-resources": "^0.1.2",
     "cross-env": "^5.2.0",
     "http-auth": "^3.2.3",
+    "lodash": "^4.17.14",
     "marked": "^0.7.0",
     "medium-zoom": "^1.0.4",
     "moment": "^2.24.0",
