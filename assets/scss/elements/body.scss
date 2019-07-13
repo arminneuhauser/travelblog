@@ -4,9 +4,9 @@
   font-size: 62.5%; // 1rem = 10px
 }
 
-::selection {
+/*::selection {
   background: desaturate(lighten($cta, 50%), 50%);
-}
+}*/
 
 * {
   box-sizing: border-box;

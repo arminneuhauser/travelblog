@@ -5,7 +5,7 @@
         <div class="post__header">
           <div>
             <h3>
-              <nuxt-link v-for="category in categories" :to="'/' + category.full_slug">
+              <nuxt-link :key="category.id" v-for="category in categories" :to="'/' + category.full_slug">
                 <span>{{ category.content.name }}</span>
               </nuxt-link>
             </h3>
@@ -13,7 +13,9 @@
             <p>{{ post.content.intro }}</p>
             <div class="meta">
               <figure>
-                <img class="author" :src="resize(author.content.avatar, '60x60')" :alt="author.content.name">
+                <nuxt-link :to="'/' + author.full_slug">
+                  <img class="author" :src="resize(author.content.avatar, '60x60')" :alt="author.content.name">
+                </nuxt-link>
               </figure>
               <div>
                 <h2>Geschrieben von <nuxt-link :to="'/' + author.full_slug">{{ author.content.name }}</nuxt-link></h2>
