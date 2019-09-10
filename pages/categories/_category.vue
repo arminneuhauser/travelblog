@@ -38,7 +38,7 @@ import { resize, formatDate, readTime } from '@/plugins/helper'
 export default {
   head () {
     return {
-      title: this.category.name + ' - Travelcouple', // TODO: change to real name
+      title: this.category.name + ' - Solmates',
       meta: [
         { hid: 'description', name: 'description', content: this.category.content.about },
         { hid: 'og:type', propery: 'og:type', content: 'article' },

@@ -8,9 +8,9 @@
         </figure>
         <div>
           <p>{{ blok.text }}</p>
-          <nuxt-link class="button" :to="'/' + blok.button_link.cached_url">
+          <!--<nuxt-link class="button" :to="'/' + blok.button_link.cached_url">
             {{ blok.button_text }}
-          </nuxt-link>
+          </nuxt-link>-->
         </div>
       </div>
       <figure class="teaser__figure">
@@ -47,6 +47,7 @@ export default {
 
   .teaser__text {
     display: flex;
+    align-content: flex-start;
     flex-wrap: wrap;
     margin: 20px 0 40px 0;
     order: 2;
@@ -92,7 +93,7 @@ export default {
   h1 {
     font-family: $fs-serif;
     font-size: 4.2rem;
-    line-height: 4.2rem;
+    line-height: 1;
     margin: 0 0 20px;
     opacity: 1;
   }
@@ -159,7 +160,6 @@ export default {
 
     h1 {
       font-size: 5rem;
-      line-height: 5.4rem;
     }
 
     p {
@@ -183,7 +183,6 @@ export default {
 
     h1 {
       font-size: 5.6rem;
-      line-height: 6rem;
     }
   }
 }

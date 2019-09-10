@@ -22,9 +22,9 @@ module.exports = {
       { hid: 'og:description', propery: 'og:description', content: pkg.description },
       { hid: 'og:image', propery: 'og:image', content: 'http://img2.storyblok.com/1200x630/f/54536/2048x1365/306b0b6caf/12034365_10205045344112624_7076641627775926331_o.jpg' },
       { hid: 'og:site_name', propery: 'og:site_name', content: pkg.name },
-      { hid: 'og:url', property: 'og:url', content: 'https://www.travelcouple.com' },
+      { hid: 'og:url', property: 'og:url', content: 'https://www.solmates.at' },
       { hid: 'twitter:card', name: 'twitter:card', content: 'summary' },
-      { hid: 'twitter:site', name: 'twitter:site', content: '@travelcouple' }, // TODO: change to real name
+      { hid: 'twitter:site', name: 'twitter:site', content: '@solmates' }, // TODO: change to real name
       { hid: 'twitter:title', name: 'twitter:title', content: pkg.name },
       { hid: 'twitter:description', name: 'twitter:description', content: pkg.description },
       { hid: 'twitter:image', name: 'twitter:image', content: 'http://img2.storyblok.com/1200x630/f/54536/2048x1365/306b0b6caf/12034365_10205045344112624_7076641627775926331_o.jpg' }

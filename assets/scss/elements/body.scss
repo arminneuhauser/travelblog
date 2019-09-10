@@ -1,6 +1,13 @@
 :root {
   --fs-serif: "Crimson Text", serif;
 
+  --background-color: $background-color;
+  --tint: $tint;
+  --tint-inv: $tint-inv;
+  --cta: $cta; //#005744;
+  --cta-inv: $cta-inv;
+  --home-background-color: $home-background-color; //#fbdd8c; //#FAD66B; // #F9D339;
+
   font-size: 62.5%; // 1rem = 10px
 }
 
@@ -13,7 +20,7 @@
 }
 
 body {
-  background-color: $background-color;
+  background-color: var(--background-color);
   font-family: $fs-sans;
   font-size: 1.6rem;
   line-height: 1.4;

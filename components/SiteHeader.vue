@@ -93,8 +93,8 @@ export default {
 
     .site-header__logo {
       svg {
-        height: 55px;
-        width: 86px;
+        height: 60px;
+        width: 150px;
       }
     }
   }
@@ -197,8 +197,8 @@ export default {
 
     svg {
       fill: $tint;
-      height: 70px;
-      width: 110px;
+      height: 60px;
+      width: 180px;
       transition: all .2s ease-out;
     }
   }
@@ -338,7 +338,7 @@ export default {
       .site-header__logo {
         svg {
           height: 70px;
-          width: 110px;
+          width: 210px;
         }
       }
     }
@@ -357,8 +357,8 @@ export default {
 
     .site-header__logo {
       svg {
-        height: 97px;
-        width: 152px;
+        height: 100px;
+        width: 300px;
       }
     }
 

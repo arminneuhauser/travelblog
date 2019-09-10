@@ -22,8 +22,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3.8rem;
-  line-height: 1.1;
+  font-size: 3.2rem;
+  line-height: 1.05;
+
+  @include breakpoint(m) {
+    font-size: 3.8rem;
+  }
 
   @include breakpoint(l) {
     font-size: 4.6rem;

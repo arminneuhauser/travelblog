@@ -1,0 +1,49 @@
+.related {
+  margin-bottom: 100px;
+
+  .container {
+    > h2 {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    > div {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 0 -10px;
+
+      @include breakpoint(m) {
+        margin: 0 -15px;
+      }
+
+      article {
+        flex-basis: 100%;
+        padding: 0 10px;
+
+        @include breakpoint(m) {
+          flex-basis: 50%;
+          padding: 0 15px;
+        }
+
+        @include breakpoint(l) {
+          flex-basis: 25%;
+        }
+
+        h1 {
+          color: $cta;
+          font-family: $fs-serif;
+          font-size: 2.6rem;
+          line-height: 1.2;
+          margin: 10px 0;
+        }
+
+        &:hover {
+          h1 {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}

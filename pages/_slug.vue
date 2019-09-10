@@ -11,13 +11,13 @@ import { resize } from '@/plugins/helper'
 export default {
   head () {
     return {
-      title: this.story.name + ' - Travelcouple', // TODO: change to real name
+      title: this.story.name + ' - Solmates',
       meta: [
         { hid: 'description', name: 'description', content: this.story.content.description },
         { hid: 'og:title', propery: 'og:title', content: this.story.name },
         { hid: 'og:description', propery: 'og:description', content: this.story.content.description },
         { hid: 'og:image', propery: 'og:image', content: resize(this.story.content.image, '1200x630') },
-        { hid: 'og:url', property: 'og:url', content: 'https://www.travelcouple.com' + this.$route.fullPath },
+        { hid: 'og:url', property: 'og:url', content: 'https://www.solmates.at' + this.$route.fullPath },
         { hid: 'twitter:title', name: 'twitter:title', content: this.story.name },
         { hid: 'twitter:description', name: 'twitter:description', content: this.story.content.description },
         { hid: 'twitter:image', name: 'twitter:image', content: resize(this.story.content.image, '1200x630') }

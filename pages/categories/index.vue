@@ -20,11 +20,11 @@ import { resize } from '@/plugins/helper'
 export default {
   head () {
     return {
-      title: 'Kategorien - Travelcouple', // TODO: change to real name
+      title: 'Kategorien - Solmates',
       meta: [
-        { hid: 'og:title', propery: 'og:title', content: 'Kategorien - Travelcouple' },
+        { hid: 'og:title', propery: 'og:title', content: 'Kategorien - Solmates' },
         { hid: 'og:url', property: 'og:url', content: 'https://travelcouple.netlify.com' + this.$route.fullPath }, // TODO: change to real domain
-        { hid: 'twitter:title', name: 'twitter:title', content: 'Kategorien - Travelcouple' }
+        { hid: 'twitter:title', name: 'twitter:title', content: 'Kategorien - Solmates' }
       ]
     }
   },

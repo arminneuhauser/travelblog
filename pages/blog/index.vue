@@ -32,11 +32,11 @@ import { resize, formatDate, readTime } from '@/plugins/helper'
 export default {
   head () {
     return {
-      title: 'Blog - Travelcouple', // TODO: change to real name
+      title: 'Blog - Solmates', // TODO: change to real name
       meta: [
-        { hid: 'og:title', propery: 'og:title', content: 'Blog - Travelcouple' },
+        { hid: 'og:title', propery: 'og:title', content: 'Blog - Solmates' },
         { hid: 'og:url', property: 'og:url', content: 'https://travelcouple.netlify.com' + this.$route.fullPath }, // TODO: change to real domain
-        { hid: 'twitter:title', name: 'twitter:title', content: 'Blog - Travelcouple' }
+        { hid: 'twitter:title', name: 'twitter:title', content: 'Blog - Solmates' }
       ]
     }
   },

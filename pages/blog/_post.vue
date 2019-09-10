@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-bind:style="{ backgroundColor: post.content.background }">
     <article class="post" v-editable="story.content">
       <div class="container">
         <div class="post__header">
@@ -41,19 +41,21 @@
 
     <section class="related" v-if="related !== undefined">
       <div class="container">
-        <h1>Ähnliche Beiträge</h1>
-        <article :key="story.content._uid" v-for="story in related">
-          <nuxt-link :to="'/' + story.full_slug">
-            <figure>
-              <img :src="resize(story.content.image, '375x228')">
-            </figure>
-            <div>
-              <h1>{{ story.content.title }}</h1>
-              <p>{{ story.content.intro }}</p>
-              <p class="meta">{{ formatDate(story.first_published_at) }} • {{ readTime(story.content.body) }} Min. Lesezeit</p>
-            </div>
-          </nuxt-link>
-        </article>
+        <h2>Ähnliche Beiträge</h2>
+        <div>
+          <article :key="story.content._uid" v-for="story in related">
+            <nuxt-link :to="'/' + story.full_slug">
+              <figure>
+                <img :src="resize(story.content.image, '375x228')">
+              </figure>
+              <div>
+                <h1>{{ story.content.title }}</h1>
+                <!--<p>{{ story.content.intro }}</p>
+                <p class="meta">{{ formatDate(story.first_published_at) }} • {{ readTime(story.content.body) }} Min. Lesezeit</p>-->
+              </div>
+            </nuxt-link>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -73,20 +75,20 @@ import ArticleTool from '~/components/ArticleTool.vue'
 import mediumZoom from 'medium-zoom'
 
 const initAfterMount = () => {
-  mediumZoom('img:not(.author):not(.medium-zoom-image)')
+  mediumZoom('.post img:not(.author):not(.medium-zoom-image)')
 }
 
 export default {
   head () {
     return {
-      title: this.post.content.title + ' - Travelcouple', // TODO: change to real name
+      title: this.post.content.title + ' - Solmates',
       meta: [
         { hid: 'description', name: 'description', content: this.post.content.intro },
         { hid: 'og:type', propery: 'og:type', content: 'article' },
         { hid: 'og:title', propery: 'og:title', content: this.post.content.title },
         { hid: 'og:description', propery: 'og:description', content: this.post.content.intro },
         { hid: 'og:image', propery: 'og:image', content: 'https:' + resize(this.post.content.image, '1200x630') },
-        { hid: 'og:url', property: 'og:url', content: 'https://travelcouple.netlify.com' + this.$route.fullPath }, // TODO: change to real domain
+        { hid: 'og:url', property: 'og:url', content: 'https://www.solmates.at' + this.$route.fullPath },
         { hid: 'twitter:title', name: 'twitter:title', content: this.post.content.title },
         { hid: 'twitter:description', name: 'twitter:description', content: this.post.content.intro },
         { hid: 'twitter:image', name: 'twitter:image', content: 'https:' + resize(this.post.content.image, '1200x630') }
@@ -95,7 +97,7 @@ export default {
       script: [{ innerHTML: JSON.stringify({
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "mainEntityOfPage": "https://travelcouple.netlify.com" + this.$route.fullPath, // TODO: change to real domain
+        "mainEntityOfPage": "https://www.solmates.at" + this.$route.fullPath, // TODO: change to real domain
         "headline": this.post.content.title,
         "datePublished": this.post.first_published_at,
         "dateModified": this.post.published_at,
@@ -106,7 +108,7 @@ export default {
         },
         "publisher": {
             "@type": "Organization",
-            "name": "Travelcouple",
+            "name": "Solmates",
             "logo": {
                 "@type": "ImageObject",
                 "url": "https://travelcouple.netlify.com/travelcouple-logo.png", // TODO: change to real domain
@@ -171,7 +173,6 @@ export default {
 
 <style lang="scss">
 .post {
-
   .post__image {
     margin: 0 -26px 30px;
 
