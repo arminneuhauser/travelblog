@@ -2,6 +2,8 @@
 
 > My super-duper Nuxt.js project
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/93febde4-5a76-42cb-8bb0-f4bb98213363/deploy-status)](https://app.netlify.com/sites/solmates/deploys)
+
 ## Build Setup
 
 ``` bash
