@@ -1,0 +1,5 @@
+# This a rule for Single Page Applications
+/*    /index.html   200
+
+# Redirect default Netlify subdomain to primary domain
+https://solmates.netlify.com/* https://www.solmates.at/:splat 301!

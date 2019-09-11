@@ -1,0 +1,10 @@
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "https://solmates.netlify.com"
+  to = "https://www.solmates.at"
+  status = 301
+  force = true
