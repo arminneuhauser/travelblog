@@ -3,24 +3,26 @@
     <component v-if="home.story.content.component" :key="home.story.content._uid" :blok="home.story.content" :is="home.story.content.component"></component>
     <section id="blog" class="blog">
       <div class="container">
-        <!--<header>
-          <h3>Aktuelle Blogbeiträge</h3>
+        <header>
+          <h3>Unser Reisetagebuch</h3>
           <hr>
-        </header>-->
+        </header>
         <div class="posts">
           <article :key="story.content._uid" v-for="story in posts.stories">
             <nuxt-link :to="'/' + story.full_slug">
               <figure>
-                <img :src="resize(story.content.image, '375x375')">
+                <img :src="resize(story.content.image, '375x210')">
               </figure>
               <header>
                 <h1>{{ story.content.title }}</h1>
+                <p>{{ story.content.intro }}</p>
+                <p class="meta">{{ formatDate(story.first_published_at) }} • {{ readTime(story.content.body) }} Min. Lesezeit</p>
               </header>
             </nuxt-link>
           </article>
         </div>
 
-        <div>
+        <div class="read-more">
           <nuxt-link class="button button--ghost" :to="{ path: '/blog/'}">
             Alle Beiträge
           </nuxt-link>
@@ -67,33 +69,33 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.hero--home {
+  @include bg-pattern($home-background-color,darken($home-background-color,10%));
+}
+
 .blog {
   background-color: $background-color;
 
-  header {
-    text-align: center;
-
-    hr {
-      width: 160px;
-    }
-  }
-
   .container {
-    > div {
-      display: flex;
-      flex-wrap: wrap;
+    > header {
+      text-align: center;
 
-      &.posts {
-        margin: 0 -8px;
+      hr {
+        width: 160px;
       }
+    }
 
-      > .button {
+    > .read-more {
+      display: flex;
+      margin: 30px 0;
+
+      .button {
         margin: 0 auto;
       }
     }
   }
 
-  article {
+  /*article {
     border-bottom: none;
     flex-basis: 50%;
     padding: 8px;
@@ -134,10 +136,6 @@ export default {
         font-size: 2.6rem;
       }
     }
-  }
-}
-
-.hero--home {
-  @include bg-pattern($home-background-color,darken($home-background-color,10%));
+  }*/
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <article v-editable="category.content">
+  <div v-editable="category.content">
 
     <div class="category" :style="{ 'background-image': 'url(' + resize(category.content.image, '1920x1080') + ')' }">
       <div>
@@ -28,7 +28,7 @@
       </div>
     </div>
 
-  </article>
+  </div>
 </template>
 
 <script>
@@ -45,7 +45,7 @@ export default {
         { hid: 'og:title', propery: 'og:title', content: this.category.name },
         { hid: 'og:description', propery: 'og:description', content: this.category.content.about },
         { hid: 'og:image', propery: 'og:image', content: 'https:' + resize(this.category.content.image, '1200x630') },
-        { hid: 'og:url', property: 'og:url', content: 'https://travelcouple.netlify.com' + this.$route.fullPath }, // TODO: change to real domain
+        { hid: 'og:url', property: 'og:url', content: 'https://www.solmates.at' + this.$route.fullPath },
         { hid: 'twitter:title', name: 'twitter:title', content: this.category.name },
         { hid: 'twitter:description', name: 'twitter:description', content: this.category.content.about },
         { hid: 'twitter:image', name: 'twitter:image', content: 'https:' + resize(this.category.content.image, '1200x630') }
@@ -86,7 +86,9 @@ export default {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  height: 70vh;
+  height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+  height: -webkit-fill-available;
+  min-height: 500px;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -97,7 +97,7 @@ export default {
       script: [{ innerHTML: JSON.stringify({
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "mainEntityOfPage": "https://www.solmates.at" + this.$route.fullPath, // TODO: change to real domain
+        "mainEntityOfPage": "https://www.solmates.at" + this.$route.fullPath,
         "headline": this.post.content.title,
         "datePublished": this.post.first_published_at,
         "dateModified": this.post.published_at,
@@ -111,7 +111,7 @@ export default {
             "name": "Solmates",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://travelcouple.netlify.com/travelcouple-logo.png", // TODO: change to real domain
+                "url": "https://www.solmates.at/solmates-logo.png",
                 "width": "200",
                 "height": "200"
             }

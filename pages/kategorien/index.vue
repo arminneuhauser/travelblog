@@ -1,11 +1,16 @@
 <template>
   <div class="container">
     <h1 class="text-center">Kategorien</h1>
+    <hr>
     <ul class="categories">
       <li :key="category.id" v-for="category in categories">
         <nuxt-link class="category" :to="'/' + category.full_slug">
-          <img class="category__image" :src="resize(category.content.image, '400x0')" :alt="category.name">
-          <h2>{{category.name}}</h2>
+          <figure>
+            <img class="category__image" :src="resize(category.content.image, '400x300')" :alt="category.name">
+            <figcaption>
+              <h1>{{category.name}}</h1>
+            </figcaption>
+          </figure>
           <p>{{category.content.about}}</p>
         </nuxt-link>
       </li>
@@ -23,7 +28,7 @@ export default {
       title: 'Kategorien - Solmates',
       meta: [
         { hid: 'og:title', propery: 'og:title', content: 'Kategorien - Solmates' },
-        { hid: 'og:url', property: 'og:url', content: 'https://travelcouple.netlify.com' + this.$route.fullPath }, // TODO: change to real domain
+        { hid: 'og:url', property: 'og:url', content: 'https://www.solmates.at' + this.$route.fullPath },
         { hid: 'twitter:title', name: 'twitter:title', content: 'Kategorien - Solmates' }
       ]
     }
@@ -44,39 +49,70 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+hr {
+  width: 150px;
+}
+
 .categories {
   display: flex;
   flex-wrap: wrap;
-  margin: 40px -15px 0;
+  margin: 40px -10px 0;
   padding: 0;
   list-style-type: none;
 
   li {
     flex-basis: 100%;
-    padding: 0 15px;
-    margin-bottom: 30px;
+    padding: 0 10px;
+    margin-bottom: 20px;
 
     @include breakpoint(m) {
       flex-basis: 50%;
     }
 
     @include breakpoint(l) {
-      flex-basis: 33%;
+      flex-basis: 33.33333%;
     }
   }
 }
 
 .category {
   display: block;
-  text-align: center;
 
-  h2 {
-    font-size: 2.8rem;
-    margin: 10px 0;
+  figure {
+    position: relative;
+    margin-bottom: 10px;
+
+    img {
+      width: 100%;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba($tint,0.3);
+    }
+  }
+
+  h1 {
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+    transform: translateY(-50%);
+    text-shadow: 0 0 20px rgba($tint,0.3);
   }
 
   &:hover {
-    h2 {
+    h1 {
       text-decoration: underline;
     }
   }
