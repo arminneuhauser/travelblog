@@ -25,11 +25,11 @@
             <figure>
               <img :src="resize(post.content.image, '375x228')">
             </figure>
-            <div>
+            <header>
               <h1>{{ post.content.title }}</h1>
               <p>{{ post.content.intro }}</p>
               <p class="meta">{{ formatDate(post.first_published_at) }} • {{ readTime(post.content.body) }} Min. Lesezeit</p>
-            </div>
+            </header>
           </nuxt-link>
         </article>
       </div>

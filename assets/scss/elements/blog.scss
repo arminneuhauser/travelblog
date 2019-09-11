@@ -8,7 +8,7 @@
 
   article {
     border-bottom: 2px solid rgba(0,0,0,0.1);
-    padding: 30px 0;
+    padding: 20px 0;
 
     > a {
       display: flex;
@@ -25,17 +25,21 @@
       flex-basis: 100%;
     }
 
+    header {
+      flex-basis: 100%;
+      margin-top: 16px;
+    }
+
     h1 {
-      color: $cta;
       font-family: $fs-serif;
-      font-size: 2.6rem;
-      line-height: 1.2;
-      margin: 10px 0;
+      font-size: 2.4rem;
+      line-height: 1.1;
+      margin: 0 0 10px;
     }
 
     p {
-      font-size: 1.6rem;
-      line-height: 1.6;
+      font-size: 1.5rem;
+      line-height: 1.4;
     }
 
     .meta {
@@ -49,13 +53,11 @@
   }
 
   @include breakpoint(m) {
+    padding: 30px 0;
+
     article {
       > a {
         flex-wrap: nowrap;
-
-        > div {
-          padding: 0 20px;
-        }
       }
 
       figure {
@@ -63,15 +65,17 @@
         flex-shrink: 0;
         max-width: 375px;
       }
+
+      header {
+        padding: 0 20px;
+      }
     }
   }
 
   @include breakpoint(l) {
     article {
-      > a {
-        > div {
-          padding: 0 35px;
-        }
+      header {
+        padding: 0 35px;
       }
 
       h1 {

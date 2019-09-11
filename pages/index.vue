@@ -3,22 +3,29 @@
     <component v-if="home.story.content.component" :key="home.story.content._uid" :blok="home.story.content" :is="home.story.content.component"></component>
     <section id="blog" class="blog">
       <div class="container">
-        <header>
+        <!--<header>
           <h3>Aktuelle Blogbeiträge</h3>
           <hr>
-        </header>
-        <article :key="story.content._uid" v-for="story in posts.stories">
-          <nuxt-link :to="'/' + story.full_slug">
-            <figure>
-              <img :src="resize(story.content.image, '375x228')">
-            </figure>
-            <div>
-              <h1>{{ story.content.title }}</h1>
-              <p>{{ story.content.intro }}</p>
-              <p class="meta">{{ formatDate(story.first_published_at) }} • {{ readTime(story.content.body) }} Min. Lesezeit</p>
-            </div>
+        </header>-->
+        <div class="posts">
+          <article :key="story.content._uid" v-for="story in posts.stories">
+            <nuxt-link :to="'/' + story.full_slug">
+              <figure>
+                <img :src="resize(story.content.image, '375x375')">
+              </figure>
+              <header>
+                <h1>{{ story.content.title }}</h1>
+              </header>
+            </nuxt-link>
+          </article>
+        </div>
+
+        <div>
+          <nuxt-link class="button button--ghost" :to="{ path: '/blog/'}">
+            Alle Beiträge
           </nuxt-link>
-        </article>
+        </div>
+
       </div>
     </section>
   </div>
@@ -68,6 +75,64 @@ export default {
 
     hr {
       width: 160px;
+    }
+  }
+
+  .container {
+    > div {
+      display: flex;
+      flex-wrap: wrap;
+
+      &.posts {
+        margin: 0 -8px;
+      }
+
+      > .button {
+        margin: 0 auto;
+      }
+    }
+  }
+
+  article {
+    border-bottom: none;
+    flex-basis: 50%;
+    padding: 8px;
+
+    h1 {
+      font-size: 2rem;
+      text-align: center;
+    }
+  }
+
+  @include breakpoint(m) {
+    article {
+      flex-basis: 33.33333%;
+
+      > a {
+        flex-wrap: wrap;
+      }
+
+      figure {
+        flex-shrink: 1;
+      }
+
+      h1 {
+        font-size: 2.4rem;
+      }
+    }
+  }
+
+  @include breakpoint(l) {
+    .container > div.posts {
+      margin: 0 -18px;
+    }
+
+    article {
+      padding: 18px;
+
+      h1 {
+        font-size: 2.6rem;
+      }
     }
   }
 }

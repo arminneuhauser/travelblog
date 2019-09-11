@@ -1,5 +1,5 @@
 <template>
-  <div v-bind:style="{ backgroundColor: post.content.background }">
+  <div>
     <article class="post" v-editable="story.content">
       <div class="container">
         <div class="post__header">

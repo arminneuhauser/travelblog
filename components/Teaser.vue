@@ -4,10 +4,14 @@
       <div class="teaser__text">
         <h1>{{ blok.headline }}</h1>
         <figure>
-          <img :src="resize(blok.avatar_image, '88x88')">
+          <img :src="resize(blok.avatar_image, '140x140')">
         </figure>
         <div>
           <p>{{ blok.text }}</p>
+          <p class="location">
+            <svg><use xlink:href="#location"></use></svg>
+            {{ blok.location }}
+          </p>
           <!--<nuxt-link class="button" :to="'/' + blok.button_link.cached_url">
             {{ blok.button_text }}
           </nuxt-link>-->
@@ -49,18 +53,18 @@ export default {
     display: flex;
     align-content: flex-start;
     flex-wrap: wrap;
-    margin: 20px 0 40px 0;
+    margin: 20px 0 15px 0;
     order: 2;
 
     figure {
-      flex-basis: 66px;
+      flex-basis: 70px;
 
       img {
         border-radius: 100%;
       }
 
       + div {
-        flex-basis: calc(100% - 66px);
+        flex-basis: calc(100% - 70px);
         padding-left: 20px;
       }
     }
@@ -92,15 +96,28 @@ export default {
 
   h1 {
     font-family: $fs-serif;
-    font-size: 4.2rem;
+    font-size: 3.4rem;
     line-height: 1;
-    margin: 0 0 20px;
+    margin: 0 0 16px;
     opacity: 1;
   }
 
   p {
     font-size: 1.6rem;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+  }
+
+  .location {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      fill: $tint;
+      margin-right: 8px;
+    }
   }
 
   @include breakpoint(s, max) {
@@ -120,10 +137,10 @@ export default {
       order: 1;
 
       figure {
-        flex-basis: 88px;
+        flex-basis: 90px;
 
         + div {
-          flex-basis: calc(100% - 88px);
+          flex-basis: calc(100% - 90px);
         }
       }
     }
@@ -159,7 +176,7 @@ export default {
     }
 
     h1 {
-      font-size: 5rem;
+      font-size: 4.2rem;
     }
 
     p {

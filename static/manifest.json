@@ -1,5 +1,5 @@
 {
-  "name": "App",
+  "name": "Solmates",
   "icons": [
     {
       "src": "\/android-icon-36x36.png",
@@ -39,6 +39,6 @@
     }
   ],
   "theme_color": "#241E15",
-  "background_color": "#F9F7F4",
+  "background_color": "#F5F1EB",
   "display": "standalone"
 }

@@ -4,13 +4,13 @@
       <article :key="story.content._uid" v-for="story in data.stories">
         <nuxt-link :to="'/' + story.full_slug">
           <figure>
-            <img :src="resize(story.content.image, '375x228')">
+            <img :src="resize(story.content.image, '375x210')">
           </figure>
-          <div>
+          <header>
             <h1>{{ story.content.title }}</h1>
             <p>{{ story.content.intro }}</p>
             <p class="meta">{{ formatDate(story.first_published_at) }} • {{ readTime(story.content.body) }} Min. Lesezeit</p>
-          </div>
+          </header>
         </nuxt-link>
       </article>
       <div class="pagination">

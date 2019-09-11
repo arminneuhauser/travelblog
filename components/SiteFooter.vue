@@ -16,7 +16,7 @@
         </nav>
       </div>
       <div class="site-footer__bottom">
-        <p>Made with <a href="http://www.arminneuhauser.at/" target="_blank">❤️</a> in Vienna</p>
+        <p>Mit dem Rucksack durch Lateinamerika</p>
         <nav class="social">
           <ul>
             <li v-if="!navitem.cta" :key="index" v-for="(navitem, index) in $store.state.settings.social_navi">
@@ -64,8 +64,8 @@ export default {
 
     svg {
       fill: $tint-inv;
-      height: 70px;
-      width: 110px;
+      height: 60px;
+      width: 150px;
     }
   }
 
