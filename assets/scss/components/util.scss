@@ -2,12 +2,8 @@
   max-width: 1336px; // 1276px for container
   margin-left: auto;
   margin-right: auto;
-  padding: 0 26px;
+  padding: 0 var(--site-core-padding);
   box-sizing: border-box;
-
-  @include breakpoint(m) {
-    padding: 0 30px;
-  }
 }
 
 .narrow {

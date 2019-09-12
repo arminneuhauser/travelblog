@@ -12,13 +12,13 @@
             <h1>{{ post.content.title }}</h1>
             <p>{{ post.content.intro }}</p>
             <div class="meta">
-              <figure>
+              <figure v-if="author">
                 <nuxt-link :to="'/' + author.full_slug">
                   <img class="author" :src="resize(author.content.avatar, '60x60')" :alt="author.content.name">
                 </nuxt-link>
               </figure>
               <div>
-                <h2>Geschrieben von <nuxt-link :to="'/' + author.full_slug">{{ author.content.name }}</nuxt-link></h2>
+                <h2 v-if="author">Geschrieben von <nuxt-link :to="'/' + author.full_slug">{{ author.content.name }}</nuxt-link></h2>
                 <p>{{ formatDate(post.first_published_at, 'DD. MMMM YYYY') }} • {{ readTime(post.content.body) }} Min. Lesezeit</p>
               </div>
             </div>
@@ -39,23 +39,19 @@
       </div>
     </article>
 
-    <section class="related" v-if="related !== undefined">
+    <section class="related" v-if="related.length">
       <div class="container">
         <h2>Ähnliche Beiträge</h2>
-        <div>
-          <article :key="story.content._uid" v-for="story in related">
-            <nuxt-link :to="'/' + story.full_slug">
-              <figure>
-                <img :src="resize(story.content.image, '375x228')">
-              </figure>
-              <div>
-                <h1>{{ story.content.title }}</h1>
-                <!--<p>{{ story.content.intro }}</p>
-                <p class="meta">{{ formatDate(story.first_published_at) }} • {{ readTime(story.content.body) }} Min. Lesezeit</p>-->
-              </div>
-            </nuxt-link>
-          </article>
-        </div>
+      </div>
+      <div class="skid">
+        <article :key="story.content._uid" v-for="story in related">
+          <nuxt-link :to="'/' + story.full_slug">
+            <figure>
+              <img :src="resize(story.content.image, '375x228')">
+            </figure>
+            <h1>{{ story.content.title }}</h1>
+          </nuxt-link>
+        </article>
       </div>
     </section>
 
@@ -104,7 +100,7 @@ export default {
         "description": this.post.content.intro,
         "author": {
             "@type": "Person",
-            "name": this.author.content.name
+            "name": this.author ? this.author.content.name : "Solmates"
         },
         "publisher": {
             "@type": "Organization",
@@ -174,8 +170,6 @@ export default {
 <style lang="scss">
 .post {
   .post__image {
-    margin: 0 -26px 30px;
-
     @include breakpoint(m) {
       flex-basis: 50%;
       margin: 0 0 30px;
@@ -190,8 +184,12 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap-reverse;
-    margin: 0 auto 30px auto;
+    flex-wrap: wrap;
+    margin: 30px auto;
+
+    @include breakpoint(m) {
+        margin: 0 auto 30px auto;
+    }
 
     > div {
       @include breakpoint(m) {
@@ -232,7 +230,6 @@ export default {
         margin-bottom: 30px;
         font-size: 1.8rem;
         line-height: 1.4;
-        //opacity: 0.7;
 
         @include breakpoint(l) {
           font-size: 2rem;
@@ -254,37 +251,9 @@ export default {
     margin: 0 auto 100px;
     position: relative;
 
-    /*@include breakpoint(l) {
-      &::before, &::after {
-        position: absolute;
-        right: calc(100% + 35px);
-        width: 10vw;
-      }
-
-      &::before {
-        background: linear-gradient(0deg,$background-color,hsla(0,0%,100%,0));
-        bottom: 0;
-        content: '';
-        height: 200px;
-        z-index: -1;
-      }
-
-      &::after {
-        @include bg-pattern(transparent,#ccc);
-
-        content: '';
-        height: 100%;
-        top: 0;
-        opacity: 0.5;
-        z-index: -2;
-      }
-    }*/
-
-
     p, ul, ol, table {
       font-family: $fs-serif;
       font-size: 2rem; //1.7rem;
-      //font-weight: 300;
       line-height: 1.6; //1.7;
       margin-bottom: 30px;
 

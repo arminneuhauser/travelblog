@@ -76,7 +76,7 @@ module.exports = {
   modules: [
     ['storyblok-nuxt', {accessToken: 'k5Y8ixzNl1kB4Vq6F5ufBQtt', cacheProvider: 'memory', excludeHeaderScript: false}],
     ['@nuxtjs/style-resources'],
-    ['vue-scrollto/nuxt', { duration: 300 }]
+    ['vue-scrollto/nuxt', { duration: 300, offset: -70 }]
   ],
 
   styleResources: {

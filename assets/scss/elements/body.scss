@@ -8,6 +8,12 @@
   --cta-inv: $cta-inv;
   --home-background-color: $home-background-color; //#fbdd8c; //#FAD66B; // #F9D339;
 
+  --site-core-padding: 26px;
+
+  @include breakpoint(m) {
+    --site-core-padding: 30px;
+  }
+
   font-size: 62.5%; // 1rem = 10px
 }
 

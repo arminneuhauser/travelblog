@@ -72,6 +72,7 @@ export default {
 
   .teaser__figure {
     position: relative;
+    margin: 0 calc(var(--site-core-padding) * -1);
     max-width: 520px;
     //left: -20px;
     order: 1;

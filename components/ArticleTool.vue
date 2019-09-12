@@ -132,7 +132,11 @@ export default {
     li {
       box-sizing: border-box;
       display: flex;
-      margin: 0 15px;
+      margin: 0 10px;
+
+      @include breakpoint(360, max) {
+        margin: 0 5px;
+      }
 
       @include breakpoint(899, max) {
         &.copy-url {

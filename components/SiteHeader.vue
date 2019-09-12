@@ -82,6 +82,7 @@ export default {
   height: 90px;
   background-color: transparent;
   //border-bottom: 1px solid transparent;
+  box-shadow: 0 4px 12px 0 rgba(0,0,0,.1);
   transition: background-color .2s ease, border-color .2s ease;
 
   &[data-scrolled] {
@@ -89,7 +90,7 @@ export default {
     height: 70px;
     background-color: rgba(#fff,0.97);
     //border-color: #dbd9d2;
-    box-shadow: 0 4px 12px 0 rgba(0,0,0,.05);
+    box-shadow: 0 4px 12px 0 rgba(0,0,0,.1);
 
     .site-header__logo {
       svg {
@@ -327,6 +328,7 @@ export default {
   }
 
   @include breakpoint(m) {
+    box-shadow: none;
     opacity: 1;
     top: 30px;
 
@@ -478,6 +480,8 @@ export default {
   }
 
   &.elevated:not([data-scrolled]) {
+    box-shadow: none;
+
     .site-header__logo svg {
       fill: #fff;
     }
