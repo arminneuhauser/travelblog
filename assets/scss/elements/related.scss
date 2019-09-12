@@ -21,13 +21,21 @@
       max-width: 375px;
       position: relative;
 
-      &:last-of-type::after {
-        content: "";
-        display: block;
-        position: absolute;
-        right: calc(var(--site-core-padding) * -1);
-        width: var(--site-core-padding);
-        height: 1px;
+      &:first-child {
+        margin-left: auto;
+      }
+
+      &:last-child {
+        margin-right: auto;
+
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          right: calc(var(--site-core-padding) * -1);
+          width: var(--site-core-padding);
+          height: 1px;
+        }
       }
 
       @include breakpoint(m) {
