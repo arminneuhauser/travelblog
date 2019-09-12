@@ -329,6 +329,9 @@ export default {
 
   @include breakpoint(m) {
     box-shadow: none;
+  }
+
+  @include breakpoint(l) {
     opacity: 1;
     top: 30px;
 
@@ -388,7 +391,7 @@ export default {
         padding: 0;
 
         li {
-          opacity: 1;
+          opacity: 0.94;
           transform: translateY(0) !important;
 
           &::before {
@@ -399,79 +402,78 @@ export default {
             color: $tint;
             font-size: 1.5rem;
             font-weight: normal;
+            margin-right: 10px;
+            //opacity: 0.86;
+            padding: 15px;
+            margin-right: 0;
+            position: relative;
+            transition: all 0.2s ease;
+          }
+
+          &:hover {
+            opacity: 1;
           }
 
           &:not(.cta) {
-            a {
-              margin-right: 10px;
-              //opacity: 0.86;
-              padding: 7px 10px;
-              margin-right: 0;
-              position: relative;
-              transition: all 0.2s ease;
+            &::after {
+              content: '';
+              display: block;
+              position: absolute;
+              bottom: 13px;
+              left: 15px;
+              border-bottom: 2px solid $tint;
+              border-radius: 1px;
+              opacity: 0;
+              transform: scaleX(0);
+              transition: all 0.3s cubic-bezier(.12,.845,.305,1);
+              visibility: hidden;
+              width: 1px;
+            }
 
+            &:hover {
               &::after {
-                content: '';
-                display: block;
-                position: absolute;
-                bottom: 5px;
-                left: 15px;
-                border-bottom: 2px solid $tint;
-                border-radius: 1px;
-                opacity: 0;
-                transform: scaleX(0);
-                transition: all 0.3s cubic-bezier(.12,.845,.305,1);
-                visibility: hidden;
-                width: 1px;
-              }
-
-              &:hover {
                 opacity: 1;
-
-                &::after {
-                  opacity: 1;
-                  transform: scaleX(1);
-                  visibility: visible;
-                  width: calc(100% - 30px);
-                }
+                transform: scaleX(1);
+                visibility: visible;
+                width: calc(100% - 30px);
               }
             }
           }
 
           &.cta {
-            margin: 0;
-
-            a {
-              @include button();
-              @include ghost-button();
-              @include small-button();
-
-              margin-left: 15px;
-            }
+            margin: 0 -15px 0 0;
 
             svg {
-              display: none;
+              stroke: $tint-inv;
+              transition: all 0.2s ease;
+
+              &:first-of-type {
+                transform: translateX(-50%) translateY(-8px);
+              }
+
+              &:last-of-type {
+                transform: translateX(-50%) translateY(8px) rotate(180deg);
+              }
+            }
+
+            &:hover {
+              svg {
+                stroke: $tint;
+
+                &:first-of-type {
+                  transform: translateX(-50%) translateY(-10px);
+                }
+
+                &:last-of-type {
+                  transform: translateX(-50%) translateY(10px) rotate(180deg);
+                }
+              }
             }
           }
 
           &:last-child {
             a {
               margin-right: 0;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  @include breakpoint(l) {
-    nav {
-      ul {
-        li {
-          &:not(.cta) {
-            a {
-              margin-right: 10px;
-              padding: 7px 15px;
             }
           }
         }
@@ -495,12 +497,8 @@ export default {
           color: #fff;
         }
 
-        &:not(.cta) a::after {
+        a::after {
           border-color: #fff;
-        }
-
-        &.cta a {
-          @include white-button;
         }
       }
     }

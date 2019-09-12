@@ -41,7 +41,7 @@ export default {
 <style lang="scss">
 .teaser {
   border-bottom: 1px solid rgba($tint, 0.15);
-  padding: 0;
+  padding: 0 0 10px;
 
   .container {
     position: relative;
@@ -130,6 +130,8 @@ export default {
   }
 
   @include breakpoint(m) {
+    padding-bottom: 30px;
+    
     .container {
       flex-wrap: nowrap;
     }

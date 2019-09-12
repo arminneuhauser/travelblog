@@ -27,6 +27,10 @@
     padding-top: 90px;
 
     @include breakpoint(m) {
+      padding-top: 110px;
+    }
+
+    @include breakpoint(l) {
       padding-top: 150px;
     }
   }
