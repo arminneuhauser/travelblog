@@ -329,12 +329,17 @@ export default {
   }
 
   @include breakpoint(m) {
-    box-shadow: none;
+    .page-index &,
+    .page-blog &,
+    .page-blog-post & {
+      box-shadow: none;
+    }
   }
 
   @include breakpoint(l) {
+    height: 150px;
     opacity: 1;
-    top: 30px;
+    //top: 30px;
 
     &[data-scrolled] {
       height: 90px;
@@ -499,8 +504,18 @@ export default {
           color: #fff;
         }
 
-        a::after {
-          border-color: #fff;
+        &:not(.cta) {
+          &::after {
+            border-color: #fff;
+          }
+        }
+
+        &.cta {
+          &:hover {
+            svg {
+              stroke: #fff;
+            }
+          }
         }
       }
     }

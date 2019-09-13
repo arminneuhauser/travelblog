@@ -32,12 +32,14 @@
   transform: rotate(270deg);
 }
 
-.main:not(.elevated) {
-  > div, > article, > section {
-    padding-top: 90px;
+.main {
+  &:not(.elevated) {
+    > div, > article, > section {
+      padding-top: 90px;
 
-    @include breakpoint(l) {
-      padding-top: 150px;
+      @include breakpoint(l) {
+        padding-top: 150px;
+      }
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="narrow margin-auto padding-bottom" v-editable="blok">
-    <div class="markdown-content" v-html="body"></div>
+    <div class="markdown-content" :class="blok.size" v-html="body"></div>
   </div>
 </template>
 
@@ -20,6 +20,7 @@ export default {
 <style lang="scss">
 .markdown-content {
   margin: 0 auto 100px;
+  overflow-wrap: break-word;
 
   p, ul, ol, table {
     //font-family: $fs-serif;
@@ -40,6 +41,23 @@ export default {
 
     @include breakpoint(l) {
       font-size: 1.9rem;//2.2rem;
+    }
+  }
+
+  &.small {
+    h1 {
+      font-size: 2.8rem;
+    }
+
+    h2, h3, h4, h5, h6 {
+      font-size: 2.1rem;
+      margin: 16px 0;
+    }
+
+    p, ul, ol, table {
+      font-size: 1.4rem;
+      line-height: 1.6;
+      margin-bottom: 10px;
     }
   }
 }

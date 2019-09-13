@@ -37,7 +37,7 @@ export default {
 .authors {
   display: flex;
   flex-wrap: wrap;
-  margin: 40px -15px 0;
+  margin: 40px -15px 20px;
   padding: 0;
   list-style-type: none;
 
@@ -46,8 +46,9 @@ export default {
     padding: 0 15px;
     margin-bottom: 30px;
 
-    @include breakpoint(m) {
-      flex-basis: 50%;
+    a {
+      margin: 0 auto;
+      max-width: 350px;
     }
 
     @include breakpoint(l) {

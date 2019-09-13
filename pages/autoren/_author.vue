@@ -1,22 +1,23 @@
 <template>
-  <div v-editable="author.content">
-
-    <div class="author container">
-      <header>
-        <nuxt-link class="link link--left" :to="{ path: '/autoren/'}">alle Autoren</nuxt-link>
-      </header>
-      <div>
-        <figure>
-          <img class="author__image" :src="resize(author.content.avatar, '150x150')" :alt="author.name">
-        </figure>
-        <div>
-          <h1>{{author.name}}</h1>
-          <p>{{author.content.about}}</p>
-          <ul class="author__socials">
-            <li :key="social_link._uid" v-for="social_link in author.content.socials">
-              <a :href="social_link.link.cached_url" target="_blank" rel="noopener nofollow">{{social_link.name}}</a>
-            </li>
-          </ul>
+  <div class="hero hero--author" v-editable="author.content">
+    <div class="author">
+      <div class="container">
+        <header>
+          <nuxt-link class="link link--left" :to="{ path: '/autoren/'}">alle Autoren</nuxt-link>
+        </header>
+        <div class="author__content">
+          <figure>
+            <img class="author__image" :src="resize(author.content.avatar, '150x150')" :alt="author.name">
+          </figure>
+          <div>
+            <h1>{{author.name}}</h1>
+            <p>{{author.content.about}}</p>
+            <ul class="author__socials">
+              <li :key="social_link._uid" v-for="social_link in author.content.socials">
+                <a :href="social_link.link.cached_url" target="_blank" rel="noopener nofollow">{{social_link.name}}</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -77,13 +78,17 @@ export default {
 
 
 <style lang="scss" scoped>
+.hero--author {
+  background: $home-background-color;
+}
+
 .author {
-  border-bottom: 1px solid rgba($tint,0.2);
+  border-bottom: 1px solid rgba($tint,0.15);
   margin-top: 20px;
   padding-bottom: 30px;
   text-align: center;
 
-  > header {
+  header {
     text-align: left;
     margin-bottom: 30px;
   }
@@ -102,12 +107,13 @@ export default {
 
   @include breakpoint(m) {
     text-align: left;
+    padding-bottom: 50px;
 
-    > header {
+    header {
       flex-basis: 100%;
     }
 
-    > div {
+    &__content {
       display: flex;
       justify-content: center;
     }
@@ -131,6 +137,7 @@ export default {
 
   li {
     display: inline-block;
+    margin-bottom: 10px;
 
     & + li {
       margin-left: 10px;

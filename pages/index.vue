@@ -4,8 +4,10 @@
     <section id="blog" class="blog">
       <div class="container">
         <header>
-          <h3>Unser Reisetagebuch</h3>
-          <nuxt-link class="link link--right" :to="{ path: '/blog/'}">mehr</nuxt-link>
+          <nav>
+            <h3>Unser Reisetagebuch</h3>
+            <nuxt-link class="link link--right" :to="{ path: '/blog/'}">mehr</nuxt-link>
+          </nav>
         </header>
         <div class="posts">
           <article :key="story.content._uid" v-for="story in posts.stories">

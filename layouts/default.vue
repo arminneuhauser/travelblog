@@ -15,6 +15,13 @@ import SiteFooter from '~/components/SiteFooter.vue'
 import SvgSprite from '~/components/SvgSprite.vue'
 
 export default {
+  head() {
+    return {
+      bodyAttrs: {
+        class: `page-${this.$nuxt.$route.name}`,
+      },
+    };
+  },
   components: {
     SiteHeader,
     SiteFooter,

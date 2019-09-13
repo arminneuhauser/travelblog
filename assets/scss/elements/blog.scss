@@ -9,27 +9,22 @@
     max-width: 1196px;
 
     > header {
-      display: flex;
-      align-items: baseline;
-      border-bottom: 2px solid rgba(0,0,0,0.1);
-      padding: 10px 0 5px;
+      text-align: center;
 
-      h3 {
-        margin: 0;
-        position: relative;
+      > nav {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        border-bottom: 2px solid rgba(0,0,0,0.1);
+        padding: 10px 0 5px;
 
-        /*&::after {
-          content: "";
-          position: absolute;
-          left: 0;
-          bottom: -18px;
-          border-bottom: 2px solid $tint;
-          width: 100%;
-        }*/
-      }
+        h3 {
+          margin: 0;
+        }
 
-      a {
-        margin-left: auto;
+        a {
+          margin-left: auto;
+        }
       }
 
       hr {
