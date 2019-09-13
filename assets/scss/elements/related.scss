@@ -12,6 +12,7 @@
     padding: 0 var(--site-core-padding) 10px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    scroll-snap-type: y mandatory;
 
     article {
       display: flex;
@@ -20,6 +21,7 @@
       margin-right: 20px;
       max-width: 375px;
       position: relative;
+      scroll-snap-align: start;
 
       &:first-child {
         margin-left: auto;

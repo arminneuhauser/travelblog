@@ -56,7 +56,7 @@ hr {
 .categories {
   display: flex;
   flex-wrap: wrap;
-  margin: 40px -10px 0;
+  margin: 40px -10px;
   padding: 0;
   list-style-type: none;
 

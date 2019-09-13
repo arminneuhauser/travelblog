@@ -23,8 +23,9 @@
         </div>
 
         <div class="read-more">
-          <nuxt-link class="button button--ghost" :to="{ path: '/blog/'}">
+          <nuxt-link class="button button--ghost button--large button--icon" :to="{ path: '/blog/'}">
             Alle Beiträge
+            <svg class="rotate-270"><use xlink:href="#down"></use></svg>
           </nuxt-link>
         </div>
 
@@ -89,7 +90,7 @@ export default {
       display: flex;
       margin: 30px 0;
 
-      .button {
+      > a {
         margin: 0 auto;
       }
     }

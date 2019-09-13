@@ -131,7 +131,7 @@ export default {
 
   @include breakpoint(m) {
     padding-bottom: 30px;
-    
+
     .container {
       flex-wrap: nowrap;
     }

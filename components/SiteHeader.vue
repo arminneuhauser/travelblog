@@ -104,6 +104,7 @@ export default {
     align-items: center;
     justify-content: space-between;
     display: flex;
+    flex-basis: 100%;
     flex-grow: 1;
     padding: 0 20px;
 
@@ -373,6 +374,7 @@ export default {
     }
 
     nav {
+      display: block;
       background-color: transparent;
       transform: none;
       opacity: 1;

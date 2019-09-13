@@ -1,10 +1,11 @@
 <template>
   <div class="contactform narrow margin-auto padding-bottom" v-editable="blok">
     <h1>{{ blok.headline }}</h1>
-    <form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
+    <!--<form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
       <p class="hidden">
         <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
-      </p>
+      </p>-->
+    <form name="contact" method="POST" data-netlify="true">
       <div class="text-field">
         <input type="text" name="name" placeholder="Dein Name">
         <label>Name</label>

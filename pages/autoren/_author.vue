@@ -69,6 +69,7 @@ export default {
 
 <style lang="scss" scoped>
 .author {
+  margin-top: 30px;
   text-align: center;
 
   figure img {
@@ -78,6 +79,7 @@ export default {
   @include breakpoint(m) {
     display: flex;
     justify-content: center;
+    margin-top: 0;
     text-align: left;
 
     figure {
