@@ -329,10 +329,11 @@ export default {
   }
 
   @include breakpoint(m) {
-    .page-index &,
-    .page-blog &,
-    .page-blog-post & {
-      box-shadow: none;
+    .page-home &,
+    .page-blog & {
+      &:not([data-scrolled]) {
+        box-shadow: none;
+      }
     }
   }
 

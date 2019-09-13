@@ -54,4 +54,15 @@
       margin-top: 0;
     }
   }
+
+  @include breakpoint(l) {
+    .container {
+      > header {
+        > nav {
+          padding: 20px 0 5px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
 }

@@ -118,7 +118,10 @@ export default {
             "width": "1200",
             "height": "630"
         }
-      }), type: 'application/ld+json' }]
+      }), type: 'application/ld+json' }],
+      bodyAttrs: {
+        class: 'page-blog',
+      }
     }
   },
   data () {

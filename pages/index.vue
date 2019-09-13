@@ -41,6 +41,13 @@ import storyblokLivePreview from '@/mixins/storyblokLivePreview'
 import { resize, formatDate, readTime } from '@/plugins/helper'
 
 export default {
+  head() {
+    return {
+      bodyAttrs: {
+        class: 'page-home',
+      },
+    };
+  },
   data () {
     return {
       story: { content: {} }
