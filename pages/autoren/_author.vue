@@ -2,36 +2,45 @@
   <div v-editable="author.content">
 
     <div class="author container">
-      <figure>
-        <img class="author__image" :src="resize(author.content.avatar, '150x150')" :alt="author.name">
-      </figure>
+      <header>
+        <nuxt-link class="link link--left" :to="{ path: '/autoren/'}">alle Autoren</nuxt-link>
+      </header>
       <div>
-        <h1>{{author.name}}</h1>
-        <p>{{author.content.about}}</p>
-        <ul class="author__socials">
-          <li :key="social_link._uid" v-for="social_link in author.content.socials">
-            <a :href="social_link.link.cached_url" target="_blank" rel="noopener nofollow">{{social_link.name}}</a>
-          </li>
-        </ul>
+        <figure>
+          <img class="author__image" :src="resize(author.content.avatar, '150x150')" :alt="author.name">
+        </figure>
+        <div>
+          <h1>{{author.name}}</h1>
+          <p>{{author.content.about}}</p>
+          <ul class="author__socials">
+            <li :key="social_link._uid" v-for="social_link in author.content.socials">
+              <a :href="social_link.link.cached_url" target="_blank" rel="noopener nofollow">{{social_link.name}}</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <div class="blog">
       <div class="container">
-        <hr>
-        <h3>Blogbeiträge von {{author.name}}</h3>
-        <article :key="post.id" v-for="post in posts">
-          <nuxt-link :to="'/' + post.full_slug">
-            <figure>
-              <img :src="resize(post.content.image, '375x228')">
-            </figure>
-            <header>
-              <h1>{{ post.content.title }}</h1>
-              <p>{{ post.content.intro }}</p>
-              <p class="meta">{{ formatDate(post.first_published_at) }} • {{ readTime(post.content.body) }} Min. Lesezeit</p>
-            </header>
-          </nuxt-link>
-        </article>
+        <header>
+          <h3>Blogbeiträge von {{author.name}}</h3>
+          <hr>
+        </header>
+        <div class="posts">
+          <article :key="post.id" v-for="post in posts">
+            <nuxt-link :to="'/' + post.full_slug">
+              <figure>
+                <img :src="resize(post.content.image, '375x228')">
+              </figure>
+              <header>
+                <h1>{{ post.content.title }}</h1>
+                <p>{{ post.content.intro }}</p>
+                <p class="meta">{{ formatDate(post.first_published_at) }} • {{ readTime(post.content.body) }} Min. Lesezeit</p>
+              </header>
+            </nuxt-link>
+          </article>
+        </div>
       </div>
     </div>
 
@@ -69,23 +78,44 @@ export default {
 
 <style lang="scss" scoped>
 .author {
-  margin-top: 30px;
+  border-bottom: 1px solid rgba($tint,0.2);
+  margin-top: 20px;
+  padding-bottom: 30px;
   text-align: center;
 
-  figure img {
-    margin: 0 auto;
+  > header {
+    text-align: left;
+    margin-bottom: 30px;
+  }
+
+  figure {
+    margin-bottom: 20px;
+
+    img {
+      margin: 0 auto;
+    }
+  }
+
+  h1 {
+    margin-top: 0;
   }
 
   @include breakpoint(m) {
-    display: flex;
-    justify-content: center;
-    margin-top: 0;
     text-align: left;
+
+    > header {
+      flex-basis: 100%;
+    }
+
+    > div {
+      display: flex;
+      justify-content: center;
+    }
 
     figure {
       flex-basis: 150px;
       flex-shrink: 0;
-      margin: 30px 35px 0 0;
+      margin-right: 35px;
     }
   }
 }
@@ -112,42 +142,5 @@ export default {
     @include ghost-button();
     @include small-button();
   }
-}
-
-.author__posts-by {
-  text-align: center;
-}
-
-.posts {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-
-.post {
-  color: inherit;
-  text-decoration: none;
-  display: block;
-  margin-bottom: 30px;
-  transition: transform 500ms ease, box-shadow 500ms ease;
-  border: 1px solid #ddd;
-  &:hover, &:focus {
-    transform: translateY(-1px);
-    box-shadow: 0px 1px 10px 0px #ccc;
-  }
-}
-
-.post__inner {
-  padding: 20px;
-}
-
-.post__headline {
-  display: block;
-  font-size: 1.5em;
-  -webkit-margin-before: 0.83em;
-  -webkit-margin-after: 0.83em;
-  -webkit-margin-start: 0px;
-  -webkit-margin-end: 0px;
-  font-weight: bold;
 }
 </style>

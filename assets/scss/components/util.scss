@@ -36,10 +36,6 @@
   > div, > article, > section {
     padding-top: 90px;
 
-    @include breakpoint(m) {
-      padding-top: 110px;
-    }
-
     @include breakpoint(l) {
       padding-top: 150px;
     }
@@ -51,6 +47,12 @@
   height: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
+}
+
+.hide-on-s {
+  @include breakpoint(s, max) {
+    display: none;
+  }
 }
 
 .text-center {

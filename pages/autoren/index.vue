@@ -4,7 +4,7 @@
     <ul class="authors">
       <li :key="author.id" v-for="author in authors">
         <nuxt-link class="author" :to="'/' + author.full_slug">
-          <img class="author__image" :src="resize(author.content.avatar, '200x200')" :alt="author.name">
+          <img class="author__image" :src="resize(author.content.avatar, '150x150')" :alt="author.name">
           <h2>{{author.name}}</h2>
           <p>{{author.content.about}}</p>
         </nuxt-link>

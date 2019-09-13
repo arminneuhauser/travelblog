@@ -5,7 +5,7 @@
       <div class="container">
         <header>
           <h3>Unser Reisetagebuch</h3>
-          <hr>
+          <nuxt-link class="link link--right" :to="{ path: '/blog/'}">mehr</nuxt-link>
         </header>
         <div class="posts">
           <article :key="story.content._uid" v-for="story in posts.stories">
@@ -77,50 +77,34 @@ export default {
 .blog {
   background-color: $background-color;
 
-  .container {
-    > header {
-      text-align: center;
-
-      hr {
-        width: 160px;
-      }
-    }
-
-    > .read-more {
-      display: flex;
-      margin: 30px 0;
-
-      > a {
-        margin: 0 auto;
-      }
-    }
-  }
-
-  /*article {
-    border-bottom: none;
-    flex-basis: 50%;
-    padding: 8px;
-
+  article {
     h1 {
-      font-size: 2rem;
-      text-align: center;
+      + p {
+        display: none;
+      }
     }
   }
 
   @include breakpoint(m) {
+    .posts {
+      margin: 0 -15px;
+    }
+
     article {
-      flex-basis: 33.33333%;
+      border-bottom: none;
+      flex-basis: 50%;
+      padding: 20px 15px;
 
       > a {
         flex-wrap: wrap;
       }
 
-      figure {
-        flex-shrink: 1;
+      header {
+        padding: 0;
       }
 
-      h1 {
-        font-size: 2.4rem;
+      figure {
+        flex-shrink: 1;
       }
     }
   }
@@ -131,12 +115,13 @@ export default {
     }
 
     article {
+      flex-basis: 33.33333%;
       padding: 18px;
 
       h1 {
         font-size: 2.6rem;
       }
     }
-  }*/
+  }
 }
 </style>

@@ -105,7 +105,8 @@ export default {
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2) 200px)
   }
 
-  > * {
+  > div {
+    padding: 0 var(--site-core-padding);
     position: relative;
   }
 
@@ -113,12 +114,13 @@ export default {
     color: #fff;
     font-size: 4.2rem;
     line-height: 4.2rem;
-    text-shadow: 0 0 30px rgba(0,0,0,0.1);
+    text-shadow: 0 0 30px rgba(0,0,0,0.2);
   }
 
   p {
+    font-size: 1.8rem;
     color: #fff;
-    text-shadow: 0 0 30px rgba(0,0,0,0.1);
+    text-shadow: 0 0 30px rgba(0,0,0,0.2);
   }
 
   .arrow-button {

@@ -1,0 +1,77 @@
+@mixin article-tile {
+  article {
+    border-bottom: 2px solid rgba($tint,0.1);
+    padding: 20px 0;
+
+    > a {
+      display: flex;
+      flex-wrap: wrap;
+
+      &:hover {
+        h1 {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    figure {
+      flex-basis: 100%;
+    }
+
+    header {
+      flex-basis: 100%;
+      margin-top: 16px;
+    }
+
+    h1 {
+      font-family: $fs-serif;
+      font-size: 2.4rem;
+      line-height: 1.1;
+      margin: 0 0 10px;
+    }
+
+    p {
+      font-size: 1.5rem;
+      line-height: 1.4;
+    }
+
+    .meta {
+      font-size: 1.4rem;
+      margin: 0;
+    }
+
+    &:last-of-type {
+      border-bottom: 0;
+    }
+
+    @include breakpoint(m) {
+      > a {
+        flex-wrap: nowrap;
+      }
+
+      figure {
+        flex-basis: 375px;
+        flex-shrink: 0;
+        max-width: 375px;
+      }
+
+      header {
+        padding: 0 20px;
+      }
+    }
+
+    @include breakpoint(l) {
+      header {
+        padding: 0 35px;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+      }
+
+      p {
+        font-size: 1.7rem;
+      }
+    }
+  }
+}

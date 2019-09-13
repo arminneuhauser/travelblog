@@ -1,0 +1,39 @@
+@mixin text-link {
+  margin: 0 -10px;
+  padding: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: right;
+  opacity: 0.6;
+  transition: opacity .2 ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+@mixin text-link-left {
+  &::before {
+    content: "‹";
+    margin-right: 5px;
+  }
+}
+
+@mixin text-link-right {
+  &::after {
+    content: "›";
+    margin-left: 5px;
+  }
+}
+
+.link {
+  @include text-link();
+}
+
+.link--left {
+  @include text-link-left();
+}
+
+.link--right {
+  @include text-link-right();
+}
