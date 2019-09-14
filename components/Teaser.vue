@@ -20,7 +20,7 @@
       <figure class="teaser__figure">
         <picture>
           <source :srcset="resize(blok.image, '520x390')" media="(min-width: 768px)">
-          <img :src="resize(blok.image, '520x292')" :alt="blok.headline">
+          <img :src="resize(blok.image, '750x422')" :alt="blok.headline">
         </picture>
       </figure>
     </div>

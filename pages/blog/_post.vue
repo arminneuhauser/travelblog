@@ -14,7 +14,7 @@
             <div class="meta">
               <figure v-if="author">
                 <nuxt-link :to="'/' + author.full_slug">
-                  <img class="author" :src="resize(author.content.avatar, '60x60')" :alt="author.content.name">
+                  <img class="author" :src="resize(author.content.avatar, '140x140')" :alt="author.content.name">
                 </nuxt-link>
               </figure>
               <div>
@@ -24,7 +24,10 @@
             </div>
           </div>
           <figure class="post__image">
-            <img :src="resize(post.content.image, '860x0')">
+            <picture>
+              <source :srcset="resize(post.content.image, '860x0')" media="(min-width: 768px)">
+              <img :src="resize(post.content.image, '750x0')" :alt="post.content.title">
+            </picture>
             <!--<img
               :src="resize(post.content.image, '300x0')"
               :srcset="resize(post.content.image, '375x300') + ' 300w, ' +
@@ -47,7 +50,7 @@
         <article :key="story.content._uid" v-for="story in related">
           <nuxt-link :to="'/' + story.full_slug">
             <figure>
-              <img :src="resize(story.content.image, '375x228')">
+              <img :src="resize(story.content.image, '750x500')">
             </figure>
             <h1>{{ story.content.title }}</h1>
           </nuxt-link>

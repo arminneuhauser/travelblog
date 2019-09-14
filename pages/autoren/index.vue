@@ -4,7 +4,7 @@
     <ul class="authors">
       <li :key="author.id" v-for="author in authors">
         <nuxt-link class="author" :to="'/' + author.full_slug">
-          <img class="author__image" :src="resize(author.content.avatar, '150x150')" :alt="author.name">
+          <img class="author__image" :src="resize(author.content.avatar, '300x300')" :alt="author.name">
           <h2>{{author.name}}</h2>
           <p>{{author.content.about}}</p>
         </nuxt-link>
@@ -18,6 +18,13 @@ import storyblokLivePreview from '@/mixins/storyblokLivePreview'
 import { resize } from '@/plugins/helper'
 
 export default {
+  head() {
+    return {
+      bodyAttrs: {
+        class: 'page-author',
+      },
+    };
+  },
   methods: {
     resize
   },
@@ -37,8 +44,8 @@ export default {
 .authors {
   display: flex;
   flex-wrap: wrap;
-  margin: 40px -15px 20px;
-  padding: 0;
+  margin: 0 -15px;
+  padding: 20px 0;
   list-style-type: none;
 
   li {
@@ -47,8 +54,12 @@ export default {
     margin-bottom: 30px;
 
     a {
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid rgba($tint,0.2);
       margin: 0 auto;
       max-width: 350px;
+      padding: 20px;
     }
 
     @include breakpoint(l) {
@@ -75,5 +86,7 @@ export default {
 
 .author__image {
   border-radius: 100%;
+  width: 150px;
+  height: 150px;
 }
 </style>

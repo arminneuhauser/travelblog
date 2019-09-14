@@ -4,7 +4,7 @@
       <article :key="story.content._uid" v-for="story in data.stories">
         <nuxt-link :to="'/' + story.full_slug">
           <figure>
-            <img :src="resize(story.content.image, '375x210')">
+            <img :src="resize(story.content.image, '750x420')">
           </figure>
           <header>
             <h1>{{ story.content.title }}</h1>

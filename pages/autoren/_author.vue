@@ -7,7 +7,7 @@
         </header>
         <div class="author__content">
           <figure>
-            <img class="author__image" :src="resize(author.content.avatar, '150x150')" :alt="author.name">
+            <img class="author__image" :src="resize(author.content.avatar, '300x300')" :alt="author.name">
           </figure>
           <div>
             <h1>{{author.name}}</h1>
@@ -76,7 +76,6 @@ export default {
 }
 </script>
 
-
 <style lang="scss" scoped>
 .hero--author {
   background: $home-background-color;
@@ -124,6 +123,8 @@ export default {
 
 .author__image {
   border-radius: 50%;
+  width: 150px;
+  height: 150px;
 }
 
 .author__socials {

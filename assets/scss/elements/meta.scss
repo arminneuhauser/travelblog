@@ -4,9 +4,14 @@
   align-items: center;
   margin-bottom: 35px;
 
+  figure {
+    flex-basis: 70px;
+    flex-shrink: 0;
+    margin-right: 15px;
+  }
+
   img {
     border-radius: 100%;
-    margin-right: 15px;
   }
 
   h2, p {

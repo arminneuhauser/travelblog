@@ -10,14 +10,15 @@
           </nav>
         </header>
         <div class="posts">
+          <!-- TODO make article-tile a component -->
           <article :key="story.content._uid" v-for="story in posts.stories">
             <nuxt-link :to="'/' + story.full_slug">
               <figure>
-                <img :src="resize(story.content.image, '375x210')">
+                <img :src="resize(story.content.image, '750x420')">
               </figure>
               <header>
                 <h1>{{ story.content.title }}</h1>
-                <p>{{ story.content.intro }}</p>
+                <!--<p>{{ story.content.intro }}</p>-->
                 <p class="meta">{{ formatDate(story.first_published_at) }} • {{ readTime(story.content.body) }} Min. Lesezeit</p>
               </header>
             </nuxt-link>
@@ -86,14 +87,6 @@ export default {
 .blog {
   background-color: $background-color;
 
-  article {
-    h1 {
-      + p {
-        display: none;
-      }
-    }
-  }
-
   @include breakpoint(m) {
     .posts {
       margin: 0 -15px;
@@ -119,13 +112,8 @@ export default {
   }
 
   @include breakpoint(l) {
-    .container > div.posts {
-      margin: 0 -18px;
-    }
-
     article {
       flex-basis: 33.33333%;
-      padding: 18px;
 
       h1 {
         font-size: 2.6rem;

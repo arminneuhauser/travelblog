@@ -44,6 +44,12 @@
   }
 }
 
+.page-author {
+  .main {
+    background: $home-background-color;
+  }
+}
+
 .hidden {
   visibility: hidden;
   height: 0 !important;
