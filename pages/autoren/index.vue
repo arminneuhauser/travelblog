@@ -55,8 +55,9 @@ export default {
 
     a {
       background: #fff;
-      border-radius: 8px;
-      border: 1px solid rgba($tint,0.2);
+      border-radius: 4px;
+      border: 1px solid rgba($tint,0.1);
+      box-shadow: 0 2px 8px rgba($tint,.05);
       margin: 0 auto;
       max-width: 350px;
       padding: 20px;
@@ -73,6 +74,7 @@ export default {
   text-align: center;
 
   h2 {
+    color: $cta;
     font-size: 2.8rem;
     margin: 10px 0;
   }
