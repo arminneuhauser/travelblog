@@ -1,18 +1,9 @@
 <template>
   <section class="blog">
     <div class="container">
-      <article :key="story.content._uid" v-for="story in data.stories">
-        <nuxt-link :to="'/' + story.full_slug">
-          <figure>
-            <img :src="resize(story.content.image, '750x420')">
-          </figure>
-          <header>
-            <h1>{{ story.content.title }}</h1>
-            <p>{{ story.content.intro }}</p>
-            <p class="meta">{{ formatDate(story.first_published_at) }} • {{ readTime(story.content.body) }} Min. Lesezeit</p>
-          </header>
-        </nuxt-link>
-      </article>
+      <div class="posts">
+        <article-tile :key="story.content._uid" v-for="story in data.stories" :story="story"/>
+      </div>
       <div class="pagination">
         <nuxt-link class="pagination__link--prev button button--ghost" v-if="this.prevPage != null" :to="{ path: '/blog/', query: { page: this.prevPage }}">
           Vorherige Seite
@@ -27,7 +18,7 @@
 
 <script>
 import storyblokLivePreview from '@/mixins/storyblokLivePreview'
-import { resize, formatDate, readTime } from '@/plugins/helper'
+import ArticleTile from '~/components/ArticleTile.vue'
 
 export default {
   head () {
@@ -52,6 +43,9 @@ export default {
       currentPage: null
     }
   },
+  components: {
+    ArticleTile
+  },
   computed: {
     totalpages () {
       return Math.ceil(this.total / this.perPage)
@@ -65,9 +59,6 @@ export default {
   },
   mixins: [storyblokLivePreview],
   methods: {
-    resize,
-    formatDate,
-    readTime,
     setPages () {
       let _currentPage = this.$route.query.page ? this.$route.query.page : 1
       this.currentPage = _currentPage

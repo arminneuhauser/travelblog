@@ -13,18 +13,9 @@
 
     <div id="blog" class="blog">
       <div class="container">
-        <article :key="post.id" v-for="post in posts">
-          <nuxt-link :to="'/' + post.full_slug">
-            <figure>
-              <img :src="resize(post.content.image, '375x228')">
-            </figure>
-            <header>
-              <h1>{{ post.content.title }}</h1>
-              <p>{{ post.content.intro }}</p>
-              <p class="meta">{{ formatDate(post.first_published_at) }} • {{ readTime(post.content.body) }} Min. Lesezeit</p>
-            </header>
-          </nuxt-link>
-        </article>
+        <div class="posts">
+          <article-tile :key="story.content._uid" v-for="story in stories" :story="story"/>
+        </div>
       </div>
     </div>
 
@@ -33,7 +24,8 @@
 
 <script>
 import storyblokLivePreview from '@/mixins/storyblokLivePreview'
-import { resize, formatDate, readTime } from '@/plugins/helper'
+import { resize } from '@/plugins/helper'
+import ArticleTile from '~/components/ArticleTile.vue'
 
 export default {
   head () {
@@ -55,11 +47,12 @@ export default {
   data () {
     return { story: { content: {} } }
   },
+  components: {
+    ArticleTile
+  },
   layout: 'elevated',
   methods: {
-    resize,
-    formatDate,
-    readTime
+    resize
   },
   mixins: [storyblokLivePreview],
   async asyncData (context) {
@@ -74,7 +67,7 @@ export default {
         }
       }
     })
-    return { category: categoryResponse.data.story, posts: postsByCategoryResponse.data.stories }
+    return { category: categoryResponse.data.story, stories: postsByCategoryResponse.data.stories }
   }
 }
 </script>

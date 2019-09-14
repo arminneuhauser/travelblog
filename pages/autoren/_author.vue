@@ -29,18 +29,7 @@
           <hr>
         </header>
         <div class="posts">
-          <article :key="post.id" v-for="post in posts">
-            <nuxt-link :to="'/' + post.full_slug">
-              <figure>
-                <img :src="resize(post.content.image, '375x228')">
-              </figure>
-              <header>
-                <h1>{{ post.content.title }}</h1>
-                <p>{{ post.content.intro }}</p>
-                <p class="meta">{{ formatDate(post.first_published_at) }} • {{ readTime(post.content.body) }} Min. Lesezeit</p>
-              </header>
-            </nuxt-link>
-          </article>
+          <article-tile :key="story.content._uid" v-for="story in stories" :story="story"/>
         </div>
       </div>
     </div>
@@ -50,13 +39,15 @@
 
 <script>
 import storyblokLivePreview from '@/mixins/storyblokLivePreview'
-import { resize, formatDate, readTime } from '@/plugins/helper'
+import { resize } from '@/plugins/helper'
+import ArticleTile from '~/components/ArticleTile.vue'
 
 export default {
+  components: {
+    ArticleTile
+  },
   methods: {
-    resize,
-    formatDate,
-    readTime
+    resize
   },
   mixins: [storyblokLivePreview],
   async asyncData (context) {
@@ -71,7 +62,7 @@ export default {
           }
         }
       })
-    return { author: authorResponse.data.story, posts: postsByAuthorResponse.data.stories }
+    return { author: authorResponse.data.story, stories: postsByAuthorResponse.data.stories }
   }
 }
 </script>

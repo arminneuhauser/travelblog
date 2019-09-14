@@ -10,21 +10,8 @@
           </nav>
         </header>
         <div class="posts">
-          <!-- TODO make article-tile a component -->
-          <article :key="story.content._uid" v-for="story in posts.stories">
-            <nuxt-link :to="'/' + story.full_slug">
-              <figure>
-                <img :src="resize(story.content.image, '750x420')">
-              </figure>
-              <header>
-                <h1>{{ story.content.title }}</h1>
-                <!--<p>{{ story.content.intro }}</p>-->
-                <p class="meta">{{ formatDate(story.first_published_at) }} • {{ readTime(story.content.body) }} Min. Lesezeit</p>
-              </header>
-            </nuxt-link>
-          </article>
+          <article-tile :key="story.content._uid" v-for="story in posts.stories" :story="story" class="compact"/>
         </div>
-
         <div class="read-more">
           <nuxt-link class="button button--ghost button--large button--icon" :to="{ path: '/blog/'}">
             Alle Beiträge
@@ -39,7 +26,7 @@
 
 <script>
 import storyblokLivePreview from '@/mixins/storyblokLivePreview'
-import { resize, formatDate, readTime } from '@/plugins/helper'
+import ArticleTile from '~/components/ArticleTile.vue'
 
 export default {
   head() {
@@ -54,12 +41,10 @@ export default {
       story: { content: {} }
     }
   },
-  mixins: [storyblokLivePreview],
-  methods: {
-    resize,
-    formatDate,
-    readTime
+  components: {
+    ArticleTile
   },
+  mixins: [storyblokLivePreview],
   async asyncData (context) {
     let version = context.query._storyblok || context.isDev ? 'draft' : 'published'
 
@@ -97,16 +82,8 @@ export default {
       flex-basis: 50%;
       padding: 20px 15px;
 
-      > a {
-        flex-wrap: wrap;
-      }
-
       header {
         padding: 0;
-      }
-
-      figure {
-        flex-shrink: 1;
       }
     }
   }
