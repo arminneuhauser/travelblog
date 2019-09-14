@@ -89,8 +89,8 @@ export default {
   text-align: center;
 
   header {
-    text-align: left;
-    margin-bottom: 30px;
+    display: flex;
+    margin-bottom: 20px;
   }
 
   figure {
@@ -108,10 +108,6 @@ export default {
   @include breakpoint(m) {
     text-align: left;
     padding-bottom: 50px;
-
-    header {
-      flex-basis: 100%;
-    }
 
     &__content {
       display: flex;

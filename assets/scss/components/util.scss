@@ -77,3 +77,33 @@ figure {
 hr {
   @include squiggly;
 }
+
+.button {
+  @include button();
+  &--ghost {
+    @include ghost-button();
+  }
+  &--large {
+    @include large-button();
+  }
+  &--small {
+    @include small-button();
+  }
+  &--icon {
+    @include icon-button();
+  }
+}
+
+.arrow-button {
+  @include arrow-button();
+}
+
+.link {
+  @include text-link();
+  &--left {
+    @include text-link-left();
+  }
+  &--right {
+    @include text-link-right();
+  }
+}

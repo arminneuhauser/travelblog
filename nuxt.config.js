@@ -95,6 +95,12 @@ module.exports = {
     */
     extend(config, ctx) {
 
+    },
+    /*
+    ** Prevents multiple styles (https://github.com/nuxt/nuxt.js/issues/3877)
+    */
+    splitChunks: {
+      layouts: true
     }
   },
 

@@ -25,15 +25,3 @@
     margin-left: 5px;
   }
 }
-
-.link {
-  @include text-link();
-}
-
-.link--left {
-  @include text-link-left();
-}
-
-.link--right {
-  @include text-link-right();
-}
