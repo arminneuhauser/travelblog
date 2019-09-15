@@ -1,7 +1,7 @@
 <template>
   <div class="contactform narrow margin-auto padding-bottom" v-editable="blok">
     <h1>{{ blok.headline }}</h1>
-    <form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
+    <form name="contact" method="POST" action="#success" netlify-honeypot="bot-field" data-netlify="true">
       <input type="hidden" name="form-name" value="contact" />
       <p class="hidden">
         <label>Don’t fill this out if you're human: <input name="bot-field" /></label>

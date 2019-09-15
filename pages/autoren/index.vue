@@ -45,7 +45,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   margin: 0 -15px;
-  padding: 20px 0;
+  padding: 10px 0;
   list-style-type: none;
 
   li {
