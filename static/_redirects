@@ -3,3 +3,6 @@ https://solmates.netlify.com/* https://www.solmates.at/:splat 301!
 
 # This a rule for Single Page Applications
 /*    /index.html   200
+
+# Custom 404 error page
+/* /404.html 404
