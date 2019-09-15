@@ -150,6 +150,7 @@ module.exports = {
           callback(null, routes)
         })).catch(callback)
       })
-    }
+    },
+    fallback: "404.html"
   }
 }
