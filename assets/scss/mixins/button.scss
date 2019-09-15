@@ -56,7 +56,7 @@
 }
 
 @mixin icon-button {
-  display: flex;
+  display: inline-flex;
   align-items: center;
 
   svg {

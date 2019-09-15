@@ -33,6 +33,8 @@
 }
 
 .main {
+  min-height: calc(100vh - 215px);
+  
   &:not(.elevated) {
     > div, > article, > section {
       padding-top: 90px;
