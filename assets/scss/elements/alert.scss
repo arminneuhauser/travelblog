@@ -1,0 +1,43 @@
+.alert {
+  background: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid rgba($tint,0.1);
+  display: flex;
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .close {
+    display: flex;
+    margin-left: auto;
+    padding-left: 10px;
+
+    svg {
+      fill: $tint;
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  &--success {
+    background: rgba(#aed581,0.3);
+    border-color: #aed581;
+  }
+
+  &--error {
+    background: rgba(#e57373,0.3);
+    border-color: #e57373;
+  }
+
+  &--info {
+    background: rgba(#90caf9,0.3);
+    border-color: #90caf9;
+  }
+
+  &--warning {
+    background: rgba(#ffca28,0.3);
+    border-color: #ffca28;
+  }
+}
