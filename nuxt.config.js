@@ -77,7 +77,8 @@ module.exports = {
   modules: [
     ['storyblok-nuxt', {accessToken: 'k5Y8ixzNl1kB4Vq6F5ufBQtt', cacheProvider: 'memory', excludeHeaderScript: false}],
     ['@nuxtjs/style-resources'],
-    ['vue-scrollto/nuxt', { duration: 300, offset: -70 }]
+    ['vue-scrollto/nuxt', { duration: 300, offset: -70 }],
+    ['@bazzite/nuxt-optimized-images']
   ],
 
   styleResources: {
@@ -85,6 +86,25 @@ module.exports = {
         './assets/scss/_variables.scss',
         './assets/scss/_mixins.scss'
       ]
+  },
+
+  optimizedImages: {
+    inlineImageLimit: -1,
+    handleImages: ['jpeg', 'png', 'svg', 'webp', 'gif'],
+    optimizeImages: true,
+    optimizeImagesInDev: false,
+    defaultImageLoader: 'img-loader',
+    mozjpeg: {
+      quality: 85
+    },
+    optipng: false,
+    pngquant: {
+      speed: 7,
+      quality: [0.65, 0.8]
+    },
+    webp: {
+      quality: 85
+    }
   },
 
   /*

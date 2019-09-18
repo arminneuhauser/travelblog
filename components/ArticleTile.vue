@@ -2,11 +2,15 @@
   <article>
     <nuxt-link :to="'/' + story.full_slug">
       <figure>
-        <img
-        :data-src="resize(story.content.image, '750x420')"
-        :alt="story.content.title"
-        class="lazyload">
+        <picture>
+          <source :data-srcset="resize(story.content.image, '750x420/filters:format(webp)')" type="image/webp">
+          <img
+          :data-src="resize(story.content.image, '750x420')"
+          :alt="story.content.title"
+          class="lazyload">
+        </picture>
       </figure>
+
       <header>
         <h1 class="title">{{ story.content.title }}</h1>
         <p class="subtitle">{{ story.content.intro }}</p>

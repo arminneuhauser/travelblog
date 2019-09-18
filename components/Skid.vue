@@ -3,10 +3,13 @@
     <article :key="story.content._uid" v-for="story in stories">
       <nuxt-link :to="'/' + story.full_slug">
         <figure>
-          <img
-          :data-src="resize(story.content.image, '750x500')"
-          :alt="story.content.title"
-          class="lazyload">
+          <picture>
+            <source :data-srcset="resize(story.content.image, '750x500/filters:format(webp)')" type="image/webp">
+            <img
+            :data-src="resize(story.content.image, '750x500')"
+            :alt="story.content.title"
+            class="lazyload">
+          </picture>
         </figure>
         <h1>{{ story.content.title }}</h1>
       </nuxt-link>

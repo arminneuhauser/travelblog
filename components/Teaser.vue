@@ -4,7 +4,10 @@
       <div class="teaser__text">
         <h1>{{ blok.headline }}</h1>
         <figure>
-          <img :src="resize(blok.avatar_image, '140x140')">
+          <picture>
+            <source :srcset="resize(blok.avatar_image, '140x140/filters:format(webp)')" type="image/webp">
+            <img :src="resize(blok.avatar_image, '140x140')" alt="Armin & Miriam">
+          </picture>
         </figure>
         <div>
           <p>{{ blok.text }}</p>
@@ -19,7 +22,9 @@
       </div>
       <figure class="teaser__figure">
         <picture>
+          <source :srcset="resize(blok.image, '520x390/filters:format(webp)')" type="image/webp" media="(min-width: 768px)">
           <source :srcset="resize(blok.image, '520x390')" media="(min-width: 768px)">
+          <source :srcset="resize(blok.image, '750x422/filters:format(webp)')" type="image/webp">
           <img
           :src="resize(blok.image, '750x422')"
           :alt="blok.headline">
