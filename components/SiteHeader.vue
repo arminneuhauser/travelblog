@@ -1,7 +1,8 @@
 <template>
   <header class="site-header" :data-mobile-menu="showMobileMenu" :data-scrolled="scrolled" :data-transition="transition">
     <div class="container">
-      <nuxt-link class="site-header__logo" to="/" @click.native="showMobileMenu = false; scrollToTop();">
+      <nuxt-link class="site-header__logo" to="/" @click.native="showMobileMenu = false; scrollToTop();" title="Solmates.at">
+        <span>Solmates.at</span>
         <svg><use xlink:href="#logo"></use></svg>
       </nuxt-link>
       <button @click="showMobileMenu = !showMobileMenu">
@@ -196,6 +197,10 @@ export default {
   .site-header__logo {
     line-height: 0;
     z-index: 2;
+
+    > span {
+      display: none;
+    }
 
     svg {
       fill: $tint;

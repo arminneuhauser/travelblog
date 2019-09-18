@@ -17,7 +17,19 @@
       color: transparent !important;
     }
 
-    &:not(:placeholder-shown), &:-webkit-autofill, &:focus, &:valid {
+    // NOTE: has to be duplicated because of issues in FF and Edge
+    &:focus, &:valid {
+      ~ label {
+        top: -8px;
+        font-size: 1.2rem;
+        background-color: $background-color;
+        background-image: linear-gradient($background-color, #fff);
+        opacity: 1;
+        padding: 0 4px;
+      }
+    }
+
+    &:not(:placeholder-shown), &:-webkit-autofill {
       ~ label {
         top: -8px;
         font-size: 1.2rem;

@@ -8,6 +8,9 @@ module.exports = {
   ** Headers of the page
   */
   head: {
+    htmlAttrs: {
+      lang: 'de-AT',
+    },
     title: pkg.name,
     //titleTemplate: '%s - ' + pkg.name,
     meta: [
@@ -30,6 +33,8 @@ module.exports = {
       { hid: 'twitter:image', name: 'twitter:image', content: 'http://img2.storyblok.com/1200x630/f/54536/2048x1365/306b0b6caf/12034365_10205045344112624_7076641627775926331_o.jpg' }
     ],
     link: [
+      { rel: 'preconnect', href: '//www.googletagmanager.com' },
+      { rel: 'preconnect', href: '//www.google-analytics.com' },
       { rel: 'apple-touch-icon', sizes: '57x57', href: '/favicon/apple-icon-57x57.png' },
       { rel: 'apple-touch-icon', sizes: '60x60', href: '/favicon/apple-icon-60x60.png' },
       { rel: 'apple-touch-icon', sizes: '72x72', href: '/favicon/apple-icon-72x72.png' },
@@ -44,7 +49,6 @@ module.exports = {
       { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon/favicon-96x96.png' },
       { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon/favicon-16x16.png' },
       { rel: 'manifest', href: '/manifest.json' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Work+Sans:300,400,500,600' }
     ]
   },
 
@@ -76,9 +80,10 @@ module.exports = {
   */
   modules: [
     ['storyblok-nuxt', {accessToken: 'k5Y8ixzNl1kB4Vq6F5ufBQtt', cacheProvider: 'memory', excludeHeaderScript: false}],
-    ['@nuxtjs/style-resources'],
+    '@nuxtjs/style-resources',
     ['vue-scrollto/nuxt', { duration: 300, offset: -70 }],
-    ['@bazzite/nuxt-optimized-images']
+    '@bazzite/nuxt-optimized-images',
+    'nuxt-webfontloader'
   ],
 
   styleResources: {
@@ -105,6 +110,19 @@ module.exports = {
     webp: {
       quality: 85
     }
+  },
+
+  webfontloader: {
+      custom: {
+          families: [
+              'Crimson Text:n4,i4,n6',
+              'Work Sans:n3,n4,n5,n6'
+          ],
+          urls: [
+              'https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600&display=swap',
+              'https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600&display=swap'
+          ]
+      }
   },
 
   /*
