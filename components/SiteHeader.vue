@@ -1,11 +1,11 @@
 <template>
   <header class="site-header" :data-mobile-menu="showMobileMenu" :data-scrolled="scrolled" :data-transition="transition">
     <div class="container">
-      <nuxt-link class="site-header__logo" to="/" @click.native="showMobileMenu = false; scrollToTop();" title="Solmates.at">
+      <nuxt-link class="site-header__logo" to="/" @click.native="showMobileMenu = false; scrollToTop();" aria-label="Solmates.at">
         <span>Solmates.at</span>
         <svg><use xlink:href="#logo"></use></svg>
       </nuxt-link>
-      <button @click="showMobileMenu = !showMobileMenu">
+      <button @click="showMobileMenu = !showMobileMenu" title="Menü">
         <div class="site-header__icon"><div></div><div></div><div></div></div><span>Menü öffnen</span>
       </button>
       <nav>

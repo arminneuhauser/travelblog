@@ -23,7 +23,7 @@
         </li>
         <li class="copy-url" :class="{ 'active': this.active }">
           <input id="url" type="hidden" :value="this.url">
-          <button @click.stop.prevent="copyURL" class="btn-copy" title="Link kopieren">
+          <button @click.stop.prevent="copyURL" class="btn-copy" aria-label="Link kopieren">
             <span :class="{ 'active': this.active }">{{message}}</span>
             <svg><use xlink:href="#share"></use></svg>
           </button>

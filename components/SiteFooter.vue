@@ -2,7 +2,7 @@
   <footer class="site-footer">
     <div class="container">
       <div class="site-footer__top">
-        <nuxt-link class="site-footer__logo" to="/" @click.native="scrollToTop()" title="Solmates.at">
+        <nuxt-link class="site-footer__logo" to="/" @click.native="scrollToTop()" aria-label="Solmates.at">
           <span>Solmates.at</span>
           <svg><use xlink:href="#logo"></use></svg>
         </nuxt-link>
@@ -21,7 +21,7 @@
         <nav class="social">
           <ul>
             <li v-if="!navitem.cta" :key="index" v-for="(navitem, index) in $store.state.settings.social_navi">
-              <a class="site-footer__link" :href="navitem.link.cached_url" target="_blank" rel="noopener nofollow" :title="navitem.name">
+              <a class="site-footer__link" :href="navitem.link.cached_url" target="_blank" rel="noopener nofollow" :aria-label="navitem.name">
                 <span>{{ navitem.name }}</span>
                 <svg><use :xlink:href="getIconName(navitem.name)"></use></svg>
               </a>
