@@ -79,7 +79,6 @@ export default {
 
   .teaser__figure {
     margin: 0 calc(var(--site-core-padding) * -1);
-    max-width: 520px;
     order: 1;
 
     img {
@@ -88,6 +87,7 @@ export default {
   }
 
   h1 {
+    flex-basis: 100%;
     font-family: $fs-serif;
     font-size: 3.4rem;
     line-height: 1;
@@ -146,6 +146,7 @@ export default {
       flex-basis: 50%;
       flex-shrink: 0;
       margin: 0 0 0 35px;
+      max-width: 520px;
       width: auto;
 
       /*&::before {
