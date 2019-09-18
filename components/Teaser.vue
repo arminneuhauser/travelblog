@@ -19,11 +19,10 @@
       </div>
       <figure class="teaser__figure">
         <picture>
-          <source :data-srcset="resize(blok.image, '520x390')" media="(min-width: 768px)">
+          <source :srcset="resize(blok.image, '520x390')" media="(min-width: 768px)">
           <img
-          :data-src="resize(blok.image, '750x422')"
-          :alt="blok.headline"
-          class="lazyload">
+          :src="resize(blok.image, '750x422')"
+          :alt="blok.headline">
         </picture>
       </figure>
     </div>
@@ -74,28 +73,13 @@ export default {
   }
 
   .teaser__figure {
-    position: relative;
     margin: 0 calc(var(--site-core-padding) * -1);
     max-width: 520px;
-    //left: -20px;
     order: 1;
 
     img {
-      position: relative;
       margin: 0 auto;
     }
-
-    /*&::before {
-      @include bg-pattern;
-
-      content: '';
-      position: absolute;
-      bottom: 40px;
-      right: -40px;
-      width: 100%;
-      height: calc(100% - 20px);
-      opacity: 0.8;
-    }*/
   }
 
   h1 {
