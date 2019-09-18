@@ -388,4 +388,14 @@ export default {
     }
   }*/
 }
+
+.related {
+  margin-bottom: 100px;
+  position: relative;
+
+  h2 {
+    margin: 0 0 30px;
+    text-align: center;
+  }
+}
 </style>
