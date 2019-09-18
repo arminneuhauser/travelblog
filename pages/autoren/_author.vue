@@ -40,12 +40,8 @@
 <script>
 import storyblokLivePreview from '@/mixins/storyblokLivePreview'
 import { resize } from '@/plugins/helper'
-import ArticleTile from '~/components/ArticleTile.vue'
 
 export default {
-  components: {
-    ArticleTile
-  },
   methods: {
     resize
   },

@@ -25,7 +25,6 @@
 <script>
 import storyblokLivePreview from '@/mixins/storyblokLivePreview'
 import { resize } from '@/plugins/helper'
-import ArticleTile from '~/components/ArticleTile.vue'
 
 export default {
   head () {
@@ -46,9 +45,6 @@ export default {
   },
   data () {
     return { story: { content: {} } }
-  },
-  components: {
-    ArticleTile
   },
   layout: 'elevated',
   methods: {

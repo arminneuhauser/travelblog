@@ -18,7 +18,6 @@
 
 <script>
 import storyblokLivePreview from '@/mixins/storyblokLivePreview'
-import ArticleTile from '~/components/ArticleTile.vue'
 
 export default {
   head () {
@@ -42,9 +41,6 @@ export default {
       nextPage: null,
       currentPage: null
     }
-  },
-  components: {
-    ArticleTile
   },
   computed: {
     totalpages () {

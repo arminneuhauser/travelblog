@@ -26,7 +26,6 @@
 
 <script>
 import storyblokLivePreview from '@/mixins/storyblokLivePreview'
-import ArticleTile from '~/components/ArticleTile.vue'
 
 export default {
   head() {
@@ -40,9 +39,6 @@ export default {
     return {
       story: { content: {} }
     }
-  },
-  components: {
-    ArticleTile
   },
   mixins: [storyblokLivePreview],
   async asyncData (context) {
