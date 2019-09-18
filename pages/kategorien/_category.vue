@@ -6,7 +6,7 @@
         <h1>{{category.name}}</h1>
         <p>{{category.content.about}}</p>
       </div>
-      <a href="#" v-scroll-to="'#blog'" class="arrow-button">
+      <a href="#" v-scroll-to="'#blog'" class="arrow-button" aria-label="Nach unten scrollen">
         <svg><use xlink:href="#down"></use></svg>
       </a>
     </div>
