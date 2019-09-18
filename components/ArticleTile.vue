@@ -1,6 +1,6 @@
 <template>
   <article>
-    <nuxt-link :to="'/' + story.full_slug">
+    <nuxt-link :to="'/' + story.full_slug" :aria-label="story.content.title">
       <figure>
         <picture>
           <source :data-srcset="resize(story.content.image, '750x420/filters:format(webp)')" type="image/webp">
