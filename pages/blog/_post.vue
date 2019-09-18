@@ -46,16 +46,7 @@
       <div class="container">
         <h2>Ähnliche Beiträge</h2>
       </div>
-      <div class="skid">
-        <article :key="story.content._uid" v-for="story in related">
-          <nuxt-link :to="'/' + story.full_slug">
-            <figure>
-              <img :src="resize(story.content.image, '750x500')">
-            </figure>
-            <h1>{{ story.content.title }}</h1>
-          </nuxt-link>
-        </article>
-      </div>
+      <skid :stories="related"/>
     </section>
 
     <progress-bar/>

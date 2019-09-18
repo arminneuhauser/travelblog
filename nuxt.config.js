@@ -67,7 +67,8 @@ module.exports = {
     { src: '@/plugins/gtm.js', ssr: false },
     '@/plugins/components',
     '@/plugins/filters',
-    '@/plugins/helper'
+    '@/plugins/helper',
+    '@/plugins/vue-lazysizes.client.js'
   ],
 
   /*
@@ -92,9 +93,13 @@ module.exports = {
   build: {
     /*
     ** You can extend webpack config here
+    ** https://dev.to/ignore_you/minify-generate-webp-and-lazyload-images-in-your-vue-nuxt-application-1ilm
     */
-    extend(config, ctx) {
-
+    extend (config, { isDev, isClient, loaders: { vue } }) {
+      if (isClient) {
+        vue.transformAssetUrls.img = ['data-src', 'src']
+        vue.transformAssetUrls.source = ['data-srcset', 'srcset']
+      }
     },
     /*
     ** Prevents multiple styles (https://github.com/nuxt/nuxt.js/issues/3877)

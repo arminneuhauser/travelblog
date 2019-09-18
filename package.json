@@ -19,6 +19,7 @@
     "cross-env": "^5.2.0",
     "eslint-utils": "^1.4.2",
     "http-auth": "^3.2.3",
+    "lazysizes": "^5.1.1",
     "lodash": "^4.17.14",
     "marked": "^0.7.0",
     "medium-zoom": "^1.0.4",
@@ -39,6 +40,7 @@
     "node-sass": "^4.12.0",
     "nodemon": "^1.19.1",
     "sass-loader": "^7.1.0",
+    "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2"
   }
 }

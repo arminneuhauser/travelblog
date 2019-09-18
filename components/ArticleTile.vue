@@ -2,7 +2,10 @@
   <article>
     <nuxt-link :to="'/' + story.full_slug">
       <figure>
-        <img :src="resize(story.content.image, '750x420')">
+        <img
+        :data-src="resize(story.content.image, '750x420')"
+        :alt="story.content.title"
+        class="lazyload">
       </figure>
       <header>
         <h1 class="title">{{ story.content.title }}</h1>
@@ -32,6 +35,7 @@ export default {
 <style lang="scss" scoped>
 article {
   border-bottom: 2px solid rgba($tint,0.1);
+  flex-basis: 100%;
   padding: 20px 0;
 
   > a {
@@ -46,6 +50,7 @@ article {
   }
 
   figure {
+    @include ratio-container(750/420);
     flex-basis: 100%;
   }
 
