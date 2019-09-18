@@ -8,15 +8,15 @@
           <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
         </p>
         <div class="text-field">
-          <input type="text" name="name" placeholder="Dein Name">
+          <input type="text" name="name" placeholder="Dein Name" required>
           <label>Name</label>
         </div>
         <div class="text-field">
-          <input type="email" name="email" placeholder="deine@email.at">
+          <input type="email" name="email" placeholder="deine@email.at" required>
           <label>E-Mail-Adresse</label>
         </div>
         <div class="text-field">
-          <textarea name="message" rows="5" placeholder="Deine Nachricht an uns"></textarea>
+          <textarea name="message" rows="5" placeholder="Deine Nachricht an uns" required></textarea>
           <label>Deine Nachricht</label>
         </div>
         <div>
