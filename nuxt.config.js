@@ -103,11 +103,11 @@ module.exports = {
       custom: {
           families: [
               'Crimson Text:n4,i4,n6',
-              'Work Sans:n3,n4,n5,n6'
+              'Work Sans:n4,n5,n6'
           ],
           urls: [
-              'https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600',
-              'https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600'
+              'https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600&display=swap',
+              'https://fonts.googleapis.com/css?family=Work+Sans:400,500,600&display=swap'
           ]
       }
   },

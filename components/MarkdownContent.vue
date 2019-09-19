@@ -25,7 +25,7 @@ export default {
   p, ul, ol, table {
     //font-family: $fs-serif;
     font-size: 1.8rem;//2rem;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.7;
     margin-bottom: 30px;
 
