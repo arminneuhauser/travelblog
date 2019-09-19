@@ -121,6 +121,22 @@ module.exports = {
       theme_color: '#241E15',
       background_color: "#F5F1EB",
       display: "standalone"
+    },
+    workbox: {
+      runtimeCaching: [
+        {
+          urlPattern: 'https://fonts.googleapis.com/.*',
+          handler: 'cacheFirst',
+          method: 'GET',
+          strategyOptions: {cacheableResponse: {statuses: [0, 200]}}
+        },
+        {
+          urlPattern: 'https://fonts.gstatic.com/.*',
+          handler: 'cacheFirst',
+          method: 'GET',
+          strategyOptions: {cacheableResponse: {statuses: [0, 200]}}
+        },
+      ]
     }
   },
 
