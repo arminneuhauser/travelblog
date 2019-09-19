@@ -106,8 +106,8 @@ module.exports = {
               'Work Sans:n3,n4,n5,n6'
           ],
           urls: [
-              'https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600&display=swap',
-              'https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600&display=swap'
+              'https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600',
+              'https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600'
           ]
       }
   },
@@ -120,7 +120,8 @@ module.exports = {
       start_url: 'https://www.solmates.at/',
       theme_color: '#241E15',
       background_color: "#F5F1EB",
-      display: "standalone"
+      display: "standalone",
+      orientation: "portrait-primary"
     },
     workbox: {
       runtimeCaching: [
