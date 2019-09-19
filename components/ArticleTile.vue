@@ -11,7 +11,7 @@
             media="(min-width: 768px)"
             :data-srcset="resize(story.content.image, '375x210') + ' 1x, ' + resize(story.content.image, '750x420') + ' 2x'">
           <source
-            :data-srcset="resize(story.content.image, '750x420') + '?webp'"
+            :data-srcset="resize(story.content.image, '750x420/filters:format(webp)')"
             type="image/webp">
           <img
             :data-src="resize(story.content.image, '750x420')"
