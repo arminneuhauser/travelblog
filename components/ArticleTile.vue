@@ -3,11 +3,20 @@
     <nuxt-link :to="'/' + story.full_slug" :aria-label="story.content.title">
       <figure>
         <picture>
-          <source :data-srcset="resize(story.content.image, '750x420/filters:format(webp)')" type="image/webp">
+          <source
+            media="(min-width: 768px)"
+            :data-srcset="resize(story.content.image, '375x210') + '?webp 1x, ' + resize(story.content.image, '750x420') + '?webp 2x'"
+            type="image/webp" >
+          <source
+            media="(min-width: 768px)"
+            :data-srcset="resize(story.content.image, '375x210') + ' 1x, ' + resize(story.content.image, '750x420') + ' 2x'">
+          <source
+            :data-srcset="resize(story.content.image, '750x420') + '?webp'"
+            type="image/webp">
           <img
-          :data-src="resize(story.content.image, '750x420')"
-          :alt="story.content.title"
-          class="lazyload">
+            :data-src="resize(story.content.image, '750x420')"
+            :alt="story.content.title"
+            class="lazyload">
         </picture>
       </figure>
 
