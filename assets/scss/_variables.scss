@@ -9,6 +9,9 @@ $home-background-color: #f5f1eb; //#fbdd8c; //#FAD66B; // #F9D339;
 $fs-sans: "Work Sans", Arial, sans-serif;
 $fs-serif: var(--fs-serif); // "Crimson Text", serif;
 
+$fs-sans-fallback: Arial, sans-serif;
+$fs-serif-fallback: Georgia, serif;
+
 /* --------------------------------------------------
 
    Breakpoint Settings

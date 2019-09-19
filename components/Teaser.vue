@@ -88,11 +88,18 @@ export default {
 
   h1 {
     flex-basis: 100%;
-    font-family: $fs-serif;
-    font-size: 3.4rem;
-    line-height: 1;
+    font-family: $fs-serif-fallback;
+    font-size: 2.8rem;
+    font-weight: normal;
+    line-height: 3.4rem;
     margin: 0 0 16px;
     opacity: 1;
+
+    .wf-crimsontext-n6-active & {
+      font-family: $fs-serif;
+      font-size: 3.4rem;
+      font-weight: 600;
+    }
   }
 
   p {
