@@ -47,7 +47,6 @@ export default {
   },
   mounted() {
     this.url = window.location.href
-    console.log(this.props)
   },
   methods: {
     facebookLink() {
