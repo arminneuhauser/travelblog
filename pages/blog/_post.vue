@@ -56,7 +56,6 @@
 
 <script>
 import Vue from 'vue'
-import SiteHeader from '~/components/SiteHeader.vue'
 import marked from 'marked'
 import storyblokLivePreview from '@/mixins/storyblokLivePreview'
 import { markdown, resize, formatDate, readTime } from '@/plugins/helper'
@@ -126,7 +125,6 @@ export default {
     }
   },
   components: {
-    SiteHeader,
     ProgressBar,
     ArticleTool
   },
