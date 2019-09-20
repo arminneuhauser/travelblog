@@ -34,8 +34,7 @@ module.exports = {
     ],
     link: [
       { rel: 'preconnect', href: '//www.googletagmanager.com' },
-      { rel: 'preconnect', href: '//www.google-analytics.com' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Work+Sans:400,500,600' }
+      { rel: 'preconnect', href: '//www.google-analytics.com' }
     ]
   },
 
@@ -97,6 +96,19 @@ module.exports = {
     webp: {
       quality: 85
     }
+  },
+
+  webfontloader: {
+      custom: {
+          families: [
+              'Crimson Text:n4,i4,n6',
+              'Work Sans:n4,n5,n6'
+          ],
+          urls: [
+              'https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600&display=block',
+              'https://fonts.googleapis.com/css?family=Work+Sans:400,500,600&display=block'
+          ]
+      }
   },
 
   pwa: {
