@@ -30,7 +30,6 @@
     "reading-time": "^1.2.0",
     "storyblok-nuxt": "^1.0.1",
     "vue": "^2.6.10",
-    "vue-cookies": "^1.5.13",
     "vue-scroll-progressbar": "^0.1.4",
     "vue-scrollto": "^2.15.0",
     "vue-server-renderer": "^2.6.10",

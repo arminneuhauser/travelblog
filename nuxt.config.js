@@ -69,6 +69,7 @@ module.exports = {
     '@nuxtjs/style-resources',
     ['vue-scrollto/nuxt', { duration: 300, offset: -70 }],
     '@bazzite/nuxt-optimized-images',
+    'nuxt-webfontloader',
     '@nuxtjs/pwa',
   ],
 
