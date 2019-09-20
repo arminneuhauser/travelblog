@@ -5,7 +5,7 @@
       <div class="container">
         <header>
           <nav>
-            <h3>Unser Reisetagebuch</h3>
+            <h3><nuxt-link :to="{ path: '/blog/'}">Unser Reisetagebuch</nuxt-link></h3>
             <nuxt-link class="link link--right" :to="{ path: '/blog/'}">mehr</nuxt-link>
           </nav>
         </header>
