@@ -32,4 +32,8 @@ export default {
 </script>
 
 <style lang="scss">
+.contactform {
+  margin: 0 auto;
+  max-width: 560px;
+}
 </style>

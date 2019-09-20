@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <article class="post" v-editable="story.content">
-      <div class="container">
-        <div class="post__header">
-          <div>
+  <div class="elevated" v-editable="story.content">
+    <article class="post">
+      <div class="post__header">
+        <div class="container">
+          <div class="post__title">
             <h3>
               <nuxt-link :key="category.id" v-for="category in categories" :to="'/' + category.full_slug">
                 <span>{{ category.content.name }}</span>
@@ -34,7 +34,9 @@
               resize(post.content.image, '638x0') + ' 600w'">-->
           </figure>
         </div>
+      </div>
 
+      <div class="container">
         <div class="post__body">
           <div v-html="body"></div>
           <article-tool :title="post.content.title"/>
@@ -165,6 +167,8 @@ export default {
 <style lang="scss">
 .post {
   .post__image {
+    position: relative;
+
     @include breakpoint(m) {
       flex-basis: 50%;
       margin: 0 0 30px;
@@ -176,17 +180,38 @@ export default {
   }
 
   .post__header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin: 30px auto;
+    background-color: #c5dbf2;
+    padding-top: 90px;
+    position: relative;
 
-    @include breakpoint(m) {
-        margin: 0 auto 30px auto;
+    @include breakpoint(s, max) {
+      &::before {
+        background-color: #fff;
+        bottom: 0;
+        content: '';
+        height: 40px;
+        position: absolute;
+        width: 100%;
+      }
     }
 
-    > div {
+    > .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: 30px auto;
+
+      @include breakpoint(m) {
+          margin: 0 auto 30px auto;
+      }
+    }
+
+    @include breakpoint(l) {
+      padding-top: 150px;
+    }
+
+    .post__title {
       @include breakpoint(m) {
         flex-basis: 50%;
         padding: 0 30px;
@@ -258,11 +283,8 @@ export default {
     }
 
     &::after {
-      @include squiggly;
-    }
-
-    &::after {
       content: '';
+      @include squiggly;
     }
 
     > div {

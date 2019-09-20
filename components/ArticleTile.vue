@@ -74,7 +74,6 @@ article {
   }
 
   h1 {
-    color: $cta;
     font-family: $fs-serif;
     font-size: 2.4rem;
     line-height: 1.1;
