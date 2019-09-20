@@ -35,6 +35,7 @@ module.exports = {
     link: [
       { rel: 'preconnect', href: '//www.googletagmanager.com' },
       { rel: 'preconnect', href: '//www.google-analytics.com' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Work+Sans:400,500,600' }
     ]
   },
 
@@ -69,7 +70,6 @@ module.exports = {
     '@nuxtjs/style-resources',
     ['vue-scrollto/nuxt', { duration: 300, offset: -70 }],
     '@bazzite/nuxt-optimized-images',
-    'nuxt-webfontloader',
     '@nuxtjs/pwa',
   ],
 
@@ -97,19 +97,6 @@ module.exports = {
     webp: {
       quality: 85
     }
-  },
-
-  webfontloader: {
-      custom: {
-          families: [
-              'Crimson Text:n4,i4,n6',
-              'Work Sans:n4,n5,n6'
-          ],
-          urls: [
-              'https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600&display=swap',
-              'https://fonts.googleapis.com/css?family=Work+Sans:400,500,600&display=swap'
-          ]
-      }
   },
 
   pwa: {

@@ -26,7 +26,6 @@
     "medium-zoom": "^1.0.4",
     "moment": "^2.24.0",
     "nuxt": "^2.8.1",
-    "nuxt-webfontloader": "^1.1.0",
     "reading-time": "^1.2.0",
     "storyblok-nuxt": "^1.0.1",
     "vue": "^2.6.10",
