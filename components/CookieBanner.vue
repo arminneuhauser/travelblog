@@ -32,7 +32,6 @@
       }
     },
     beforeMount() {
-      console.log(this.cookie);
       this.show = this.cookie
     },
     methods: {
