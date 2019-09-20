@@ -1,8 +1,9 @@
 @mixin ratio-container($aspect-ratio: 16/9) {
   position: relative;
-  background: linear-gradient(90deg, rgba($tint, 0.1), rgba($tint, 0.3), rgba($tint, 0.1), rgba($tint, 0.3));
-	background-size: 300% 300%;
-	animation: gradient-animation 3s ease infinite;
+  background-color: #eaeaea;
+  background: linear-gradient(to right, rgba($tint, 0.1) 8%, rgba($tint, 0.15) 18%, rgba($tint, 0.1) 33%);
+	background-size: 400% 100%;
+	animation: gradient-animation 2s linear 0s infinite forwards;
 
   &::after {
     content: '';
@@ -24,10 +25,10 @@
 
   @keyframes gradient-animation {
   	0% {
-  		background-position: 0% 50%;
+  		background-position: -50% 0;
   	}
   	100% {
-  		background-position: 100% 50%;
+  		background-position: 50% 0;
   	}
   }
 }
