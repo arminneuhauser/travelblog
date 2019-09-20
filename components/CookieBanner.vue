@@ -3,7 +3,7 @@
     <!-- stolen from https://github.com/EvodiaAut/vue-cookieconsent-component -->
     <div class="cookie-banner" v-if="show" role="dialog">
       <p>
-        <strong>Jeder liebt Cookies</strong> 🍪<br>
+        <strong>Wir alle lieben Cookies</strong> 🍪<br>
         Surfst du weiterhin auf unserer Seite, stimmst du unserer Cookie-Nutzung und unserer <nuxt-link to="/impressum-datenschutz">Datenschutzrichtlinie</nuxt-link> zu.<br>
       </p>
       <div>
@@ -79,11 +79,10 @@ export default {
   display: flex;
   padding: 20px;
   margin: 10px;
-  max-width: 510px;
+  max-width: 430px;
   z-index: 2;
 
   p {
-    font-size: 1.5rem;
     margin: 0;
   }
 
