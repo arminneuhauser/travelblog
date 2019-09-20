@@ -1,18 +1,19 @@
 <template>
-  <div>
-    <!-- stolen from https://github.com/EvodiaAut/vue-cookieconsent-component -->
-    <div class="cookie-banner" v-if="show" role="dialog">
-      <p>
-        <strong>Wir alle lieben Cookies</strong> 🍪<br>
-        Surfst du weiterhin auf unserer Seite, stimmst du unserer Cookie-Nutzung und unserer <nuxt-link to="/impressum-datenschutz">Datenschutzrichtlinie</nuxt-link> zu.<br>
-      </p>
-      <div>
-        <button @click="dismiss">
-          <svg><use xlink:href="#close"></use></svg>
-        </button>
+  <no-ssr>
+    <transition :name="transition">
+      <div class="cookie-banner" v-if="show" role="dialog">
+        <p>
+          <strong>Wir alle lieben Cookies</strong> 🍪<br>
+          Surfst du weiterhin auf unserer Seite, stimmst du unserer Cookie-Nutzung und unserer <nuxt-link to="/impressum-datenschutz">Datenschutzrichtlinie</nuxt-link> zu.<br>
+        </p>
+        <div>
+          <button @click="dismiss">
+            <svg><use xlink:href="#close"></use></svg>
+          </button>
+        </div>
       </div>
-    </div>
-  </div>
+    </transition>
+  </no-ssr>
 </template>
 
 <script>
@@ -23,7 +24,8 @@ export default {
       cookieName: 'cookieconsent_status',
       cookiePath: '/',
       cookieDomain: '',
-      cookieExpiryDays: 365
+      cookieExpiryDays: 365,
+      transition: 'cookie-consent-transition'
     }
   },
   computed: {
@@ -84,6 +86,10 @@ export default {
 
   p {
     margin: 0;
+
+    a {
+      color: rgba($tint,.86);
+    }
   }
 
   button {
@@ -96,6 +102,15 @@ export default {
   svg {
     width: 24px;
     height: 24px;
+  }
+}
+
+.cookie-consent-transition {
+  &-leave-active {
+    transition: opacity .3s ease-out;
+  }
+  &-leave-to {
+    opacity: 0;
   }
 }
 </style>
