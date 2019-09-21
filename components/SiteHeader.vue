@@ -95,7 +95,8 @@ export default {
   &[data-scrolled] {
     position: fixed;
     height: 70px;
-    background-color: rgba(#fff,0.97);
+    backdrop-filter: saturate(140%) blur(8px);
+    background-color: rgba(#fff,0.94);
     //border-color: #dbd9d2;
     box-shadow: 0 4px 12px 0 rgba(0,0,0,.1);
 
