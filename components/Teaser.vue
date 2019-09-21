@@ -88,11 +88,18 @@ export default {
 
   h1 {
     flex-basis: 100%;
-    font-family: $fs-serif;
-    font-size: 3.4rem;
-    line-height: 1;
+    font-family: $fs-serif-fallback;
+    font-weight: normal;
+    font-size: 3.2rem;
+    line-height: 3.4rem;
     margin: 0 0 16px;
     opacity: 1;
+
+    .wf-crimsontext-n6-active & {
+      font-family: $fs-serif;
+      font-size: 3.4rem;
+      font-weight: 600;
+    }
   }
 
   p {
@@ -172,7 +179,12 @@ export default {
     }
 
     h1 {
-      font-size: 4.2rem;
+      font-size: 3.9rem;
+      line-height: 4.2rem;
+
+      .wf-crimsontext-n6-active & {
+        font-size: 4.2rem;
+      }
     }
 
     p {
@@ -195,7 +207,12 @@ export default {
     }
 
     h1 {
-      font-size: 5.6rem;
+      font-size: 5.2rem;
+      line-height: 5.6rem;
+
+      .wf-crimsontext-n6-active & {
+        font-size: 5.6rem;
+      }
     }
   }
 }
