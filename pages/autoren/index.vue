@@ -49,6 +49,7 @@ export default {
   list-style-type: none;
 
   li {
+    display: flex;
     flex-basis: 100%;
     padding: 0 15px;
     margin-bottom: 30px;
