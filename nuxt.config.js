@@ -106,8 +106,8 @@ module.exports = {
               'Work Sans:n4,n5,n6'
           ],
           urls: [
-              'https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600&display=block',
-              'https://fonts.googleapis.com/css?family=Work+Sans:400,500,600&display=block'
+              'https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600&display=swap',
+              'https://fonts.googleapis.com/css?family=Work+Sans:400,500,600&display=swap'
           ]
       }
   },

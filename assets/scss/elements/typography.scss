@@ -1,3 +1,15 @@
+.wf-loading {
+  h1, h2, h3, h4, h5, h6, p {
+    visibility: hidden;
+  }
+}
+
+.wf-active, .wf-inactive {
+  h1, h2, h3, h4, h5, h6, p {
+    visibility: visible;
+  }
+}
+
 a {
   text-decoration: none;
   color: $tint;

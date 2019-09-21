@@ -86,6 +86,12 @@ export default {
   box-shadow: 0 4px 12px 0 rgba(0,0,0,.1);
   transition: background-color .2s ease, border-color .2s ease;
 
+  .page-blog & {
+    &:not([data-scrolled]) {
+      box-shadow: none;
+    }
+  }
+
   &[data-scrolled] {
     position: fixed;
     height: 70px;
@@ -334,8 +340,7 @@ export default {
   }
 
   @include breakpoint(m) {
-    .page-home &,
-    .page-blog & {
+    .page-home & {
       &:not([data-scrolled]) {
         box-shadow: none;
       }
@@ -457,7 +462,7 @@ export default {
             margin: 0 -15px 0 0;
 
             svg {
-              stroke: $tint-inv;
+              stroke: rgba($tint,0.2);
               transition: all 0.2s ease;
 
               &:first-of-type {
