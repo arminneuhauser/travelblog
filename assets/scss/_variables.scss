@@ -5,10 +5,8 @@ $cta: #e85b46; //#005744;
 $cta-inv: #ffb500;
 $home-background-color: #f5f1eb; //#fbdd8c; //#FAD66B; // #F9D339;
 
-// Workaround weil SASS compressed aus "Crimson" #dc143c kompiliert
 $fs-sans: "Work Sans", Arial, sans-serif;
-$fs-serif: var(--fs-serif); // "Crimson Text", serif;
-$fs-serif: 	"Crimson Text", Big Caslon, Book Antiqua, Palatino Linotype, Georgia, serif;
+$fs-serif: var(--fs-serif); // Workaround weil SASS compressed aus "Crimson" #dc143c kompiliert
 
 $fs-sans-fallback: Arial, sans-serif;
 $fs-serif-fallback: Georgia, serif;
