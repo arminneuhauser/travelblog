@@ -30,6 +30,27 @@ import storyblokLivePreview from '@/mixins/storyblokLivePreview'
 export default {
   head() {
     return {
+      title: 'Solmates - Mit dem Rucksack durch Lateinamerika',
+      meta: [
+        { hid: 'description', name: 'description', content: 'Ein Reisetagebuch von Miriam und Armin. Begleitet uns auf unserem Abenteuer von den Alpen in die Anden.' },
+        { hid: 'og:title', propery: 'og:title', content: 'Solmates - Mit dem Rucksack durch Lateinamerika' },
+        { hid: 'og:description', propery: 'og:description', content: 'Ein Reisetagebuch von Miriam und Armin. Begleitet uns auf unserem Abenteuer von den Alpen in die Anden.' },
+        { hid: 'og:image', propery: 'og:image', content: 'https://img2.storyblok.com/750x422/f/54536/2048x1365/306b0b6caf/12034365_10205045344112624_7076641627775926331_o.jpg' },
+        { hid: 'og:url', property: 'og:url', content: 'https://www.solmates.at' },
+        { hid: 'twitter:title', name: 'twitter:title', content: 'Solmates - Mit dem Rucksack durch Lateinamerika' },
+        { hid: 'twitter:description', name: 'twitter:description', content: 'Ein Reisetagebuch von Miriam und Armin. Begleitet uns auf unserem Abenteuer von den Alpen in die Anden.' },
+        { hid: 'twitter:image', name: 'twitter:image', content: 'https://img2.storyblok.com/750x422/f/54536/2048x1365/306b0b6caf/12034365_10205045344112624_7076641627775926331_o.jpg' }
+      ],
+      __dangerouslyDisableSanitizers: ['script'],
+      script: [{ innerHTML: JSON.stringify({
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "https://www.solmates.at",
+        "name": "Solmates",
+        "alternateName": "Mit dem Rucksack durch Lateinamerika",
+        "description": "Ein Reisetagebuch von Miriam und Armin. Begleitet uns auf unserem Abenteuer von den Alpen in die Anden.",
+        "image": "https://img2.storyblok.com/750x422/f/54536/2048x1365/306b0b6caf/12034365_10205045344112624_7076641627775926331_o.jpg"
+      }), type: 'application/ld+json' }],
       bodyAttrs: {
         class: 'page-home',
       },
