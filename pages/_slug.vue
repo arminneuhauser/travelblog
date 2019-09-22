@@ -28,6 +28,9 @@ export default {
     return { story: { content: {} } }
   },
   mixins: [storyblokLivePreview],
+  methods: {
+    resize
+  },
   asyncData (context) {
     let version = context.query._storyblok || context.isDev ? 'draft' : 'published'
 

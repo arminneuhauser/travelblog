@@ -51,12 +51,12 @@ h4, h5, h6 {
 p {
   margin: 0 0 16px;
   color: rgba($tint,.86);
+
+  i, cite, em, var, address, dfn {
+    font-style: normal; // Work Sans has no italics
+  }
 }
 
 strong, b {
   font-weight: 600;
-}
-
-i, cite, em, var, address, dfn {
-  font-style: normal; // Work Sans has no italics
 }

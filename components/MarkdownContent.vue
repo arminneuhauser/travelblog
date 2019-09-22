@@ -5,15 +5,15 @@
 </template>
 
 <script>
-import marked from 'marked'
+import { markdown } from '@/plugins/helper'
 
 export default {
   props: ['blok'],
   computed: {
     body () {
-      return marked(this.blok.body)
+      return markdown(this.blok.body, '860x0')
     }
-  },
+  }
 }
 </script>
 
@@ -48,6 +48,13 @@ export default {
       font-size: 1.4rem;
       line-height: 1.6;
       margin-bottom: 10px;
+    }
+  }
+
+  img {
+    @include breakpoint(l) {
+      margin: 0 -80px;
+      max-width: calc(100% + 160px);
     }
   }
 }
