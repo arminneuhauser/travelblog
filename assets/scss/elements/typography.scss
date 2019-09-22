@@ -3,7 +3,6 @@ a {
   color: $tint;
 
   p & {
-    color: $cta;
     text-decoration: underline;
     transition: all .1s ease-out;
 
