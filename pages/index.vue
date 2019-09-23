@@ -97,6 +97,7 @@ export default {
     article {
       border-bottom: none;
       flex-basis: 50%;
+      max-width: 50%;
       padding: 20px 15px;
 
       header {
@@ -108,6 +109,7 @@ export default {
   @include breakpoint(l) {
     article {
       flex-basis: 33.33333%;
+      max-width: 33.33333%;
 
       h1 {
         font-size: 2.6rem;

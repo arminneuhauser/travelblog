@@ -57,6 +57,7 @@ export default {
   }
 
   .teaser__text {
+    flex-grow: 1;
     display: flex;
     align-content: flex-start;
     flex-wrap: wrap;
@@ -65,6 +66,7 @@ export default {
 
     figure {
       flex-basis: 70px;
+      max-width: 70px;
 
       img {
         border-radius: 100%;
@@ -72,6 +74,7 @@ export default {
 
       + div {
         flex-basis: calc(100% - 70px);
+        max-width: calc(100% - 70px);
         padding-left: 20px;
       }
     }
@@ -133,9 +136,11 @@ export default {
 
       figure {
         flex-basis: 90px;
+        max-width: 90px;
 
         + div {
           flex-basis: calc(100% - 90px);
+          max-width: calc(100% - 90px);
         }
       }
     }

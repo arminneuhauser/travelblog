@@ -108,7 +108,7 @@ export default {
 <style lang="scss">
 .article-tool {
   nav {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 
     &:before {
       @include squiggly;
@@ -123,7 +123,7 @@ export default {
       display: flex;
       justify-content: center;
       list-style: none;
-      margin: 0 -15px;
+      margin: 0 -15px !important;
       padding: 0;
       position: relative;
     }

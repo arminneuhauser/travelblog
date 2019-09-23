@@ -171,7 +171,7 @@ export default {
 
     @include breakpoint(m) {
       flex-basis: 50%;
-      margin: 0 0 30px;
+      margin: 0 0 50px;
     }
 
     img {
@@ -261,6 +261,10 @@ export default {
   .meta {
     margin: 40px 0;
 
+    @include breakpoint(m) {
+      margin-bottom: 50px;
+    }
+
     a:hover {
       text-decoration: underline;
     }
@@ -268,7 +272,7 @@ export default {
 
   .post__body {
     max-width: 700px;
-    margin: 0 auto 100px;
+    margin: 0 auto 80px;
     position: relative;
 
     p, ul, ol, table {
@@ -410,7 +414,7 @@ export default {
 }
 
 .related {
-  margin-bottom: 100px;
+  margin-bottom: 80px;
   position: relative;
 
   h2 {

@@ -34,6 +34,13 @@ export default {
     }
   }
 
+  img + em {
+    font-family: $fs-serif;
+    font-style: italic;
+    display: inherit;
+    text-align: center;
+  }
+
   &.small {
     h1 {
       font-size: 2.8rem;

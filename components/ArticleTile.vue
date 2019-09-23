@@ -109,6 +109,7 @@ article {
 
       header {
         flex-basis: calc(100% - 375px);
+        max-width: calc(100% - 375px);
         padding: 0 20px;
       }
     }
