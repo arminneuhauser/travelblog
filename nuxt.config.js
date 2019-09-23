@@ -71,6 +71,7 @@ module.exports = {
     '@bazzite/nuxt-optimized-images',
     'nuxt-webfontloader',
     '@nuxtjs/pwa',
+    '@nuxtjs/sitemap'
   ],
 
   styleResources: {
