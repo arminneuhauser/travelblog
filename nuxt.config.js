@@ -142,6 +142,11 @@ module.exports = {
     }
   },
 
+  sitemap: {
+    hostname: 'https://www.solmates.at',
+    gzip: true
+  },
+
   /*
   ** Build configuration
   */
