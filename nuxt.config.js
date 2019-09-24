@@ -71,7 +71,7 @@ module.exports = {
     'nuxt-webfontloader',
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
-    ['@nuxtjs/google-tag-manager', { id: 'GTM-TQ4VF8M' }],
+    ['@nuxtjs/google-tag-manager', { id: 'GTM-TQ4VF8M', pageTracking: true }],
   ],
 
   styleResources: {
