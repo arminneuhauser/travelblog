@@ -93,7 +93,7 @@ hr {
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba($tint,0.2);
+      background-color: rgba($tint,0.4);
       transition: background-color .2s ease-out;
     }
   }
@@ -109,13 +109,24 @@ hr {
     width: 100%;
     text-align: center;
     transform: translateY(-50%);
-    text-shadow: 0 0 20px rgba($tint,0.5);
+    text-shadow: 0 2px 20px rgba($tint,0.6);
+    hyphens: auto;
+    word-break: break-word;
+    font-size: 2.8rem;
+
+    @include breakpoint(m) {
+      font-size: 3rem;
+    }
+
+    @include breakpoint(xl) {
+      font-size: 3.4rem;
+    }
   }
 
   &:hover {
     figure {
       &::before {
-        background-color: rgba($tint,0.3);
+        background-color: rgba($tint,0.5);
       }
     }
 

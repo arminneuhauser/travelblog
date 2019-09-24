@@ -91,7 +91,7 @@ export default {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2) 200px)
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3) 200px)
   }
 
   > div {
@@ -103,13 +103,13 @@ export default {
     color: #fff;
     font-size: 4.2rem;
     line-height: 4.2rem;
-    text-shadow: 0 0 30px rgba(0,0,0,0.2);
+    text-shadow: 0 5px 30px rgba($tint,0.6);
   }
 
   p {
     font-size: 1.8rem;
     color: #fff;
-    text-shadow: 0 0 30px rgba(0,0,0,0.2);
+    text-shadow: 0 5px 30px rgba($tint,0.6);
   }
 
   .arrow-button {

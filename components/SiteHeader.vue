@@ -523,6 +523,10 @@ export default {
         }
 
         &.cta {
+          svg {
+            stroke: rgba(#fff,0.3);
+          }
+
           &:hover {
             svg {
               stroke: #fff;
