@@ -60,3 +60,20 @@ p {
 strong, b {
   font-weight: 600;
 }
+
+pre {
+  color: #abb2bf;
+  background: #282c34;
+  font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  tab-size: 4;
+  hyphens: none;
+  padding: 15px;
+  overflow: auto;
+  border-radius: 4px;
+}

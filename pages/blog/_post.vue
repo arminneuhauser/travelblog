@@ -284,6 +284,10 @@ export default {
       @include breakpoint(l) {
         font-size: 2.2rem; //1.8rem;
       }
+
+      em {
+        font-style: italic;
+      }
     }
 
     &::after {
@@ -313,9 +317,16 @@ export default {
     }
 
     img {
+      display: block;
+
       @include breakpoint(l) {
         margin: 0 -80px;
         max-width: calc(100% + 160px);
+
+        &[src$="gif"] {
+          margin: 0 auto;
+          max-width: 100%;
+        }
       }
     }
 
