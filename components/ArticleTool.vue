@@ -16,7 +16,7 @@
           </a>
         </li>
         <li>
-          <a @click="whatsappLink(title + ' - Solmates')" title="Artikel in WhatsApp senden" class="whatsapp">
+          <a @click="whatsappLink(title)" title="Artikel in WhatsApp senden" class="whatsapp">
             <span>in WhatsApp senden</span>
             <svg><use xlink:href="#whatsapp"></use></svg>
           </a>
