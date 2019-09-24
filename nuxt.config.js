@@ -71,7 +71,8 @@ module.exports = {
     '@bazzite/nuxt-optimized-images',
     'nuxt-webfontloader',
     '@nuxtjs/pwa',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    ['@nuxtjs/google-analytics', {id: 'UA-39805204-3'}]
   ],
 
   styleResources: {
