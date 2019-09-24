@@ -108,7 +108,7 @@ export default {
 <style lang="scss">
 .article-tool {
   nav {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 
     &:before {
       @include squiggly;
