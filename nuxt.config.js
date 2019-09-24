@@ -54,7 +54,6 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: '@/plugins/gtm.js', ssr: false },
     '@/plugins/components',
     '@/plugins/filters',
     '@/plugins/helper',
@@ -72,7 +71,7 @@ module.exports = {
     'nuxt-webfontloader',
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
-    ['@nuxtjs/google-analytics', {id: 'UA-39805204-3'}]
+    ['@nuxtjs/google-tag-manager', { id: 'GTM-TQ4VF8M' }],
   ],
 
   styleResources: {
