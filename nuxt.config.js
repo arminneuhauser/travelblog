@@ -216,6 +216,6 @@ module.exports = {
         })).catch(callback)
       })
     },
-    fallback: "404.html"
+    fallback: true
   }
 }
