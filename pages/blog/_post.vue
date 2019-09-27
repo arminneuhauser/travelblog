@@ -140,7 +140,7 @@ export default {
     },
     cssVars() {
       return {
-        '--background-color': this.post.content.backgroundcolor,
+        '--background': this.post.content.background,
         '--text-color': this.post.content.textcolor,
         '--deco-color': this.post.content.decocolor
       }
@@ -192,7 +192,7 @@ export default {
 
   .post__header {
     //background-color: #c5dbf2;
-    background-color: var(--background-color);
+    background: var(--background);
     color: var(--text-color);
     padding-top: 90px;
     position: relative;

@@ -1,5 +1,5 @@
 <template>
-  <div class="hero hero--author" v-editable="author.content">
+  <div v-editable="author.content" :style="cssVars">
     <div class="author">
       <div class="container">
         <header>
@@ -42,6 +42,22 @@ import storyblokLivePreview from '@/mixins/storyblokLivePreview'
 import { resize } from '@/plugins/helper'
 
 export default {
+  head() {
+    return {
+      bodyAttrs: {
+        class: 'page-author',
+        style: '--site-header-tint: ' + this.author.content.textcolor
+      },
+    };
+  },
+  computed: {
+    cssVars() {
+      return {
+        '--background': this.author.content.background,
+        '--text-color': this.author.content.textcolor
+      }
+    }
+  },
   methods: {
     resize
   },
@@ -64,19 +80,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.hero--author {
-  background: $home-background-color;
-}
-
 .author {
+  background: var(--background);
   border-bottom: 1px solid rgba($tint,0.15);
-  margin-top: 20px;
-  padding-bottom: 30px;
+  color: var(--text-color);
+  padding: 90px 0 30px;
   text-align: center;
+
+  @include breakpoint(l) {
+    padding-top: 150px;
+  }
 
   header {
     display: flex;
-    margin-bottom: 20px;
+    margin: 20px 0;
+
+    a {
+      color: var(--text-color);
+    }
   }
 
   figure {
@@ -91,6 +112,10 @@ export default {
     font-style: italic;
     font-weight: normal;
     margin-top: 0;
+  }
+
+  p {
+    color: var(--text-color);
   }
 
   @include breakpoint(m) {
@@ -134,6 +159,8 @@ export default {
     @include button();
     @include ghost-button();
     @include small-button();
+    color: var(--text-color);
+    border-color: var(--text-color);
   }
 }
 </style>

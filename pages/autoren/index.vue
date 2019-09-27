@@ -21,7 +21,7 @@ export default {
   head() {
     return {
       bodyAttrs: {
-        class: 'page-author',
+        class: 'page-authors',
       },
     };
   },

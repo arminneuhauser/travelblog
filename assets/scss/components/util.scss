@@ -43,7 +43,7 @@
 .main {
   min-height: calc(100vh - 215px);
 
-  body:not(.page-category):not(.page-blog) & {
+  body:not(.page-category):not(.page-blog):not(.page-author) & {
     > div, > article, > section {
       padding-top: 90px;
 
@@ -54,7 +54,7 @@
   }
 }
 
-.page-author {
+.page-authors {
   .main {
     background: $home-background-color;
   }
