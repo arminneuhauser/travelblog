@@ -1,5 +1,5 @@
 <template>
-  <div class="elevated" v-editable="story.content">
+  <div v-editable="story.content" :style="cssVars">
     <article class="post">
       <div class="post__header">
         <div class="container">
@@ -119,6 +119,7 @@ export default {
       }), type: 'application/ld+json' }],
       bodyAttrs: {
         class: 'page-blog',
+        style: '--site-header-tint: ' + this.post.content.textcolor
       }
     }
   },
@@ -136,6 +137,13 @@ export default {
   computed: {
     body () {
       return markdown(this.post.content.body, '860x0')
+    },
+    cssVars() {
+      return {
+        '--background-color': this.post.content.backgroundcolor,
+        '--text-color': this.post.content.textcolor,
+        '--deco-color': this.post.content.decocolor
+      }
     }
   },
   mounted: function() {
@@ -183,7 +191,9 @@ export default {
   }
 
   .post__header {
-    background-color: #c5dbf2;
+    //background-color: #c5dbf2;
+    background-color: var(--background-color);
+    color: var(--text-color);
     padding-top: 90px;
     position: relative;
 
@@ -221,6 +231,7 @@ export default {
         max-width: 510px;
       }
 
+      // categories
       h3 {
         font-family: $fs-sans;
         font-weight: 500;
@@ -229,7 +240,7 @@ export default {
         margin: 0 0 10px;
 
         a {
-          color: $cta;
+          color: var(--deco-color, $cta);
 
           &:hover span {
             text-decoration: underline;
@@ -250,6 +261,7 @@ export default {
       }
 
       > p {
+        color: var(--text-color);
         margin-bottom: 30px;
         font-size: 1.8rem;
         line-height: 1.4;
@@ -270,6 +282,10 @@ export default {
 
     a:hover {
       text-decoration: underline;
+    }
+
+    * {
+      color: var(--text-color);
     }
   }
 
@@ -375,56 +391,6 @@ export default {
       }
     }
   }
-
-  /*&.elevated {
-    .post__header {
-      position: relative;
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      min-height: 80vh;
-      padding-top: 90px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: #fff;
-
-      @include breakpoint(m) {
-        padding-top: 150px;
-      }
-
-      &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2) 200px)
-      }
-
-      > * {
-        position: relative;
-        text-shadow: 0 0 30px rgba(0,0,0,0.1);
-      }
-
-      > div {
-        h3 {
-          a {
-            color: #fff;
-          }
-        }
-
-        > p {
-          color: #fff;
-        }
-      }
-    }
-    .meta {
-      justify-content: center;
-    }
-  }*/
 }
 
 .related {

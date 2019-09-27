@@ -43,14 +43,12 @@
 .main {
   min-height: calc(100vh - 215px);
 
-  &:not(.elevated) {
+  body:not(.page-category):not(.page-blog) & {
     > div, > article, > section {
-      &:not(.elevated) {
-        padding-top: 90px;
+      padding-top: 90px;
 
-        @include breakpoint(l) {
-          padding-top: 150px;
-        }
+      @include breakpoint(l) {
+        padding-top: 150px;
       }
     }
   }

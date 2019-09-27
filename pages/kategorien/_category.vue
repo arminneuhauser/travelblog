@@ -40,13 +40,15 @@ export default {
         { hid: 'twitter:title', name: 'twitter:title', content: this.category.name },
         { hid: 'twitter:description', name: 'twitter:description', content: this.category.content.about },
         { hid: 'twitter:image', name: 'twitter:image', content: 'https:' + resize(this.category.content.image, '1200x630') }
-      ]
+      ],
+      bodyAttrs: {
+        class: 'page-category'
+      }
     }
   },
   data () {
     return { story: { content: {} } }
   },
-  layout: 'elevated',
   methods: {
     resize
   },

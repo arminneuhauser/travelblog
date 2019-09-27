@@ -42,7 +42,7 @@ export default {
   z-index: 4;
 
   > div {
-    background-color: $cta;
+    background-color: var(--deco-color, $cta);
     height: 4px;
   }
 }

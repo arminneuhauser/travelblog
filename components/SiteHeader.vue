@@ -86,10 +86,15 @@ export default {
   box-shadow: 0 4px 12px 0 rgba(0,0,0,.1);
   transition: background-color .2s ease, border-color .2s ease;
 
-  .page-blog & {
+  .page-blog &,
+  .page-category & {
     &:not([data-scrolled]) {
       box-shadow: none;
     }
+  }
+
+  .page-category & {
+    --site-header-tint: #fff;
   }
 
   &[data-scrolled] {
@@ -102,11 +107,29 @@ export default {
 
     .site-header__logo {
       svg {
+        fill: $tint;
         height: 60px;
         width: 150px;
       }
     }
+
+    // menu button
+    button {
+      .site-header__icon {
+        div {
+          background-color: $tint;
+        }
+      }
+    }
   }
+
+  /*&:not([data-scrolled]) {
+    .site-header__logo {
+      svg {
+        fill: var(--header-tint);
+      }
+    }
+  }*/
 
   .container {
     align-items: center;
@@ -137,7 +160,7 @@ export default {
       z-index: 3;
 
       div {
-        background-color: $tint;
+        background-color: var(--site-header-tint, $tint);
         border-radius: 2px;
         left: 50%;
         position: absolute;
@@ -210,7 +233,7 @@ export default {
     }
 
     svg {
-      fill: $tint;
+      fill: var(--site-header-tint, $tint);
       height: 72px;
       width: 180px;
       transition: all .2s ease-out;
@@ -364,6 +387,26 @@ export default {
           width: 210px;
         }
       }
+
+      nav {
+        ul {
+          li {
+            a {
+              color: $tint;
+            }
+            &:not(.cta) {
+              &::after {
+                border-color: $tint;
+              }
+            }
+            &.cta {
+              svg {
+                stroke: $tint;
+              }
+            }
+          }
+        }
+      }
     }
 
     &[data-scrolled="up"] {
@@ -418,7 +461,7 @@ export default {
           }
 
           a {
-            color: $tint;
+            color: var(--site-header-tint, $tint);
             font-size: 1.5rem;
             font-weight: normal;
             margin-right: 10px;
@@ -440,7 +483,7 @@ export default {
               position: absolute;
               bottom: 13px;
               left: 15px;
-              border-bottom: 2px solid $tint;
+              border-bottom: 2px solid var(--site-header-tint, $tint);
               border-radius: 1px;
               opacity: 0;
               transform: scaleX(0);
@@ -463,7 +506,8 @@ export default {
             margin: 0 -15px 0 0;
 
             svg {
-              stroke: rgba($tint,0.2);
+              stroke: var(--site-header-tint, $tint);
+              opacity: 0.25;
               transition: all 0.2s ease;
 
               &:first-of-type {
@@ -477,7 +521,7 @@ export default {
 
             &:hover {
               svg {
-                stroke: $tint;
+                opacity: 1;
 
                 &:first-of-type {
                   transform: translateX(-50%) translateY(-10px);
@@ -493,43 +537,6 @@ export default {
           &:last-child {
             a {
               margin-right: 0;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  &.elevated:not([data-scrolled]) {
-    box-shadow: none;
-
-    .site-header__logo svg {
-      fill: #fff;
-    }
-    button .site-header__icon div {
-      background-color: #fff;
-    }
-
-    @include breakpoint(m) {
-      nav ul li {
-        a {
-          color: #fff;
-        }
-
-        &:not(.cta) {
-          &::after {
-            border-color: #fff;
-          }
-        }
-
-        &.cta {
-          svg {
-            stroke: rgba(#fff,0.3);
-          }
-
-          &:hover {
-            svg {
-              stroke: #fff;
             }
           }
         }
