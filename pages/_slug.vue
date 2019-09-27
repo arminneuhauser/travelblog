@@ -21,7 +21,16 @@ export default {
         { hid: 'twitter:title', name: 'twitter:title', content: this.story.name },
         { hid: 'twitter:description', name: 'twitter:description', content: this.story.content.description },
         { hid: 'twitter:image', name: 'twitter:image', content: resize(this.story.content.image, '1200x630') }
-      ]
+      ],
+      __dangerouslyDisableSanitizers: ['script'],
+      script: [{ innerHTML: JSON.stringify({
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "https://www.solmates.at" + this.$route.fullPath,
+        "name": this.story.name + " - Solmates",
+        "description": this.story.content.description,
+        "image": resize(this.story.content.image, '1200x630')
+      }), type: 'application/ld+json' }],
     }
   },
   data () {

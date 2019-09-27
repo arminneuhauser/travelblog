@@ -47,7 +47,7 @@ export default {
         "@type": "WebSite",
         "url": "https://www.solmates.at",
         "name": "Solmates",
-        "alternateName": "Mit dem Rucksack durch Lateinamerika",
+        "alternateName": "Solmates - Mit dem Rucksack durch Lateinamerika",
         "description": "Ein Reisetagebuch von Miriam und Armin. Begleitet uns auf unserem Abenteuer von den Alpen in die Anden.",
         "image": "https://img2.storyblok.com/750x422/f/54536/2048x1365/306b0b6caf/12034365_10205045344112624_7076641627775926331_o.jpg"
       }), type: 'application/ld+json' }],

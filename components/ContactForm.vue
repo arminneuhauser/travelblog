@@ -1,6 +1,7 @@
 <template>
   <div class="contactform padding-bottom" v-editable="blok">
     <h1>{{ blok.headline }}</h1>
+    <p>{{ blok.text }}</p>
     <form name="contact" method="POST" action="/kontakt/erfolg" netlify-honeypot="bot-field" data-netlify="true">
       <input type="hidden" name="form-name" value="contact">
       <p class="hidden">
