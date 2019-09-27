@@ -88,6 +88,8 @@ export default {
   }
 
   h1 {
+    font-style: italic;
+    font-weight: normal;
     margin-top: 0;
   }
 
