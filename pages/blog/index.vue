@@ -80,3 +80,13 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .blog {
+    padding-top: 90px;
+
+    @include breakpoint(l) {
+      padding-top: 150px;
+    }
+  }
+</style>
