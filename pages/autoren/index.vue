@@ -77,8 +77,8 @@ export default {
   h2 {
     color: $cta;
     font-size: 2.8rem;
-    font-style: italic;
-    font-weight: normal;
+    //font-style: italic;
+    //font-weight: normal;
     margin: 10px 0;
   }
 
