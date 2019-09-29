@@ -34,8 +34,7 @@ module.exports = {
     ],
     link: [
       { rel: 'preconnect', href: '//www.googletagmanager.com' },
-      { rel: 'preconnect', href: '//www.google-analytics.com' },
-      { rel: 'preconnect', href: '//fonts.googleapis.com' }
+      { rel: 'preconnect', href: '//www.google-analytics.com' }
     ]
   },
 
