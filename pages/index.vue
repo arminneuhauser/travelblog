@@ -84,7 +84,7 @@ export default {
 
 <style lang="scss" scoped>
 .hero--home {
-  @include bg-pattern($home-background-color,darken($home-background-color,10%));
+  //@include bg-pattern($home-background-color,darken($home-background-color,10%));
 }
 
 .blog {

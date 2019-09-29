@@ -132,3 +132,15 @@ iframe {
   width: 100%;
   border: 0;
 }
+
+.hero--home, .site-footer {
+  @include bg-pattern();
+}
+
+.hero--home {
+  --bg-color: #{$home-background-color};
+}
+
+.site-footer {
+  --bg-color: #{$tint};
+}
