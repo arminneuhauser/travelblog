@@ -1,7 +1,8 @@
 import crypto from 'crypto'
 import marked from 'marked'
-import moment from 'moment'
 import readingTime from 'reading-time'
+import dayjs from 'dayjs'
+import 'dayjs/locale/de'
 
 export function readTime(text) {
   let read_text = readingTime(text).minutes;
@@ -9,8 +10,7 @@ export function readTime(text) {
 }
 
 export function formatDate(string, format = 'DD.MM.YYYY') {
-  require('moment/locale/de')
-  return moment(String(string)).format(format)
+  return dayjs(String(string)).locale('de').format(format)
 }
 
 export function markdown(string, param) {
