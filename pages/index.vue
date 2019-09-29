@@ -72,6 +72,7 @@ export default {
 
     let posts = await context.app.$storyapi.get('cdn/stories', {
       version: version,
+      per_page: 6,
       starts_with: `blog/`,
       cv: context.store.state.cacheVersion
     })
