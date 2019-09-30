@@ -337,6 +337,7 @@ export default {
 
     img {
       display: block;
+      margin: 0 auto;
       
       + em {
         display: inherit;
@@ -344,7 +345,7 @@ export default {
         text-align: center;
       }
       
-      &[src~="card"] {
+      &[src$="#card"] {
         border-radius: 6px;
         box-shadow: 0 4px 12px 0 rgba(0,0,0,.16);
       }
@@ -353,7 +354,7 @@ export default {
         margin: 0 -80px;
         max-width: calc(100% + 160px);
 
-        &[src$="gif"], &[src~="card"] {
+        &[src$="gif"], &[src$="#card"] {
           margin: 0 auto;
           max-width: 100%;
         }
