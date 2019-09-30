@@ -74,6 +74,7 @@ export default {
       version: version,
       per_page: 6,
       starts_with: `blog/`,
+      sort_by: "first_published_at:desc",
       cv: context.store.state.cacheVersion
     })
 
