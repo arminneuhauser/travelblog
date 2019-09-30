@@ -19,7 +19,7 @@
               </figure>
               <div>
                 <h2 v-if="author">Geschrieben von <nuxt-link :to="'/' + author.full_slug">{{ author.content.name }}</nuxt-link></h2>
-                <p>{{ formatDate(post.first_published_at, 'DD. MMMM YYYY') }} • {{ readTime(post.content.body) }} Min. Lesezeit</p>
+                <p>{{ formatDate(post.first_published_at, 'DD. MMM. YYYY') }} • {{ readTime(post.content.body) }} Min. Lesezeit</p>
               </div>
             </div>
           </div>
@@ -338,13 +338,13 @@ export default {
     img {
       display: block;
       margin: 0 auto;
-      
+
       + em {
         display: inherit;
         margin-top: 20px;
         text-align: center;
       }
-      
+
       &[src$="#card"] {
         border-radius: 6px;
         box-shadow: 0 4px 12px 0 rgba(0,0,0,.16);
