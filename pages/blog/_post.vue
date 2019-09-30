@@ -119,7 +119,7 @@ export default {
       }), type: 'application/ld+json' }],
       bodyAttrs: {
         class: 'page-blog',
-        style: this.post.content.textcolor == null ? '' : '--site-header-tint: ' + this.post.content.textcolor
+        style: this.post.content.textcolor == null || this.post.content.textcolor == "" ? '' : '--site-header-tint: ' + this.post.content.textcolor
       }
     }
   },
