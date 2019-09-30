@@ -337,12 +337,23 @@ export default {
 
     img {
       display: block;
+      
+      + em {
+        display: inherit;
+        margin-top: 20px;
+        text-align: center;
+      }
+      
+      &[src~="card"] {
+        border-radius: 6px;
+        box-shadow: 0 4px 12px 0 rgba(0,0,0,.16);
+      }
 
       @include breakpoint(l) {
         margin: 0 -80px;
         max-width: calc(100% + 160px);
 
-        &[src$="gif"] {
+        &[src$="gif"], &[src~="card"] {
           margin: 0 auto;
           max-width: 100%;
         }
