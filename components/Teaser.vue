@@ -2,11 +2,11 @@
   <div class="teaser" v-editable="blok">
     <div class="container">
       <div class="teaser__text">
-        <h1>{{ blok.headline }}</h1>
+        <h1><strong>Solmates </strong>{{ blok.headline }}</h1>
         <figure>
           <picture>
             <source :srcset="resize(blok.avatar_image, '140x140/filters:format(webp)')" type="image/webp">
-            <img :src="resize(blok.avatar_image, '140x140')" alt="Armin &amp; Miriam sind Solmates">
+            <img :src="resize(blok.avatar_image, '140x140')" alt="Armin &amp; Miriam sind Solmates" title="Armin &amp; Miriam sind Solmates">
           </picture>
         </figure>
         <div>
@@ -24,7 +24,8 @@
           <source :srcset="resize(blok.image, '750x422/filters:format(webp)')" type="image/webp">
           <img
           :src="resize(blok.image, '750x422')"
-          :alt="'Solmates - ' + blok.headline">
+          :alt="'Solmates - ' + blok.headline"
+          :title="'Solmates - ' + blok.headline">
         </picture>
       </figure>
     </div>
@@ -93,6 +94,10 @@ export default {
     line-height: 1;
     margin: 0 0 16px;
     opacity: 1;
+
+    > strong {
+      display: none;
+    }
   }
 
   p {

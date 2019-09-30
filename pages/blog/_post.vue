@@ -309,6 +309,17 @@ export default {
       }
     }
 
+    li {
+      a {
+        text-decoration: underline;
+        transition: all .1s ease-out;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+
     &::after {
       content: '';
       @include squiggly;
