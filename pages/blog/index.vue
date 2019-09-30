@@ -71,6 +71,7 @@ export default {
       per_page: 10,
       page: context.query.page,
       starts_with: `blog/`,
+      sort_by: "first_published_at:desc",
       cv: context.store.state.cacheVersion
     }).then((res) => {
       return res
