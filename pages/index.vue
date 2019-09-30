@@ -5,15 +5,15 @@
       <div class="container">
         <header>
           <nav>
-            <h3><nuxt-link :to="{ path: '/blog/'}">Unser Reisetagebuch</nuxt-link></h3>
-            <nuxt-link class="link link--right" :to="{ path: '/blog/'}">mehr</nuxt-link>
+            <h3><nuxt-link :to="{ path: '/blog/'}" title="Solmates Reisetagebuch">Unser Reisetagebuch</nuxt-link></h3>
+            <nuxt-link class="link link--right" :to="{ path: '/blog/'}" title="Mehr aus Solmates Reisetagebuch">mehr</nuxt-link>
           </nav>
         </header>
         <div class="posts">
           <article-tile :key="story.content._uid" v-for="story in posts.stories" :story="story" class="compact"/>
         </div>
         <div class="read-more">
-          <nuxt-link class="button button--ghost button--large button--icon" :to="{ path: '/blog/'}">
+          <nuxt-link class="button button--ghost button--large button--icon" :to="{ path: '/blog/'}" title="Alle Beiträge von Solmates">
             Alle Beiträge
             <svg class="rotate-270"><use xlink:href="#down"></use></svg>
           </nuxt-link>

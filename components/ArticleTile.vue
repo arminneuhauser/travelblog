@@ -1,6 +1,6 @@
 <template>
   <article>
-    <nuxt-link :to="'/' + story.full_slug" :aria-label="story.content.title">
+    <nuxt-link :to="'/' + story.full_slug" :aria-label="story.content.title" :title="story.content.title">
       <figure>
         <picture>
           <source

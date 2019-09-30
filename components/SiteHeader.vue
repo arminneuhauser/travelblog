@@ -1,7 +1,7 @@
 <template>
   <header class="site-header" :data-mobile-menu="showMobileMenu" :data-scrolled="scrolled" :data-transition="transition">
     <div class="container">
-      <nuxt-link class="site-header__logo" to="/" @click.native="showMobileMenu = false; scrollToTop();" aria-label="Solmates.at">
+      <nuxt-link class="site-header__logo" to="/" @click.native="showMobileMenu = false; scrollToTop();" aria-label="Solmates.at" title="Solmates.at">
         <span>Solmates.at</span>
         <svg><use xlink:href="#logo"></use></svg>
       </nuxt-link>
@@ -12,7 +12,7 @@
         <ul>
           <li :key="index" v-for="(navitem, index) in $store.state.settings.main_navi" :class="{ 'cta': navitem.cta === true }">
             <svg v-if="navitem.cta" xmlns="http://www.w3.org/2000/svg" width="52.5" height="33.4" viewBox="0 0 52.5 33.4"><path d="M6,18-2.3-.4" transform="translate(4.3 13.4)" style="stroke-linecap: round;stroke-miterlimit: 10" fill="none" stroke-width="4"></path><path d="M22,16.1V-11.4" transform="translate(4.3 13.4)" style="stroke-linecap: round;stroke-miterlimit: 10" fill="none" stroke-width="4"></path><path d="M37.9,18,46.2-1.4" transform="translate(4.3 13.4)" style="stroke-linecap: round;stroke-miterlimit: 10" fill="none" stroke-width="4"></path></svg>
-            <nuxt-link class="site-header__link" :to="'/' + navitem.link.cached_url" @click.native="showMobileMenu = false">
+            <nuxt-link class="site-header__link" :to="'/' + navitem.link.cached_url" @click.native="showMobileMenu = false" :title="navitem.name">
               {{ navitem.name }}
             </nuxt-link>
             <svg v-if="navitem.cta" xmlns="http://www.w3.org/2000/svg" width="52.5" height="33.4" viewBox="0 0 52.5 33.4"><path d="M6,18-2.3-.4" transform="translate(4.3 13.4)" style="stroke-linecap: round;stroke-miterlimit: 10" fill="none" stroke-width="4"></path><path d="M22,16.1V-11.4" transform="translate(4.3 13.4)" style="stroke-linecap: round;stroke-miterlimit: 10" fill="none" stroke-width="4"></path><path d="M37.9,18,46.2-1.4" transform="translate(4.3 13.4)" style="stroke-linecap: round;stroke-miterlimit: 10" fill="none" stroke-width="4"></path></svg>

@@ -6,7 +6,7 @@
         <figure>
           <picture>
             <source :srcset="resize(blok.avatar_image, '140x140/filters:format(webp)')" type="image/webp">
-            <img :src="resize(blok.avatar_image, '140x140')" alt="Armin & Miriam">
+            <img :src="resize(blok.avatar_image, '140x140')" alt="Armin &amp; Miriam sind Solmates">
           </picture>
         </figure>
         <div>
@@ -15,9 +15,6 @@
             <svg><use xlink:href="#location"></use></svg>
             {{ blok.location }}
           </p>
-          <!--<nuxt-link class="button" :to="'/' + blok.button_link.cached_url">
-            {{ blok.button_text }}
-          </nuxt-link>-->
         </div>
       </div>
       <figure class="teaser__figure">
@@ -27,7 +24,7 @@
           <source :srcset="resize(blok.image, '750x422/filters:format(webp)')" type="image/webp">
           <img
           :src="resize(blok.image, '750x422')"
-          :alt="blok.headline">
+          :alt="'Solmates - ' + blok.headline">
         </picture>
       </figure>
     </div>
