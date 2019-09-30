@@ -1,7 +1,7 @@
 {
   "name": "Solmates",
   "version": "1.0.0",
-  "description": "Ein Reisetagebuch von Miriam und Armin. Begleitet uns auf unserem Abenteuer von den Alpen in die Anden.",
+  "description": "Solmates ist der Reiseblog von Miriam und Armin, einem Paar aus Wien. Begleitet uns auf unserem Abenteuer nach Lateinamerika, von den Alpen in die Anden.",
   "author": "Armin Neuhauser <mail@arminneuhauser.at>",
   "private": true,
   "scripts": {

@@ -23,14 +23,14 @@ module.exports = {
       { hid: 'og:type', propery: 'og:type', content: 'website' },
       { hid: 'og:title', propery: 'og:title', content: pkg.name },
       { hid: 'og:description', propery: 'og:description', content: pkg.description },
-      { hid: 'og:image', propery: 'og:image', content: 'http://img2.storyblok.com/1200x630/f/54536/2048x1365/306b0b6caf/12034365_10205045344112624_7076641627775926331_o.jpg' },
+      { hid: 'og:image', propery: 'og:image', content: 'https://img2.storyblok.com/1200x630/f/54536/2048x1365/5ca76528f1/solmates.jpg' },
       { hid: 'og:site_name', propery: 'og:site_name', content: pkg.name },
       { hid: 'og:url', property: 'og:url', content: 'https://www.solmates.at' },
       { hid: 'twitter:card', name: 'twitter:card', content: 'summary' },
       { hid: 'twitter:site', name: 'twitter:site', content: '@solmates' }, // TODO: add Twitter Account @solmates
       { hid: 'twitter:title', name: 'twitter:title', content: pkg.name },
       { hid: 'twitter:description', name: 'twitter:description', content: pkg.description },
-      { hid: 'twitter:image', name: 'twitter:image', content: 'http://img2.storyblok.com/1200x630/f/54536/2048x1365/306b0b6caf/12034365_10205045344112624_7076641627775926331_o.jpg' }
+      { hid: 'twitter:image', name: 'twitter:image', content: 'https://img2.storyblok.com/1200x630/f/54536/2048x1365/5ca76528f1/solmates.jpg' }
     ],
     link: [
       { rel: 'preconnect', href: '//www.googletagmanager.com' },
