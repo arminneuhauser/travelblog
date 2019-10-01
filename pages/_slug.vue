@@ -29,7 +29,12 @@ export default {
         "url": "https://www.solmates.at" + this.$route.fullPath,
         "name": this.story.name + " - Solmates",
         "description": this.story.content.description,
-        "image": 'https:' + resize(this.story.content.image, '1200x630')
+        "image": {
+            "@type": "ImageObject",
+            "url": "https:" + resize(this.story.content.image, '1200x630'),
+            "width": "1200",
+            "height": "630"
+        }
       }), type: 'application/ld+json' }],
     }
   },
