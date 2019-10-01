@@ -58,6 +58,20 @@ export default {
         { hid: 'twitter:description', name: 'twitter:description', content: this.author.content.about },
         { hid: 'twitter:image', name: 'twitter:image', content: 'https:' + resize(this.author.content.avatar, '1200x1200') }
       ],
+      __dangerouslyDisableSanitizers: ['script'],
+      script: [{ innerHTML: JSON.stringify({
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "mainEntityOfPage": "https://www.solmates.at" + this.$route.fullPath,
+        "name": this.author.name,
+        "description": this.author.content.about,
+        "image": {
+            "@type": "ImageObject",
+            "url": "https:" + resize(this.author.content.avatar, '1200x1200'),
+            "width": "1200",
+            "height": "1200"
+        }
+      }), type: 'application/ld+json' }],
       link: [
         { rel: 'canonical', href: 'https://www.solmates.at' + this.$route.fullPath },
       ],
