@@ -267,6 +267,7 @@ export default {
     bottom: 0;
     left: 0;
     overflow: hidden;
+    overflow-y: auto;
     background-color: #17181a; //#373a47;
     display: flex;
     opacity: 0;
