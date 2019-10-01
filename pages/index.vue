@@ -43,7 +43,12 @@ export default {
         "name": "Solmates",
         "alternateName": "Solmates - Mit dem Rucksack durch Lateinamerika",
         "description": "Solmates ist der Reiseblog von Miriam und Armin, einem Paar aus Wien. Begleitet uns auf unserem Abenteuer nach Lateinamerika, von den Alpen in die Anden.",
-        "image": "https://img2.storyblok.com/1200x630/f/54536/2048x1365/5ca76528f1/solmates.jpg"
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://img2.storyblok.com/1200x630/f/54536/2048x1365/5ca76528f1/solmates.jpg",
+            "width": "1200",
+            "height": "630"
+        }
       }), type: 'application/ld+json' }],
       bodyAttrs: {
         class: 'page-home',

@@ -32,7 +32,6 @@ export default {
       title: this.category.name + ' - Solmates',
       meta: [
         { hid: 'description', name: 'description', content: this.category.content.about },
-        { hid: 'og:type', propery: 'og:type', content: 'article' },
         { hid: 'og:title', propery: 'og:title', content: this.category.name },
         { hid: 'og:description', propery: 'og:description', content: this.category.content.about },
         { hid: 'og:image', propery: 'og:image', content: 'https:' + resize(this.category.content.image, '1200x630') },
@@ -41,6 +40,20 @@ export default {
         { hid: 'twitter:description', name: 'twitter:description', content: this.category.content.about },
         { hid: 'twitter:image', name: 'twitter:image', content: 'https:' + resize(this.category.content.image, '1200x630') }
       ],
+      __dangerouslyDisableSanitizers: ['script'],
+      script: [{ innerHTML: JSON.stringify({
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "mainEntityOfPage": "https://www.solmates.at" + this.$route.fullPath,
+        "name": this.category.name,
+        "alternateName": this.category.content.about,
+        "image": {
+            "@type": "ImageObject",
+            "url": "https:" + resize(this.category.content.image, '1200x630'),
+            "width": "1200",
+            "height": "630"
+        }
+      }), type: 'application/ld+json' }],
       bodyAttrs: {
         class: 'page-category'
       }

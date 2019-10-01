@@ -10,3 +10,13 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  head () {
+    return {
+      title: 'Danke für deine Nachricht - Solmates',
+    }
+  }
+}
+</script>

@@ -21,6 +21,11 @@ export default {
   head() {
     return {
       title: 'Autoren - Solmates',
+      meta: [
+        { hid: 'og:title', propery: 'og:title', content: 'Autoren - Solmates' },
+        { hid: 'og:url', property: 'og:url', content: 'https://www.solmates.at' + this.$route.fullPath },
+        { hid: 'twitter:title', name: 'twitter:title', content: 'Autoren - Solmates' }
+      ],
       bodyAttrs: {
         class: 'page-authors',
       },

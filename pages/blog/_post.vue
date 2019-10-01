@@ -109,7 +109,7 @@ export default {
         },
         "image": {
             "@type": "ImageObject",
-            "url": 'https:' + resize(this.post.content.image, '1200x630'),
+            "url": "https:" + resize(this.post.content.image, '1200x630'),
             "width": "1200",
             "height": "630"
         }
