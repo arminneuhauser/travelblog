@@ -65,7 +65,7 @@ hr {
     padding: 0 10px;
     margin-bottom: 20px;
 
-    @include breakpoint(m) {
+    @media (max-width: map-get($breakpoints, 'm') - 1) and (orientation: landscape), (min-width: map-get($breakpoints, 'm')) {
       flex-basis: 50%;
     }
 
