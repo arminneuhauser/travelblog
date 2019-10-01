@@ -20,6 +20,7 @@ import { resize } from '@/plugins/helper'
 export default {
   head() {
     return {
+      title: 'Autoren - Solmates',
       bodyAttrs: {
         class: 'page-authors',
       },

@@ -44,6 +44,20 @@ import { resize } from '@/plugins/helper'
 export default {
   head() {
     return {
+      title: this.author.name + ' - Solmates',
+      meta: [
+        { hid: 'description', name: 'description', content: 'Lies die Blog-Beiträge von ' + this.author.name + ' - ' + this.author.content.about },
+        { hid: 'og:type', propery: 'og:type', content: 'profile' },
+        { hid: 'profile:username', propery: 'profile:username', content: this.author.name },
+        { hid: 'profile:first_name', propery: 'profile:first_name', content: this.author.name },
+        { hid: 'og:title', propery: 'og:title', content: this.author.name },
+        { hid: 'og:description', propery: 'og:description', content: this.author.content.about },
+        { hid: 'og:image', propery: 'og:image', content: 'https:' + resize(this.author.content.avatar, '1200x1200') },
+        { hid: 'og:url', property: 'og:url', content: 'https://www.solmates.at' + this.$route.fullPath },
+        { hid: 'twitter:title', name: 'twitter:title', content: this.author.name },
+        { hid: 'twitter:description', name: 'twitter:description', content: this.author.content.about },
+        { hid: 'twitter:image', name: 'twitter:image', content: 'https:' + resize(this.author.content.avatar, '1200x1200') }
+      ],
       bodyAttrs: {
         class: 'page-author',
         style: '--site-header-tint: ' + this.author.content.textcolor

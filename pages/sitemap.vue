@@ -16,6 +16,11 @@
 
 <script>
 export default {
+  head () {
+    return {
+      title: 'Sitemap - Solmates'
+    }
+  },
   data () {
     return {
       links: {}
