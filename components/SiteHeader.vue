@@ -105,6 +105,18 @@ export default {
     //border-color: #dbd9d2;
     box-shadow: 0 4px 12px 0 rgba(0,0,0,.1);
 
+    @media (max-width: map-get($breakpoints, 'm') - 1) and (orientation: landscape) {
+      transform: translateY(-110%);
+
+      &[data-scrolled="up"] {
+        transform: translateY(0);
+      }
+
+      &[data-transition="transform"] {
+        transition: transform .2s ease, background-color .2s ease, border-color .2s ease;
+      }
+    }
+
     .site-header__logo {
       svg {
         fill: $tint;

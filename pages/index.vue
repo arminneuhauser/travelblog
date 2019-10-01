@@ -90,7 +90,7 @@ export default {
 .blog {
   background-color: $background-color;
 
-  @include breakpoint(m) {
+  @media (max-width: map-get($breakpoints, 'm') - 1) and (orientation: landscape), (min-width: map-get($breakpoints, 'm')) {
     .posts {
       margin: 0 -15px;
     }
@@ -100,10 +100,6 @@ export default {
       flex-basis: 50%;
       max-width: 50%;
       padding: 20px 15px;
-
-      header {
-        padding: 0;
-      }
     }
   }
 

@@ -65,6 +65,7 @@ article {
   figure {
     @include ratio-container(750/420);
     flex-basis: 100%;
+    align-self: flex-start;
   }
 
   header {
@@ -100,6 +101,26 @@ article {
     }
   }
 
+  @media (max-width: map-get($breakpoints, 'm') - 1) and (orientation: landscape) {
+    &:not(.compact) {
+      figure {
+        flex-basis: 34%;
+        max-width: 34%;
+
+        &::after{
+          padding-bottom: calc(100% / 1.33);
+        }
+      }
+
+      header {
+        flex-basis: 66%;
+        max-width: 66%;
+        margin-top: 0;
+        padding: 0 15px;
+      }
+    }
+  }
+
   @include breakpoint(m) {
     &:not(.compact) {
       figure {
@@ -110,6 +131,7 @@ article {
       header {
         flex-basis: calc(100% - 375px);
         max-width: calc(100% - 375px);
+        margin-top: 16px;
         padding: 0 20px;
       }
     }
