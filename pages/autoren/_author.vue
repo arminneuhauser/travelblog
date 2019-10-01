@@ -58,6 +58,9 @@ export default {
         { hid: 'twitter:description', name: 'twitter:description', content: this.author.content.about },
         { hid: 'twitter:image', name: 'twitter:image', content: 'https:' + resize(this.author.content.avatar, '1200x1200') }
       ],
+      link: [
+        { rel: 'canonical', href: 'https://www.solmates.at' + this.$route.fullPath },
+      ],
       bodyAttrs: {
         class: 'page-author',
         style: '--site-header-tint: ' + this.author.content.textcolor

@@ -73,9 +73,6 @@ export default {
   head () {
     return {
       title: this.post.content.title + ' - Solmates',
-      link: [
-        { rel: 'canonical', href: 'https://www.solmates.at' + this.$route.fullPath },
-      ],
       meta: [
         { hid: 'description', name: 'description', content: this.post.content.intro },
         { hid: 'og:type', propery: 'og:type', content: 'article' },
@@ -117,6 +114,9 @@ export default {
             "height": "630"
         }
       }), type: 'application/ld+json' }],
+      link: [
+        { rel: 'canonical', href: 'https://www.solmates.at' + this.$route.fullPath },
+      ],
       bodyAttrs: {
         class: 'page-blog',
         style: this.post.content.textcolor == null || this.post.content.textcolor == "" ? '' : '--site-header-tint: ' + this.post.content.textcolor
