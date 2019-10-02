@@ -147,7 +147,6 @@ module.exports = {
     hostname: 'https://www.solmates.at',
     gzip: true,
     exclude: [
-      '/settings',
       '/404',
       '/kontakt/erfolg'
     ]
@@ -180,11 +179,6 @@ module.exports = {
   ** Generate Routes via Storybloks Links API.
   */
   generate: {
-    exclude: [
-      /^(?=.*\bsettings\b).*$/,
-      /^settings$/,
-      /^\/settings$/
-    ],
     routes: function (callback) {
       const token = `k5Y8ixzNl1kB4Vq6F5ufBQtt`
       const per_page = 100
@@ -196,7 +190,7 @@ module.exports = {
       // Call first Page of the Links API: https://www.storyblok.com/docs/Delivery-Api/Links
       axios.get(`https://api.storyblok.com/v1/cdn/links?token=${token}&version=${version}&per_page=${per_page}&page=${page}`).then((res) => {
         Object.keys(res.data.links).forEach((key) => {
-          if (res.data.links[key].slug != 'home') {
+          if (res.data.links[key].slug != 'home' && res.data.links[key].slug != 'settings') {
             routes.push('/' + res.data.links[key].slug)
           }
         })
