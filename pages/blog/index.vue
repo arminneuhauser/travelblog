@@ -28,6 +28,9 @@ export default {
         { hid: 'og:url', property: 'og:url', content: 'https://www.solmates.at' + this.$route.fullPath },
         { hid: 'twitter:title', name: 'twitter:title', content: 'Blog - Solmates' }
       ],
+      link: [
+        { rel: 'canonical', href: 'https://www.solmates.at' + this.$route.fullPath },
+      ],
       bodyAttrs: {
         class: 'page-blog',
       }

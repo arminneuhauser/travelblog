@@ -3,7 +3,7 @@
     <div class="author">
       <div class="container">
         <header>
-          <nuxt-link class="link link--left" :to="{ path: '/autoren/'}">alle Autoren</nuxt-link>
+          <nuxt-link class="link link--left" :to="{ path: '/autoren'}">alle Autoren</nuxt-link>
         </header>
         <div class="author__content">
           <figure>

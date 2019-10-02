@@ -16,6 +16,9 @@ export default {
   head () {
     return {
       title: 'Danke für deine Nachricht - Solmates',
+      link: [
+        { rel: 'canonical', href: 'https://www.solmates.at' + this.$route.fullPath },
+      ]
     }
   }
 }

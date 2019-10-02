@@ -145,7 +145,12 @@ module.exports = {
 
   sitemap: {
     hostname: 'https://www.solmates.at',
-    gzip: true
+    gzip: true,
+    exclude: [
+      '/settings',
+      '/404',
+      '/kontakt/erfolg'
+    ]
   },
 
   /*

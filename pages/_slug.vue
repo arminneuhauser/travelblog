@@ -36,6 +36,9 @@ export default {
             "height": "630"
         }
       }), type: 'application/ld+json' }],
+      link: [
+        { rel: 'canonical', href: 'https://www.solmates.at' + this.$route.fullPath },
+      ]
     }
   },
   data () {

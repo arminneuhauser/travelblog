@@ -30,6 +30,9 @@ export default {
         { hid: 'og:title', propery: 'og:title', content: 'Kategorien - Solmates' },
         { hid: 'og:url', property: 'og:url', content: 'https://www.solmates.at' + this.$route.fullPath },
         { hid: 'twitter:title', name: 'twitter:title', content: 'Kategorien - Solmates' }
+      ],
+      link: [
+        { rel: 'canonical', href: 'https://www.solmates.at' + this.$route.fullPath },
       ]
     }
   },
