@@ -216,7 +216,7 @@ export default {
       margin: 30px auto;
 
       @include breakpoint(m) {
-          margin: 0 auto 30px auto;
+          margin: 0 auto 50px auto;
       }
     }
 
