@@ -118,14 +118,6 @@ export default {
     }
   }
 
-  @include breakpoint(s, max) {
-    .teaser__text {
-      .button {
-        @include small-button;
-      }
-    }
-  }
-
   @include breakpoint(m) {
     padding-bottom: 30px;
 

@@ -197,7 +197,7 @@ export default {
     padding-top: 90px;
     position: relative;
 
-    @include breakpoint(s, max) {
+    @include breakpoint(m, max) {
       &::before {
         background-color: #fff;
         bottom: 0;
