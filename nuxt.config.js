@@ -180,6 +180,11 @@ module.exports = {
   ** Generate Routes via Storybloks Links API.
   */
   generate: {
+    exclude: [
+      /^(?=.*\bsettings\b).*$/,
+      /^settings$/,
+      /^\/settings$/
+    ],
     routes: function (callback) {
       const token = `k5Y8ixzNl1kB4Vq6F5ufBQtt`
       const per_page = 100
