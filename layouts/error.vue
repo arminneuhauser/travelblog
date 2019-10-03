@@ -1,5 +1,5 @@
 <template>
-  <div class="container padding-bottom">
+  <div class="container error-container">
     <div class="error">
       <h1>{{error.statusCode}}</h1>
       <div>
@@ -22,6 +22,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.error-container {
+  padding-bottom: 40px;
+
+  @include breakpoint(l) {
+    padding-bottom: 50px;
+  }
+}
+
 .error {
   display: flex;
   flex-wrap: wrap;
