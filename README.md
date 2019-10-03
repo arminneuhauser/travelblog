@@ -31,7 +31,7 @@ For detailed explanation on how things work, checkout the [Nuxt.js docs](https:/
 
 - [x] write Readme :)
 - [x] buy domain solmates.at
-- [x] write at least 6 blogposts
+- [x] write at least 6 blog posts
 - [x] categories
 - [x] authors
 - [x] contact form
@@ -44,6 +44,7 @@ For detailed explanation on how things work, checkout the [Nuxt.js docs](https:/
 - [x] prevent pages from crawling: 404, success-page, settings
 - [x] optimize images: responsive srcsets for retina/non-retina, deliver webp for Chrome
 - [x] lazyload images
+- [x] add a progressbar for blog posts
 - [x] Google Tag Manager and Analytics
 - [x] imprint and privacy information
 - [x] cookie banner yeah 🍪
@@ -54,3 +55,7 @@ For detailed explanation on how things work, checkout the [Nuxt.js docs](https:/
 - [x] praise JAM, Nuxt.js, Netlify and Storyblok https://www.solmates.at/blog/wie-solmates-at-entstanden-ist
 - [ ] add Google Map with the travel route
 - [ ] improve page speed even more
+- [ ] make PWA offline ready
+- [ ] infinite loading of blog posts on home page
+- [ ] add different sections of posts filtered by f.e. category on home page
+- [ ] refactor and cleanup code 😅
