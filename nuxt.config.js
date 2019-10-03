@@ -147,6 +147,7 @@ module.exports = {
     hostname: 'https://www.solmates.at',
     gzip: true,
     exclude: [
+      '/404',
       '/kontakt/erfolg'
     ]
   },
