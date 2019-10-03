@@ -25,37 +25,37 @@ $ npm start
 $ npm run generate
 ```
 
-For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js) and [Storyblok](https://www.storyblok.com/).
+For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js) and [Storyblok docs](https://www.storyblok.com/docs).
 
 ## Features & Todos
 
 - [x] write Readme :)
 - [x] buy domain solmates.at
 - [x] write at least 6 blog posts
-- [x] categories
-- [x] authors
-- [x] contact form
+- [x] add categories
+- [x] add authors
+- [x] create contact form
 - [x] customizable colors and backgrounds for posts, authors, categories
 - [x] custom 404 page
 - [x] sitemap.xml
 - [x] SEO: icon, meta description, opengraph, twitter, schema.org
 - [x] Progressive Web App: manifest, service worker
 - [x] canonical tags
-- [x] prevent pages from crawling: 404, success-page, settings
-- [x] optimize images: responsive srcsets for retina/non-retina, deliver webp for Chrome
+- [x] optimize images: responsive srcsets for retina/non-retina, webp
 - [x] lazyload images
 - [x] add a progressbar for blog posts
 - [x] Google Tag Manager and Analytics
 - [x] imprint and privacy information
-- [x] cookie banner yeah 🍪
+- [x] cookie banner 🍪
 - [x] optimize fonts with webfontloader
-- [x] image zoom medium-style
+- [x] image zoom (medium style)
 - [x] optimize design for mobile landscape (something I never did in the past tbh)
 - [x] achieve great results in Lighthouse / Google Audits
 - [x] praise JAM, Nuxt.js, Netlify and Storyblok https://www.solmates.at/blog/wie-solmates-at-entstanden-ist
 - [ ] add Google Map with the travel route
 - [ ] improve page speed even more
 - [ ] make PWA offline ready
+- [ ] multi language (EN, ES)
 - [ ] infinite loading of blog posts on home page
 - [ ] add different sections of posts filtered by f.e. category on home page
-- [ ] refactor and cleanup code 😅
+- [ ] refactor and cleanup code
