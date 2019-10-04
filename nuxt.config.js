@@ -1,6 +1,8 @@
 const pkg = require('./package')
 const axios = require('axios')
 
+require('dotenv').config()
+
 module.exports = {
   mode: 'universal',
 
@@ -65,14 +67,15 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
-    ['storyblok-nuxt', {accessToken: 'k5Y8ixzNl1kB4Vq6F5ufBQtt', cacheProvider: 'memory', excludeHeaderScript: false}],
+    ['storyblok-nuxt', {accessToken: process.env.STORYBLOK_API_TOKEN, cacheProvider: 'memory', excludeHeaderScript: false}],
     '@nuxtjs/style-resources',
     ['vue-scrollto/nuxt', { duration: 300, offset: -70 }],
     '@bazzite/nuxt-optimized-images',
     'nuxt-webfontloader',
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
-    ['@nuxtjs/google-tag-manager', { id: 'GTM-TQ4VF8M', pageTracking: true }],
+    ['@nuxtjs/google-tag-manager', { id: process.env.GTM_ID, pageTracking: true }],
+    '@nuxtjs/dotenv',
   ],
 
   styleResources: {
@@ -180,7 +183,7 @@ module.exports = {
   */
   generate: {
     routes: function (callback) {
-      const token = `k5Y8ixzNl1kB4Vq6F5ufBQtt`
+      const token = process.env.STORYBLOK_API_TOKEN
       const per_page = 100
       const version = `draft`
 
