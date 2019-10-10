@@ -13,10 +13,10 @@
           <article-tile :key="story.content._uid" v-for="story in posts.stories" :story="story" class="compact"/>
         </div>
         <div class="read-more">
-          <nuxt-link class="button button--ghost button--large button--icon" :to="{ path: '/blog/'}" title="Alle Beiträge von Solmates">
-            Alle Beiträge
-            <svg class="rotate-270"><use xlink:href="#down"></use></svg>
-          </nuxt-link>
+          <!--<pre>total: {{ this.total }} currentPage: {{ this.currentPage }} perPage: {{ this.perPage }}</pre>-->
+          <button v-if="this.total > (this.perPage * this.currentPage)" @click="loadMore" class="button button--ghost button--large" title="Mehr Beiträge von Solmates laden">
+            Mehr laden
+          </button>
         </div>
 
       </div>
@@ -57,8 +57,26 @@ export default {
   },
   data () {
     return {
+      currentPage: 1,
+      perPage: 6,
       story: { content: {} }
     }
+  },
+  methods: {
+    async loadMore () {
+      this.currentPage++
+
+      let newPosts = await this.$storyapi.get('cdn/stories', {
+        version: 'published',
+        per_page: this.perPage,
+        page: this.currentPage,
+        starts_with: `blog/`,
+        sort_by: "first_published_at:desc",
+        cv: this.$store.state.cacheVersion
+      })
+
+      this.posts.stories.push(...newPosts.data.stories);
+    },
   },
   mixins: [storyblokLivePreview],
   async asyncData (context) {
@@ -72,12 +90,13 @@ export default {
     let posts = await context.app.$storyapi.get('cdn/stories', {
       version: version,
       per_page: 6,
+      page: 1,
       starts_with: `blog/`,
       sort_by: "first_published_at:desc",
       cv: context.store.state.cacheVersion
     })
 
-    return { home: home.data, posts: posts.data };
+    return { home: home.data, posts: posts.data, total: posts.total }
   }
 }
 </script>

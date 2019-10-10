@@ -5,10 +5,10 @@
         <article-tile :key="story.content._uid" v-for="story in data.stories" :story="story"/>
       </div>
       <div class="pagination">
-        <nuxt-link class="pagination__link--prev button button--ghost" v-if="this.prevPage != null" :to="{ path: '/blog/', query: { page: this.prevPage }}">
+        <nuxt-link class="pagination__link--prev button button--ghost" v-if="this.prevPage != null" :to="{ path: '/blog', query: { page: this.prevPage }}">
           Vorherige Seite
         </nuxt-link>
-        <nuxt-link class="pagination__link--next button button--ghost" v-if="this.nextPage != null && this.nextPage <= totalpages" :to="{ path: '/blog/', query: { page: this.nextPage }}">
+        <nuxt-link class="pagination__link--next button button--ghost" v-if="this.nextPage != null && this.nextPage <= totalpages" :to="{ path: '/blog', query: { page: this.nextPage }}">
           Nächste Seite
         </nuxt-link>
       </div>
