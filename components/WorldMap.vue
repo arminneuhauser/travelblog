@@ -79,8 +79,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$visited: #91CE70;
+$planned: #84ADE9;
+$unvisited: #B4B4B7;
+$border: #666;
+
 .map {
-  background: #c5dbf2;
+  background: #535364;
+  color: #fff;
   padding: 80px 0;
   position: relative;
   text-align: center;
@@ -91,13 +97,14 @@ export default {
 
   p {
     font-size: 1.8rem;
+    color: #fff;
 
     .visited {
-      color: #5AB461;
+      color: $visited;
     }
 
     .planned {
-      color: #6199D5;
+      color: $planned;
     }
   }
 }
@@ -129,29 +136,29 @@ svg {
 }
 
 path {
-  fill: #A9B9CB;
-  stroke: #c5dbf2;
+  fill: $unvisited;
+  stroke: $border;
   stroke-width: 0.5;
   cursor: pointer;
   transition: all 0.2s ease;
 
   &:hover {
-    fill: darken(#A9B9CB, 5%);
+    fill: darken($unvisited, 5%);
   }
 
   &.visited {
-    fill: #5AB461;
+    fill: $visited;
 
     &:hover {
-      fill: darken(#5AB461, 5%);
+      fill: darken($visited, 5%);
     }
   }
 
   &.planned {
-    fill: #6199D5;
+    fill: $planned;
 
     &:hover {
-      fill: darken(#6199D5, 5%);
+      fill: darken($planned, 5%);
     }
   }
 }
