@@ -1,6 +1,8 @@
 <template>
-  <div class="hero hero--home">
-    <component v-if="home.story.content.component" :key="home.story.content._uid" :blok="home.story.content" :is="home.story.content.component"></component>
+  <div>
+    <div class="hero hero--home">
+      <component v-if="home.story.content.component" :key="home.story.content._uid" :blok="home.story.content" :is="home.story.content.component"></component>
+    </div>
     <section id="blog" class="blog">
       <div class="container">
         <header>
@@ -18,9 +20,11 @@
             Mehr laden
           </button>
         </div>
-
       </div>
     </section>
+
+    <world-map/>
+
   </div>
 </template>
 
@@ -103,7 +107,11 @@ export default {
 
 <style lang="scss" scoped>
 .hero--home {
-  //@include bg-pattern($home-background-color,darken($home-background-color,10%));
+  padding-top: 90px;
+
+  @include breakpoint(l) {
+    padding-top: 150px;
+  }
 }
 
 .blog {
