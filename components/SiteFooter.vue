@@ -92,11 +92,11 @@ export default {
   nav {
     ul {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
       justify-content: center;
       flex-grow: 1;
       list-style: none;
-      margin: 0;
+      margin: 0 -10px;
       padding: 20px 0;
 
       li {
@@ -121,8 +121,6 @@ export default {
 
   .social {
     ul {
-      flex-direction: row;
-
       li {
         margin: 0 5px;
 
@@ -166,8 +164,6 @@ export default {
 
     nav {
       ul {
-        flex-direction: row;
-        margin: 0 -10px;
         padding: 0;
       }
     }
