@@ -192,6 +192,10 @@ export default {
     @include small-button();
     color: var(--text-color);
     border-color: var(--text-color);
+
+    &:hover {
+      border-color: var(--text-color);
+    }
   }
 }
 </style>
