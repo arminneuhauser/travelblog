@@ -170,7 +170,7 @@ export default {
       justify-content: center;
       overflow: visible;
       padding: 6px;
-      text-decoration: none;
+      text-decoration: none !important;
       width: auto;
 
       > span {
