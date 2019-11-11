@@ -9,6 +9,10 @@
       <p>Das sind alle Länder, in denen wir <strong class="visited">schon gewesen sind,</strong> oder in die wir noch <strong class="planned">vorhaben zu reisen.</strong></p>
       <div class="map__illustration">
         <span v-bind:style="{ left: this.xPosition  + 'px', top: this.yPosition  + 'px' }" v-bind:class="{ active: hover }" class="map__tooltip">{{ this.country }}</span>
+        <div class="map__active">
+          <p>Wir sind noch da drüben</p>
+          <svg><use xlink:href="#curved-arrow"></use></svg>
+        </div>
         <!--<div class="map__active">
           <p><strong class="active">Hier</strong> sind wir gerade</p>
           <svg><use xlink:href="#curved-arrow"></use></svg>
@@ -169,9 +173,9 @@ $active: #EA4236;
   border-radius: 100%;
   position: absolute;
   z-index: 1;
-  background: $active;
+  /*background: $active;
   box-shadow: 0 0 0 5px rgba($active, 0.3);
-  animation: animation-pulse 2s infinite;
+  animation: animation-pulse 2s infinite;*/
   transform: translate(-50%, -50%);
   pointer-events: none;
   top: 29%; // change this
@@ -192,6 +196,11 @@ $active: #EA4236;
     fill: #343434;
     bottom: 5px;
     left: 30px;
+    bottom: -10px; // delete this
+    left: 140px; // delete this
+
+// auskommentieren
+    transform: scaleX(-1);
   }
 }
 
