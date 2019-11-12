@@ -185,7 +185,7 @@ module.exports = {
     routes: function (callback) {
       const token = process.env.STORYBLOK_API_TOKEN
       const per_page = 100
-      const version = `draft`
+      const version = `published`
 
       let page = 1
       let routes = []
