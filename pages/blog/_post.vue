@@ -354,6 +354,14 @@ export default {
         display: inherit;
         margin-top: 20px;
         text-align: center;
+
+        + img {
+          margin-top: 30px;
+        }
+      }
+
+      + img {
+        margin-top: 30px;
       }
 
       &[src$="#card"] {
