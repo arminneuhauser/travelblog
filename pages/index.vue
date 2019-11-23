@@ -23,6 +23,8 @@
       </div>
     </section>
 
+    <newsletter-signup/>
+
     <world-map/>
 
   </div>

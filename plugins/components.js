@@ -7,6 +7,7 @@ import MarkdownContent from '~/components/MarkdownContent.vue'
 import ArticleTile from '~/components/ArticleTile.vue'
 import Skid from '~/components/Skid.vue'
 import WorldMap from '~/components/WorldMap.vue'
+import NewsletterSignup from '~/components/NewsletterSignup.vue'
 
 Vue.component('page', Page)
 Vue.component('teaser', Teaser)
@@ -16,3 +17,4 @@ Vue.component('markdown-content', MarkdownContent)
 Vue.component('article-tile', ArticleTile)
 Vue.component('skid', Skid)
 Vue.component('world-map', WorldMap)
+Vue.component('newsletter-signup', NewsletterSignup)
