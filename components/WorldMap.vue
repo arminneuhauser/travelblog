@@ -174,7 +174,7 @@ $active: #EA4236;
   animation: animation-pulse 2s infinite;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  top: 29%; // change this
+  top: 29.8%; // change this
   left: 42%; // change this
 
   p {
