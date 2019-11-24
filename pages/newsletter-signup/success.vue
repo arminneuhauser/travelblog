@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container narrow">
     <h1>Danke für deine Newsletter-Anmeldung</h1>
     <div>
       <p>Deine Anmeldung war erfolgreich.</p>
