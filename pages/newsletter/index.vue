@@ -1,5 +1,5 @@
 <template>
-  <div class="container narrow">
+  <div class="container narrow padding-bottom">
     <h1>Melde dich für unseren Newsletter an</h1>
     <!-- Begin Mailchimp Signup Form -->
     <div id="mc_embed_signup">
