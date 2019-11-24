@@ -15,7 +15,10 @@
               </div>
               <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
               <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_0da2999b05bab86e1496beaa8_747fd43d15" tabindex="-1" value=""></div>
-              <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="button button--small">Anmelden</button>
+              <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="button">
+                <span>Anmelden</span>
+                <svg class="rotate-270"><use xlink:href="#down"></use></svg>
+              </button>
             </div>
         </form>
       </div>
@@ -42,10 +45,11 @@
   }
 
   #mc_embed_signup_scroll {
+    margin-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 20px;
+    align-items: center;
 
     .text-field {
       margin: 0;
@@ -54,12 +58,49 @@
         border: 0;
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
+        height: 42px;
       }
     }
 
     button {
+      border: 0;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
+
+      svg {
+        display: none;
+      }
+    }
+
+    @include breakpoint(s, max) {
+      padding: 0 5px;
+      background: #fff;
+      height: 50px;
+      border-radius: 25px;
+      justify-content: space-between;
+
+      .text-field {
+        input {
+          background: none;
+        }
+      }
+
+      button {
+        background: none;
+        padding: 0;
+        display: flex;
+
+        svg {
+          display: block;
+          fill: $tint;
+          width: 41px;
+          height: 41px;
+        }
+
+        span {
+          display: none;
+        }
+      }
     }
   }
 }
