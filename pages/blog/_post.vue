@@ -379,48 +379,6 @@ export default {
         }
       }
     }
-
-    blockquote {
-      font-family: $fs-serif;
-      font-weight: 400;
-      margin: 50px 0;
-      padding: 0 15px;
-      position: relative;
-      text-align: center;
-
-      > * {
-        position: relative;
-      }
-
-      p {
-        font-size: 2.8rem;
-        line-height: 1.2;
-        font-style: italic;
-        margin: 0;
-      }
-
-      cite {
-        font-family: $fs-sans;
-        font-size: 1.6rem;
-        font-weight: 400;
-        color: rgba($tint, 0.6);
-
-        &::before {
-          content: '–';
-          margin: 0 5px;
-        }
-      }
-
-      @include breakpoint(l) {
-        p {
-          font-size: 3.6rem;
-        }
-
-        cite {
-          font-size: 1.8rem;
-        }
-      }
-    }
   }
 }
 
