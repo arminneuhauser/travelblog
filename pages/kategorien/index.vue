@@ -44,9 +44,16 @@ export default {
 
     const { data } = await context.app.$storyapi.get(`cdn/stories/`, {
       version: version,
-      starts_with: `${context.route.path.substr(1)}`
+      per_page: 10,
+      page: context.query.page,
+      starts_with: `${context.route.path.substr(1)}`,
+      sort_by: "first_published_at:desc",
+      cv: context.store.state.cacheVersion
+    }).then((res) => {
+      return res
+    }).catch((res) => {
+      context.error({ statusCode: res.response.status, message: res.response.data })
     })
-    return { categories: data.stories }
   }
 }
 </script>

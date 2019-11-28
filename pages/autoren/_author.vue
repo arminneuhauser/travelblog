@@ -94,17 +94,23 @@ export default {
   },
   mixins: [storyblokLivePreview],
   async asyncData (context) {
+    let version = context.query._storyblok || context.isDev ? 'draft' : 'published'
+
     // load the content-entry at the current path - will be something like: '/posts/first-post'
     const authorResponse = await context.app.$storyapi.get(`cdn/stories${context.route.path}`, { version: 'draft' })
     const postsByAuthorResponse = await context.app.$storyapi.get(`cdn/stories`, {
-        version: 'draft',
-        starts_with: `blog/`,
-        filter_query: {
-          "author": {
-            "in": authorResponse.data.story.uuid
-          }
+      version: version,
+      per_page: 10,
+      page: context.query.page,
+      starts_with: `blog/`,
+      sort_by: "first_published_at:desc",
+      cv: context.store.state.cacheVersion,
+      filter_query: {
+        "author": {
+          "in": authorResponse.data.story.uuid
         }
-      })
+      }
+    })
     return { author: authorResponse.data.story, stories: postsByAuthorResponse.data.stories }
   }
 }
