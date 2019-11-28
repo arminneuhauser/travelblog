@@ -70,10 +70,12 @@ export default {
   },
   mixins: [storyblokLivePreview],
   async asyncData (context) {
+    let version = context.query._storyblok || context.isDev ? 'draft' : 'published'
+
     // load the content-entry at the current path - will be something like: '/posts/first-post'
     const categoryResponse = await context.app.$storyapi.get(`cdn/stories${context.route.path}`, { version: 'draft' })
     const postsByCategoryResponse = await context.app.$storyapi.get(`cdn/stories`, {
-      version: 'draft',
+      version: version,
       starts_with: `blog/`,
       filter_query: {
         "categories": {
