@@ -5,11 +5,11 @@
   -->
   <section class="map">
     <div class="container narrow">
-      <h1>Reisekarte</h1>
+      <h1>{{ blok.headline }}</h1>
       <p>Das sind alle Länder, in denen wir <strong class="visited">schon gewesen sind</strong> oder in die wir noch <strong class="planned">vorhaben zu reisen.</strong></p>
       <div class="map__illustration">
-        <span v-bind:style="{ left: this.xPosition  + 'px', top: this.yPosition  + 'px' }" v-bind:class="{ active: hover }" class="map__tooltip">{{ this.country }}</span>
-        <div class="map__active">
+        <span v-bind:style="{ top: this.yPosition + 'px', left: this.xPosition + 'px' }" v-bind:class="{ active: hover }" class="map__tooltip">{{ this.country }}</span>
+        <div class="map__active" v-bind:style="{ top: blok.active_position_top + '%', left: blok.active_position_left + '%' }">
           <p><strong class="active">Hier</strong> sind wir gerade</p>
           <svg><use xlink:href="#curved-arrow"></use></svg>
         </div>
@@ -78,7 +78,8 @@ export default {
       this.xPosition = event.clientX + 10
       this.yPosition = event.clientY + 10
     }
-  }
+  },
+  props: ['blok']
 }
 </script>
 
@@ -174,8 +175,6 @@ $active: #EA4236;
   animation: animation-pulse 2s infinite;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  top: 29.8%; // change this
-  left: 42%; // change this
 
   p {
     position: absolute;

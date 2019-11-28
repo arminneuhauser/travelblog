@@ -1,32 +1,6 @@
 <template>
   <div>
-    <div class="hero hero--home">
-      <component v-if="home.story.content.component" :key="home.story.content._uid" :blok="home.story.content" :is="home.story.content.component"></component>
-    </div>
-    <section id="blog" class="blog">
-      <div class="container">
-        <header>
-          <nav>
-            <h3><nuxt-link :to="{ path: '/blog/'}" title="Solmates Reisetagebuch">Unser Reisetagebuch</nuxt-link></h3>
-            <nuxt-link class="link link--right" :to="{ path: '/blog/'}" title="Mehr aus Solmates Reisetagebuch">mehr</nuxt-link>
-          </nav>
-        </header>
-        <div class="posts">
-          <article-tile :key="story.content._uid" v-for="story in posts.stories" :story="story" class="compact"/>
-        </div>
-        <div class="read-more">
-          <!--<pre>total: {{ this.total }} currentPage: {{ this.currentPage }} perPage: {{ this.perPage }}</pre>-->
-          <button v-if="this.total > (this.perPage * this.currentPage)" @click="loadMore" class="button button--ghost button--large" title="Mehr Beiträge von Solmates laden">
-            Mehr laden
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <newsletter-signup/>
-
-    <world-map/>
-
+    <component v-if="home.story.content.component" :key="home.story.content._uid" :blok="home.story.content" :is="home.story.content.component" :posts="posts"></component>
   </div>
 </template>
 
@@ -102,45 +76,7 @@ export default {
       cv: context.store.state.cacheVersion
     })
 
-    return { home: home.data, posts: posts.data, total: posts.total }
+    return { home: home.data, posts: posts }
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.hero--home {
-  padding-top: 90px;
-
-  @include breakpoint(l) {
-    padding-top: 150px;
-  }
-}
-
-.blog {
-  background-color: $background-color;
-
-  @media (max-width: map-get($breakpoints, 'm') - 1) and (orientation: landscape), (min-width: map-get($breakpoints, 'm')) {
-    .posts {
-      margin: 0 -15px;
-    }
-
-    article {
-      border-bottom: none;
-      flex-basis: 50%;
-      max-width: 50%;
-      padding: 20px 15px;
-    }
-  }
-
-  @include breakpoint(l) {
-    article {
-      flex-basis: 33.33333%;
-      max-width: 33.33333%;
-
-      h1 {
-        font-size: 2.6rem;
-      }
-    }
-  }
-}
-</style>

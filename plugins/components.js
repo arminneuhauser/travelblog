@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Page from '~/components/Page.vue'
+import Hero from '~/components/Hero.vue'
 import Teaser from '~/components/Teaser.vue'
 import ContactForm from '~/components/ContactForm.vue'
 import SitemapItem from '~/components/SitemapItem.vue'
@@ -8,8 +9,10 @@ import ArticleTile from '~/components/ArticleTile.vue'
 import Skid from '~/components/Skid.vue'
 import WorldMap from '~/components/WorldMap.vue'
 import NewsletterSignup from '~/components/NewsletterSignup.vue'
+import BlogArticles from '~/components/BlogArticles.vue'
 
 Vue.component('page', Page)
+Vue.component('hero', Hero)
 Vue.component('teaser', Teaser)
 Vue.component('contactform', ContactForm)
 Vue.component('sitemap-item', SitemapItem)
@@ -18,3 +21,4 @@ Vue.component('article-tile', ArticleTile)
 Vue.component('skid', Skid)
 Vue.component('world-map', WorldMap)
 Vue.component('newsletter-signup', NewsletterSignup)
+Vue.component('blog-articles', BlogArticles)

@@ -379,6 +379,26 @@ export default {
         }
       }
     }
+
+    .wrapper {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%;
+
+      @include breakpoint(l) {
+        margin: 0 -80px;
+        width: calc(100% + 160px);
+      }
+
+      iframe {
+         position:absolute;
+         left: 0;
+         top: 0;
+         height: 100%;
+         width: 100%;
+      }
+    }
   }
 }
 
