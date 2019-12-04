@@ -3,7 +3,7 @@
   http://www.smashingmagazine.com/2015/09/making-svg-maps-from-natural-earth-data/
   https://codepen.io/janez-svetin/pen/epBebN?editors=1000
   -->
-  <section class="map">
+  <section id="map" class="map">
     <div class="container narrow">
       <h1>{{ blok.headline }}</h1>
       <p>Das sind alle Länder, in denen wir <strong class="visited">schon gewesen sind</strong> oder in die wir noch <strong class="planned">vorhaben zu reisen.</strong></p>

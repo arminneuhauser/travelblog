@@ -64,7 +64,8 @@ export default {
 
     let home = await context.app.$storyapi.get('cdn/stories/home', {
       version: version,
-      cv: context.store.state.cacheVersion
+      cv: context.store.state.cacheVersion,
+      resolve_relations: "reading-item.author"
     })
 
     let posts = await context.app.$storyapi.get('cdn/stories', {

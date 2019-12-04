@@ -73,6 +73,12 @@
   }
 }
 
+.show-on-s {
+  @include breakpoint(s) {
+    display: none;
+  }
+}
+
 .text-center {
   text-align: center;
 }

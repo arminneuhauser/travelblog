@@ -13,7 +13,7 @@
           <p>{{ blok.text }}</p>
           <p class="location">
             <svg><use xlink:href="#location"></use></svg>
-            {{ blok.location }}
+            <a href="#map">{{ blok.location }}</a>
           </p>
         </div>
       </div>
@@ -109,6 +109,14 @@ export default {
     display: flex;
     align-items: center;
     font-weight: 500;
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
 
     svg {
       width: 24px;
