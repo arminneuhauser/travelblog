@@ -10,7 +10,7 @@
       <div class="map__illustration">
         <span v-bind:style="{ top: this.yPosition + 'px', left: this.xPosition + 'px' }" v-bind:class="{ active: hover }" class="map__tooltip">{{ this.country }}</span>
         <div class="map__active" v-bind:style="{ top: blok.active_position_top + '%', left: blok.active_position_left + '%' }">
-          <p><strong class="active">Hier</strong> sind wir gerade</p>
+          <p>Wir sind gerade in <strong class="active">{{ blok.city }}</strong></p>
           <svg><use xlink:href="#curved-arrow"></use></svg>
         </div>
         <svg @mouseover="showTooltip" @mousemove="updateCoordinates" @mouseleave="hideTooltip" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 252.2 346.8" xml:space="preserve">
@@ -165,13 +165,13 @@ $active: #EA4236;
 }
 
 .map__active {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 100%;
   position: absolute;
   z-index: 1;
   background: $active;
-  box-shadow: 0 0 0 5px rgba($active, 0.3);
+  box-shadow: 0 0 0 8px rgba($active, 0.3);
   animation: animation-pulse 2s infinite;
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -179,9 +179,9 @@ $active: #EA4236;
   p {
     position: absolute;
     margin: 0;
-    width: 120px;
-    left: 60px;
-    bottom: 30px;
+    width: 140px;
+    left: 55px;
+    bottom: 20px;
   }
 
   svg {
@@ -215,7 +215,7 @@ $active: #EA4236;
     box-shadow: 0 0 0 0 rgba($active, 0.4);
   }
   70% {
-    box-shadow: 0 0 0 10px rgba($active, 0);
+    box-shadow: 0 0 0 8px rgba($active, 0);
   }
   100% {
     box-shadow: 0 0 0 0 rgba($active, 0);
