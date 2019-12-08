@@ -380,6 +380,30 @@ export default {
       }
     }
 
+    .columns {
+      @include breakpoint(l) {
+        p {
+          display: flex;
+          margin-left: -80px;
+          margin-right: -80px;
+          width: calc(100% + 160px);
+
+          img {
+            margin: 0;
+            max-width: calc(50% - 15px);
+
+            &:first-child {
+              margin-right: 15px;
+            }
+
+            &:last-child {
+              margin-left: 15px;
+            }
+          }
+        }
+      }
+    }
+
     .wrapper {
       width: 100%;
       margin-bottom: 30px;
