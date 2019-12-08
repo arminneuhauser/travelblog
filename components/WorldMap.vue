@@ -47,6 +47,11 @@
         </svg>
       </div>
     </div>
+    <div class="timeline">
+      <ol>
+        <component :key="blok._uid" v-for="blok in blok.timeline.slice().reverse()" :blok="blok" :is="blok.component"></component>
+      </ol>
+    </div>
   </section>
 </template>
 
@@ -94,7 +99,7 @@ $active: #EA4236;
 
 .map {
   background: #F2F6FA;
-  padding: 70px 0;
+  padding: 70px 0 0;
   position: relative;
   text-align: center;
   overflow: hidden;

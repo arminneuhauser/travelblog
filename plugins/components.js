@@ -11,7 +11,7 @@ import WorldMap from '~/components/WorldMap.vue'
 import NewsletterSignup from '~/components/NewsletterSignup.vue'
 import BlogArticles from '~/components/BlogArticles.vue'
 import Reading from '~/components/Reading.vue'
-import ReadingItem from '~/components/ReadingItem.vue'
+import TimelineItem from '~/components/TimelineItem.vue'
 
 Vue.component('page', Page)
 Vue.component('hero', Hero)
@@ -25,4 +25,4 @@ Vue.component('world-map', WorldMap)
 Vue.component('newsletter-signup', NewsletterSignup)
 Vue.component('blog-articles', BlogArticles)
 Vue.component('reading', Reading)
-Vue.component('reading-item', ReadingItem)
+Vue.component('timeline-item', TimelineItem)

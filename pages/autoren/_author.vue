@@ -16,6 +16,9 @@
               <li :key="social_link._uid" v-for="social_link in author.content.socials">
                 <a :href="social_link.link.cached_url" target="_blank" rel="noopener nofollow">{{social_link.name}}</a>
               </li>
+              <li>
+                <a href="#reading">Leseliste</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -31,6 +34,35 @@
         <div class="posts">
           <article-tile :key="story.content._uid" v-for="story in stories" :story="story"/>
         </div>
+      </div>
+    </div>
+
+    <div id="reading" class="reading">
+      <div class="container">
+        <header>
+          <h3>{{author.name}}s Leseliste</h3>
+          <hr>
+        </header>
+
+        <div v-for="reading in author.content.reading">
+          <div class="book">
+
+            <figure class="book__cover">
+              <picture>
+                <source :srcset="resize(reading.book_cover, '165x0/filters:format(webp)')" type="image/webp">
+                <img :src="resize(reading.book_cover, '165x0')" :alt="reading.book_title">
+              </picture>
+            </figure>
+
+            <div>
+              <h3>{{ reading.book_title }}</h3>
+              <h4>{{ reading.book_author}}</h4>
+              <p>{{ reading.book_summary }}</p>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -201,6 +233,64 @@ export default {
 
     &:hover {
       border-color: var(--text-color);
+    }
+  }
+}
+
+.reading {
+  background: #F2F6FA;
+
+  padding: 20px 0 50px;
+
+  .container {
+    margin-top: 6px;
+    max-width: 800px;
+  }
+
+  header {
+    text-align: center;
+
+    hr {
+      width: 160px;
+    }
+  }
+
+  .book {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+
+    figure {
+      flex-basis: 100px;
+      max-width: 100px;
+
+      @include breakpoint(s) {
+        flex-basis: 165px;
+        max-width: 165px;
+      }
+    }
+
+    > div {
+      flex-basis: calc(100% - 100px);
+      max-width: calc(100% - 100px);
+      padding: 0 0 0 10px;
+
+      @include breakpoint(s) {
+        flex-basis: calc(100% - 165px);
+        max-width: calc(100% - 165px);
+        padding: 0 35px;
+      }
+    }
+
+    h3 {
+      margin: 0 0 10px;
+    }
+
+    h4 {
+      font-family: $fs-sans;
+      font-weight: 500;
+      font-size: 1.6rem;
+      margin: 0 0 10px;
     }
   }
 }
