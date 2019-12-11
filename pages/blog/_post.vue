@@ -381,6 +381,13 @@ export default {
     }
 
     .columns {
+      > p > em {
+        display: inherit;
+        flex-basis: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+
       @include breakpoint(l) {
         p {
           display: flex;
