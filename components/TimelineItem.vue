@@ -1,9 +1,9 @@
 <template>
-  <li class="timeline__item">
+  <div class="timeline__item">
     <p class="city">{{ blok.city }}</p>
     <p><small>{{ blok.accomodation }}</small></p>
     <p><small>{{ formatDate(blok.from, 'DD.MM.YY') }} – {{ formatDate(blok.to, 'DD.MM.YY') }}</small></p>
-  </li>
+  </div>
 </template>
 
 <script>
@@ -23,6 +23,12 @@ export default {
   max-width: 1336px; // 1276px for container
   box-sizing: border-box;
   position: relative;
+  display: flex;
+  padding: 0;
+  text-align: left;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: y mandatory;
 
   &::after {
     content: '';
@@ -34,24 +40,13 @@ export default {
     background: linear-gradient(to right, rgba(#F2F6FA, 0) 0%, rgba(#F2F6FA, 0.6) 50%, #F2F6FA 100%);
   }
 
-  ol {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    text-align: left;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: y mandatory;
-  }
-
   .timeline__item {
     flex-basis: 170px;
     flex-shrink: 0;
     scroll-snap-align: start;
     position: relative;
     padding: 0 0 50px 20px;
-    margin: 0 0 0 26px;
+    margin: 0 0 0 30px;
 
     &:last-child {
       p:first-child::after {
