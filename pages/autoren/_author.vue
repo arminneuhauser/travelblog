@@ -44,7 +44,7 @@
           <hr>
         </header>
 
-        <div v-for="reading in author.content.reading">
+        <div v-for="reading in author.content.reading.slice().reverse()">
           <div class="book">
 
             <figure class="book__cover">

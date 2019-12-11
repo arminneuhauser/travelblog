@@ -19,11 +19,10 @@ export default {
 
 <style lang="scss">
 .timeline {
-  overflow: auto;
 	margin: 50px auto 0 auto;
-  position: relative;
   max-width: 1336px; // 1276px for container
   box-sizing: border-box;
+  position: relative;
 
   &::after {
     content: '';
@@ -37,7 +36,6 @@ export default {
 
   ol {
     display: flex;
-    position: relative;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -53,7 +51,7 @@ export default {
     scroll-snap-align: start;
     position: relative;
     padding: 0 0 50px 20px;
-    margin: 0 0 0 var(--site-core-padding);
+    margin: 0 0 0 26px;
 
     &:last-child {
       p:first-child::after {
