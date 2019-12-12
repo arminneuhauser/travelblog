@@ -495,6 +495,7 @@ export default {
                 transform: scaleX(1);
                 visibility: visible;
                 width: calc(100% - 30px);
+                pointer-events: none;
               }
             }
           }
