@@ -37,7 +37,7 @@
       </div>
     </div>
 
-    <div id="reading" class="reading">
+    <div v-if="author.content.reading" id="reading" class="reading">
       <div class="container">
         <header>
           <h3>{{author.name}}s Leseliste</h3>
