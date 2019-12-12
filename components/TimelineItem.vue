@@ -19,11 +19,6 @@ export default {
 
 <style lang="scss">
 .timeline {
-  position: relative;
-  margin: 50px auto 0 auto;
-  max-width: 1436px;
-  text-align: left;
-
   &::before,
   &::after {
     content: '';
@@ -47,6 +42,9 @@ export default {
   }
 
   > div {
+    margin: 50px auto 0 auto;
+    max-width: 1436px;
+    text-align: left;
     display: flex;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
