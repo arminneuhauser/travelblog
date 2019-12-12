@@ -6,7 +6,7 @@
           <source
             media="(min-width: 768px)"
             :data-srcset="resize(story.content.image, '375x210/filters:format(webp)') + ' 1x, ' + resize(story.content.image, '750x420/filters:format(webp)') + ' 2x'"
-            type="image/webp" >
+            type="image/webp">
           <source
             media="(min-width: 768px)"
             :data-srcset="resize(story.content.image, '375x210') + ' 1x, ' + resize(story.content.image, '750x420') + ' 2x'">

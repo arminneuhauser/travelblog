@@ -25,13 +25,17 @@
           </div>
           <figure class="post__image">
             <picture>
-              <source :srcset="resize(post.content.image, '860x0')" media="(min-width: 768px)">
-              <img :src="resize(post.content.image, '750x0')" :alt="post.content.title">
+              <source
+                media="(min-width: 768px)"
+                :srcset="resize(post.content.image, '860x0/filters:format(webp)')"
+                type="image/webp">
+              <source
+                media="(min-width: 768px)"
+                :srcset="resize(post.content.image, '860x0')">
+              <img
+                :src="resize(post.content.image, '750x0')"
+                :alt="post.content.title">
             </picture>
-            <!--<img
-              :src="resize(post.content.image, '300x0')"
-              :srcset="resize(post.content.image, '375x300') + ' 300w, ' +
-              resize(post.content.image, '638x0') + ' 600w'">-->
           </figure>
         </div>
       </div>
