@@ -248,6 +248,7 @@ export default {
   }
 
   header {
+    margin-bottom: 30px;
     text-align: center;
 
     hr {
@@ -258,7 +259,11 @@ export default {
   .book {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 35px;
+    margin-bottom: 20px;
+
+    @include breakpoint(l) {
+      margin-bottom: 35px;
+    }
 
     figure {
       flex-basis: 100px;
@@ -273,7 +278,7 @@ export default {
     > div {
       flex-basis: calc(100% - 100px);
       max-width: calc(100% - 100px);
-      padding: 0 0 0 10px;
+      padding: 0 0 0 15px;
 
       @include breakpoint(s) {
         flex-basis: calc(100% - 165px);
@@ -283,7 +288,12 @@ export default {
     }
 
     h3 {
+      font-size: 2.2rem;
       margin: 0 0 10px;
+
+      @include breakpoint(l) {
+        font-size: 2.4rem;
+      }
     }
 
     h4 {
@@ -291,6 +301,19 @@ export default {
       font-weight: 500;
       font-size: 1.6rem;
       margin: 0 0 10px;
+
+      @include breakpoint(l) {
+        font-size: 1.7rem;
+      }
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin: 0;
+
+      @include breakpoint(l) {
+        font-size: 1.6rem;
+      }
     }
   }
 }

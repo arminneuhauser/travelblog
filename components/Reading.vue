@@ -117,7 +117,12 @@ export default {
     }
 
     h3 {
+      font-size: 2.2rem;
       margin: 0 0 10px;
+
+      @include breakpoint(l) {
+        font-size: 2.4rem;
+      }
     }
 
     h4 {
@@ -125,10 +130,19 @@ export default {
       font-weight: 500;
       font-size: 1.6rem;
       margin: 0 0 10px;
+
+      @include breakpoint(l) {
+        font-size: 1.7rem;
+      }
     }
 
     p {
+      font-size: 1.5rem;
       margin: 0;
+
+      @include breakpoint(l) {
+        font-size: 1.6rem;
+      }
     }
 
     .book__cover {
