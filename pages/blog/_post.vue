@@ -197,7 +197,7 @@ export default {
     padding-top: 90px;
     position: relative;
 
-    @include breakpoint(m, max) {
+    @include breakpoint(767, max) {
       &::before {
         background-color: #fff;
         bottom: 0;
@@ -388,15 +388,32 @@ export default {
         text-align: center;
       }
 
-      @include breakpoint(l) {
+      @include breakpoint(s) {
         p {
           display: flex;
+
+          img {
+            margin: 0;
+            max-width: calc(50% - 8px);
+
+            &:first-child {
+              margin-right: 8px;
+            }
+
+            &:last-child {
+              margin-left: 8px;
+            }
+          }
+        }
+      }
+
+      @include breakpoint(l) {
+        p {
           margin-left: -80px;
           margin-right: -80px;
           width: calc(100% + 160px);
 
           img {
-            margin: 0;
             max-width: calc(50% - 15px);
 
             &:first-child {
