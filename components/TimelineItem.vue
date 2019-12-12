@@ -19,6 +19,10 @@ export default {
 
 <style lang="scss">
 .timeline {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: y mandatory;
+
   &::before,
   &::after {
     content: '';
@@ -46,9 +50,6 @@ export default {
     max-width: 1436px;
     text-align: left;
     display: flex;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: y mandatory;
   }
 
   .timeline__item {
