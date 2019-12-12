@@ -27,7 +27,7 @@ export default {
   &::after {
     content: '';
     width: 80px;
-    height: 100%;
+    height: 122px;
     position: absolute;
     bottom: 0;
     z-index: 1;
