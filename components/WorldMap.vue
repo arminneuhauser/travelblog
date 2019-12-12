@@ -48,7 +48,9 @@
       </div>
     </div>
     <div class="timeline">
-      <component :key="blok._uid" v-for="blok in blok.timeline.slice().reverse()" :blok="blok" :is="blok.component"></component>
+      <div>
+        <component :key="blok._uid" v-for="blok in blok.timeline.slice().reverse()" :blok="blok" :is="blok.component"></component>
+      </div>
     </div>
   </section>
 </template>
