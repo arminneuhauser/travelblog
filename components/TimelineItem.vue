@@ -19,25 +19,38 @@ export default {
 
 <style lang="scss">
 .timeline {
-	margin: 50px auto 0 auto;
-  max-width: 1336px; // 1276px for container
-  box-sizing: border-box;
   position: relative;
-  display: flex;
-  padding: 0;
+  margin: 50px auto 0 auto;
+  max-width: 1436px;
   text-align: left;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: y mandatory;
 
+  &::before,
   &::after {
     content: '';
     width: 80px;
     height: 100%;
     position: absolute;
-    right: 0;
     bottom: 0;
+    z-index: 1;
+  }
+
+  @include breakpoint(xl) {
+    &::before {
+      left: 0;
+      background: linear-gradient(to left, rgba(#F2F6FA, 0) 0%, rgba(#F2F6FA, 0.6) 50%, #F2F6FA 100%);
+    }
+  }
+
+  &::after {
+    right: 0;
     background: linear-gradient(to right, rgba(#F2F6FA, 0) 0%, rgba(#F2F6FA, 0.6) 50%, #F2F6FA 100%);
+  }
+
+  > div {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: y mandatory;
   }
 
   .timeline__item {
@@ -47,6 +60,12 @@ export default {
     position: relative;
     padding: 0 0 50px 20px;
     margin: 0 0 0 30px;
+
+    @include breakpoint(xl) {
+      &:first-child {
+        margin-left: 86px;
+      }
+    }
 
     &:last-child {
       p:first-child::after {
