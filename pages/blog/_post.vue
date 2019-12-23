@@ -392,21 +392,19 @@ export default {
         text-align: center;
       }
 
-      @include breakpoint(s) {
-        p {
-          display: flex;
+      p {
+        display: flex;
 
-          img {
-            margin: 0;
-            max-width: calc(50% - 8px);
+        img {
+          margin: 0;
+          max-width: calc(50% - 8px);
 
-            &:first-child {
-              margin-right: 8px;
-            }
+          &:first-child {
+            margin-right: 8px;
+          }
 
-            &:last-child {
-              margin-left: 8px;
-            }
+          &:last-child {
+            margin-left: 8px;
           }
         }
       }

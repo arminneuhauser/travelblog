@@ -1,5 +1,5 @@
 :root {
-  --fs-serif: "Crimson Text", Big Caslon, Book Antiqua, Palatino Linotype, Georgia, serif; 
+  --fs-serif: "Crimson Text", Big Caslon, Book Antiqua, Palatino Linotype, Georgia, serif;
 
   --background-color: $background-color;
   --tint: $tint;
@@ -8,7 +8,7 @@
   --cta-inv: $cta-inv;
   --home-background-color: $home-background-color; //#fbdd8c; //#FAD66B; // #F9D339;
 
-  --site-core-padding: 26px;
+  --site-core-padding: 24px;
 
   @include breakpoint(m) {
     --site-core-padding: 30px;
