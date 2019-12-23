@@ -16,7 +16,7 @@
               <li :key="social_link._uid" v-for="social_link in author.content.socials">
                 <a :href="social_link.link.cached_url" target="_blank" rel="noopener nofollow">{{social_link.name}}</a>
               </li>
-              <li v-if="author.content.reading">
+              <li v-if="author.content.reading.length > 0">
                 <a href="#reading">Leseliste</a>
               </li>
             </ul>
@@ -37,7 +37,7 @@
       </div>
     </div>
 
-    <div v-if="author.content.reading" id="reading" class="reading">
+    <div v-if="author.content.reading.length > 0" id="reading" class="reading">
       <div class="container">
         <header>
           <h3>{{author.name}}s Leseliste</h3>
