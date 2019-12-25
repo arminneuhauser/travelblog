@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Page from '~/components/Page.vue'
-import Hero from '~/components/Hero.vue'
 import Teaser from '~/components/Teaser.vue'
 import ContactForm from '~/components/ContactForm.vue'
 import SitemapItem from '~/components/SitemapItem.vue'
@@ -14,7 +13,6 @@ import Reading from '~/components/Reading.vue'
 import TimelineItem from '~/components/TimelineItem.vue'
 
 Vue.component('page', Page)
-Vue.component('hero', Hero)
 Vue.component('teaser', Teaser)
 Vue.component('contactform', ContactForm)
 Vue.component('sitemap-item', SitemapItem)

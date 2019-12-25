@@ -1,33 +1,35 @@
 <template>
-  <div class="teaser" v-editable="blok">
-    <div class="container">
-      <div class="teaser__text">
-        <h1><strong>Solmates </strong>{{ blok.headline }}</h1>
-        <figure>
+  <div v-editable="blok" class="hero hero--home">
+    <div class="teaser">
+      <div class="container">
+        <div class="teaser__text">
+          <h1><strong>Solmates </strong>{{ blok.headline }}</h1>
+          <figure>
+            <picture>
+              <source :srcset="resize(blok.avatar_image, '140x140/filters:format(webp)')" type="image/webp">
+              <img :src="resize(blok.avatar_image, '140x140')" alt="Armin &amp; Miriam sind Solmates" title="Armin &amp; Miriam sind Solmates">
+            </picture>
+          </figure>
+          <div>
+            <p>{{ blok.text }}</p>
+            <p class="location">
+              <svg><use xlink:href="#location"></use></svg>
+              <a href="#map">{{ blok.location }}</a>
+            </p>
+          </div>
+        </div>
+        <figure class="teaser__figure">
           <picture>
-            <source :srcset="resize(blok.avatar_image, '140x140/filters:format(webp)')" type="image/webp">
-            <img :src="resize(blok.avatar_image, '140x140')" alt="Armin &amp; Miriam sind Solmates" title="Armin &amp; Miriam sind Solmates">
+            <source :srcset="resize(blok.image, '520x390/filters:format(webp)')" type="image/webp" media="(min-width: 768px)">
+            <source :srcset="resize(blok.image, '520x390')" media="(min-width: 768px)">
+            <source :srcset="resize(blok.image, '750x422/filters:format(webp)')" type="image/webp">
+            <img
+            :src="resize(blok.image, '750x422')"
+            :alt="'Solmates - ' + blok.headline"
+            :title="'Solmates - ' + blok.headline">
           </picture>
         </figure>
-        <div>
-          <p>{{ blok.text }}</p>
-          <p class="location">
-            <svg><use xlink:href="#location"></use></svg>
-            <a href="#map">{{ blok.location }}</a>
-          </p>
-        </div>
       </div>
-      <figure class="teaser__figure">
-        <picture>
-          <source :srcset="resize(blok.image, '520x390/filters:format(webp)')" type="image/webp" media="(min-width: 768px)">
-          <source :srcset="resize(blok.image, '520x390')" media="(min-width: 768px)">
-          <source :srcset="resize(blok.image, '750x422/filters:format(webp)')" type="image/webp">
-          <img
-          :src="resize(blok.image, '750x422')"
-          :alt="'Solmates - ' + blok.headline"
-          :title="'Solmates - ' + blok.headline">
-        </picture>
-      </figure>
     </div>
   </div>
 </template>
@@ -44,6 +46,14 @@ export default {
 </script>
 
 <style lang="scss">
+.hero--home {
+  padding-top: 90px;
+
+  @include breakpoint(l) {
+    padding-top: 150px;
+  }
+}
+
 .teaser {
   border-bottom: 1px solid rgba($tint, 0.15);
   padding: 0 0 10px;
