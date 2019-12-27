@@ -441,6 +441,12 @@ export default {
         padding-bottom: 56.25%;
       }
 
+      > p > em {
+        display: inherit;
+        margin-top: 20px;
+        text-align: center;
+      }
+
       @include breakpoint(l) {
         margin-left: -80px;
         margin-right: -80px;
