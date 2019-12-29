@@ -80,19 +80,21 @@ export default {
     &::before {
       content: '';
       position: absolute;
-      width: 3px;
-      height: calc(100% - 20px);
       top: 20px;
       left: 0;
-      background: linear-gradient(rgba(#2398AB,0.3) 66%, rgba(#2398AB,0));
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 100px 2px 0 2px;
+      border-color: rgba(#2398AB,0.3) transparent transparent transparent;
     }
 
     &::after {
       content: '';
       position: absolute;
-      width: 15px;
-      height: 15px;
-      top: 6px;
+      width: 16px;
+      height: 16px;
+      top: 8px;
       left: -6px;
       border: 4px solid #2398AB;
       border-radius: 100%;
