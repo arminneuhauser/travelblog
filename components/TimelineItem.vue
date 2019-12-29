@@ -80,23 +80,24 @@ export default {
     &::before {
       content: '';
       position: absolute;
-      width: 4px;
+      width: 3px;
       height: calc(100% - 20px);
       top: 20px;
       left: 0;
-      background: linear-gradient(rgba(#2398AB,0.3) 60%, rgba(#2398AB,0));
+      background: linear-gradient(rgba(#2398AB,0.3) 66%, rgba(#2398AB,0));
     }
 
     &::after {
       content: '';
       position: absolute;
-      width: 16px;
-      height: 16px;
+      width: 15px;
+      height: 15px;
       top: 6px;
       left: -6px;
       border: 4px solid #2398AB;
       border-radius: 100%;
       background: rgba(#2398AB, 0.1);
+      box-shadow: 0 2px 3px 0 rgba(#2398AB, 0.35);
       box-sizing: border-box;
     }
 
