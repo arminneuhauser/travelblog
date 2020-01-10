@@ -393,6 +393,7 @@ export default {
       }
 
       p {
+        align-items: flex-start;
         display: flex;
 
         img {
