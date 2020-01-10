@@ -185,8 +185,8 @@ $active: #EA4236;
     position: absolute;
     margin: 0;
     width: 140px;
-    left: 50px;
-    bottom: 30px;
+    left: 30px;
+    bottom: 40px;
   }
 
   svg {
@@ -194,8 +194,8 @@ $active: #EA4236;
     height: 32px;
     position: absolute;
     fill: #343434;
-    bottom: 8px;
-    left: 20px;
+    bottom: 3px;
+    left: 15px;
   }
 }
 
