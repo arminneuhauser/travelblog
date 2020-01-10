@@ -390,6 +390,7 @@ export default {
         flex-basis: 100%;
         justify-content: center;
         text-align: center;
+        margin-top: -10px;
       }
 
       p {
