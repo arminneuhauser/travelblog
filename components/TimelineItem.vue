@@ -22,6 +22,20 @@ export default {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: y mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #B9BBBD #F2F6FA;
+
+  &::-webkit-scrollbar {
+    height: 11px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #F2F6FA;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #B9BBBD;
+    border-radius: 6px;
+    border: 3px solid #F2F6FA;
+  }
 
   &::before,
   &::after {
@@ -29,7 +43,7 @@ export default {
     width: 80px;
     height: 122px;
     position: absolute;
-    bottom: 0;
+    bottom: 11px;
     z-index: 1;
   }
 
