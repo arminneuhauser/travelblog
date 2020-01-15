@@ -19,11 +19,16 @@ export default {
 
 <style lang="scss">
 .timeline {
+  padding-left: 15px;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: y mandatory;
   scrollbar-width: thin;
   scrollbar-color: #B9BBBD #F2F6FA;
+
+  @include breakpoint(xl) {
+    padding-left: 0;
+  }
 
   &::-webkit-scrollbar {
     height: 11px;
@@ -67,12 +72,12 @@ export default {
   }
 
   .timeline__item {
-    flex-basis: 170px;
+    flex-basis: 185px;
     flex-shrink: 0;
     scroll-snap-align: start;
     position: relative;
     padding: 0 0 50px 20px;
-    margin: 0 0 0 30px;
+    margin: 0 0 0 15px;
 
     @include breakpoint(xl) {
       &:first-child {
