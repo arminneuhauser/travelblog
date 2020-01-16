@@ -14,7 +14,7 @@
             <div class="meta">
               <figure v-if="author">
                 <nuxt-link :to="'/' + author.full_slug">
-                  <img class="author" :src="resize(author.content.avatar, '140x140')" :alt="author.content.name">
+                  <img v-bind:class="[$route.fullPath == '/blog/panama-city' ? 'greyscale' : '']" class="author" :src="resize(author.content.avatar, '140x140')" :alt="author.content.name">
                 </nuxt-link>
               </figure>
               <div>
@@ -290,6 +290,13 @@ export default {
 
     * {
       color: var(--text-color);
+    }
+  }
+
+  .author {
+    &.greyscale {
+      filter: gray;
+      filter: grayscale(1);
     }
   }
 
