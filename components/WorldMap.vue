@@ -185,7 +185,7 @@ $active: #EA4236;
     position: absolute;
     margin: 0;
     width: 140px;
-    left: 30px;
+    left: 10px;
     bottom: 40px;
   }
 
