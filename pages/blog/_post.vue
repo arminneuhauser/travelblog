@@ -239,9 +239,13 @@ export default {
       h3 {
         font-family: $fs-sans;
         font-weight: 500;
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         text-transform: uppercase;
         margin: 0 0 10px;
+
+        @include breakpoint(m) {
+          font-size: 1.6rem;
+        }
 
         a {
           color: var(--deco-color, $cta);
@@ -308,11 +312,12 @@ export default {
     p, ul, ol, table {
       font-family: $fs-serif;
       font-size: 2rem; //1.7rem;
-      line-height: 1.6; //1.7;
-      margin-bottom: 30px;
+      line-height: 1.55; //1.7;
+      margin-bottom: 20px;
 
       @include breakpoint(l) {
         font-size: 2.2rem; //1.8rem;
+        margin-bottom: 30px;
       }
 
       em {
@@ -363,16 +368,25 @@ export default {
 
       + em {
         display: inherit;
-        margin-top: 20px;
+        line-height: 1.2;
+        margin-top: 12px;
         text-align: center;
 
         + img {
-          margin-top: 30px;
+          margin-top: 20px;
+
+          @include breakpoint(l) {
+            margin-top: 30px;
+          }
         }
       }
 
       + img {
-        margin-top: 30px;
+        margin-top: 20px;
+
+        @include breakpoint(l) {
+          margin-top: 30px;
+        }
       }
 
       &[src$="#card"] {
@@ -441,7 +455,11 @@ export default {
 
     .wrapper {
       width: 100%;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
+
+      @include breakpoint(l) {
+        margin-bottom: 30px;
+      }
 
       > div {
         position: relative;
