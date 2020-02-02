@@ -51,7 +51,10 @@ h3 {
   }
 }
 h4, h5, h6 {
-  font-size: 2.1rem;
+  font-size: 2.2rem;
+  @include breakpoint(l) {
+    font-size: 2.4rem;
+  }
 }
 
 p {
