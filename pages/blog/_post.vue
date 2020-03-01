@@ -198,6 +198,8 @@ export default {
     //background-color: #c5dbf2;
     background: var(--background);
     color: var(--text-color);
+    margin-bottom: 30px;
+    min-height: 100vh;
     padding-top: 90px;
     position: relative;
 
@@ -217,15 +219,24 @@ export default {
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      margin: 30px auto;
+      margin: 30px auto 0;
 
       @include breakpoint(m) {
-          margin: 0 auto 50px auto;
+          margin: 0 auto;
       }
+    }
+
+    @include breakpoint(m) {
+      min-height: 375px;
+      margin-bottom: 50px;
     }
 
     @include breakpoint(l) {
       padding-top: 150px;
+    }
+
+    @include breakpoint(xl) {
+      min-height: 626px;
     }
 
     .post__title {
@@ -283,6 +294,7 @@ export default {
 
   .meta {
     margin: 40px 0;
+    min-height: 70px;
 
     @include breakpoint(m) {
       margin-bottom: 50px;
