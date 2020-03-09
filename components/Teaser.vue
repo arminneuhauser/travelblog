@@ -20,13 +20,20 @@
         </div>
         <figure class="teaser__figure">
           <picture>
-            <source :srcset="resize(blok.image, '520x390/filters:format(webp)')" type="image/webp" media="(min-width: 768px)">
-            <source :srcset="resize(blok.image, '520x390')" media="(min-width: 768px)">
-            <source :srcset="resize(blok.image, '750x422/filters:format(webp)')" type="image/webp">
+            <source
+              media="(min-width: 768px)"
+              :srcset="resize(blok.image, '520x390/filters:format(webp)') + ' 1x, ' + resize(blok.image, '1040x780/filters:format(webp)') + ' 2x'"
+              type="image/webp">
+            <source
+              media="(min-width: 768px)"
+              :srcset="resize(blok.image, '520x390') + ' 1x, ' + resize(blok.image, '1040x780') + ' 2x'">
+            <source
+              :srcset="resize(blok.image, '750x422/filters:format(webp)')"
+              type="image/webp">
             <img
-            :src="resize(blok.image, '750x422')"
-            :alt="'Solmates - ' + blok.headline"
-            :title="'Solmates - ' + blok.headline">
+              :src="resize(blok.image, '750x422')"
+              :alt="'Solmates - ' + blok.headline"
+              :title="'Solmates - ' + blok.headline">
           </picture>
         </figure>
       </div>
