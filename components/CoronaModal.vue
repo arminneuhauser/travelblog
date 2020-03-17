@@ -4,7 +4,7 @@
       <svg><use xlink:href="#close"></use></svg>
     </button>
     <div class="corona-modal-content">
-      <h1>Coronavirus</h1>
+      <h1>Coronavirus in Peru</h1>
       <p>
         Wir sitzen hier fest, abgeschottet vom Rest.
       </p>
