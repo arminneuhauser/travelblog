@@ -60,7 +60,8 @@ module.exports = {
     '@/plugins/components',
     '@/plugins/filters',
     '@/plugins/helper',
-    '@/plugins/vue-lazysizes.client.js'
+    '@/plugins/vue-lazysizes.client.js',
+    '@/plugins/vue-js-modal.js'
   ],
 
   /*
@@ -75,7 +76,7 @@ module.exports = {
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
     ['@nuxtjs/google-tag-manager', { id: process.env.GTM_ID, pageTracking: true }],
-    '@nuxtjs/dotenv',
+    '@nuxtjs/dotenv'
   ],
 
   styleResources: {

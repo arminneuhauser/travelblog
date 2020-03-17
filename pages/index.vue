@@ -1,13 +1,18 @@
 <template>
   <div>
+    <corona-modal/>
     <component v-if="home.story.content.component" :key="home.story.content._uid" :blok="home.story.content" :is="home.story.content.component" :posts="posts"></component>
   </div>
 </template>
 
 <script>
 import storyblokLivePreview from '@/mixins/storyblokLivePreview'
+import CoronaModal from '@/components/CoronaModal.vue'
 
 export default {
+  components: {
+    CoronaModal
+  },
   head() {
     return {
       title: 'Solmates - Mit dem Rucksack durch Lateinamerika',
@@ -41,6 +46,9 @@ export default {
       perPage: 6,
       story: { content: {} }
     }
+  },
+  mounted () {
+    this.$modal.show('corona-modal')
   },
   methods: {
     async loadMore () {
