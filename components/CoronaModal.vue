@@ -1,5 +1,5 @@
 <template>
-  <modal name="corona-modal" class="corona-modal" :adaptive="true" scrollable="true" width="90%" maxWidth="1136" height="auto">
+  <modal name="corona-modal" class="corona-modal" :adaptive="true" :scrollable="true" width="90%" :maxWidth="1136" height="auto">
     <button @click="$modal.hide('corona-modal')">
       <svg><use xlink:href="#close"></use></svg>
     </button>
