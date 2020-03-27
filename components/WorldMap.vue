@@ -49,6 +49,11 @@
     </div>
     <div class="timeline">
       <div>
+        <div class="timeline__item">
+          <p class="city">Cusco</p>
+          <p><small>Quarantäne</small></p>
+          <p><small>16.03.20 – ?</small></p>
+        </div>
         <component :key="blok._uid" v-for="blok in blok.timeline.slice().reverse()" :blok="blok" :is="blok.component"></component>
       </div>
     </div>
