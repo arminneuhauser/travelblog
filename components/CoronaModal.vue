@@ -6,13 +6,13 @@
     <div class="corona-modal-content">
       <h1>Coronavirus in Peru</h1>
       <p>
-        Wir sind noch immer gestrandet.
+        Heute, am 29. März, fahren wir mit einem von der Schweiz organisierten Buskonvoi nach Lima. Das wird etwa 25 Stunden dauern.
       </p>
       <p>
-        Heute, am 27. März, bringt ein Flugzeug der Austrian Airlines die ersten österreichischen Touristen von Lima nach Wien. Wir hatten aber bisher keine Möglichkeit, von Cusco nach Lima zu kommen, weil seit 16. März in Peru striktes Reiseverbot gilt.
+        Am Dienstag können wir dann hoffentlich in die Schweiz fliegen. Wir haben leider kaum Informationen von der österreichischen Botschaft bekommen und wissen nicht wann und wie wir nach Österreich kommen. Aber es ist immerhin ein Anfang.
       </p>
       <p>
-        Da aber einige Touristen aus anderen Ländern bereits ihre Heimreise von Cusco aus antreten konnten, sind wir optimistisch, dass es auch für uns bald soweit ist. <strong>Macht euch keine Sorgen!</strong>
+        <strong>Lasst die Odyssee beginnen!</strong>
       </p>
     </div>
   </modal>
