@@ -1,6 +1,6 @@
 <template>
   <div>
-    <corona-modal/>
+    <!--<corona-modal/>-->
     <component v-if="home.story.content.component" :key="home.story.content._uid" :blok="home.story.content" :is="home.story.content.component" :posts="posts"></component>
   </div>
 </template>
