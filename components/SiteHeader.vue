@@ -541,5 +541,9 @@ export default {
       }
     }
   }
+
+  @media print {
+    display: none;
+  }
 }
 </style>

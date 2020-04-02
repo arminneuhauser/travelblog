@@ -37,11 +37,19 @@ h1 {
   @include breakpoint(l) {
     font-size: 4.6rem;
   }
+
+  @media print {
+    font-size: 3rem;
+  }
 }
 h2 {
   font-size: 2.8rem;
   @include breakpoint(l) {
     font-size: 3.4rem;
+  }
+
+  @media print {
+    font-size: 2.4rem;
   }
 }
 h3 {
@@ -49,11 +57,17 @@ h3 {
   @include breakpoint(l) {
     font-size: 3rem;
   }
+  @media print {
+    font-size: 2.2rem;
+  }
 }
 h4, h5, h6 {
   font-size: 2.2rem;
   @include breakpoint(l) {
     font-size: 2.4rem;
+  }
+  @media print {
+    font-size: 2rem;
   }
 }
 

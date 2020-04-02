@@ -305,5 +305,9 @@ export default {
   @include breakpoint(1024) {
     right: -130px;
   }
+
+  @media print {
+    display: none;
+  }
 }
 </style>

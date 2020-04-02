@@ -189,6 +189,12 @@ export default {
       margin: 0 0 50px;
     }
 
+    @media print {
+      position: relative;
+      max-width: 450px;
+      margin: 0 auto;
+    }
+
     img {
       margin: 0 auto;
     }
@@ -211,6 +217,15 @@ export default {
         height: 40px;
         position: absolute;
         width: 100%;
+      }
+    }
+
+    @media print {
+      min-height: 0;
+      padding-top: 20px;
+
+      &::before {
+        display: none;
       }
     }
 
@@ -239,6 +254,11 @@ export default {
       min-height: 626px;
     }
 
+    @media print {
+      background: none;
+      color: $tint;
+    }
+
     .post__title {
       @include breakpoint(m) {
         flex-basis: 50%;
@@ -260,6 +280,10 @@ export default {
 
         a {
           color: var(--deco-color, $cta);
+
+          @media print {
+            color: $tint;
+          }
 
           &:hover span {
             text-decoration: underline;
@@ -288,6 +312,10 @@ export default {
         @include breakpoint(l) {
           font-size: 2rem;
         }
+
+        @media print {
+          color: $tint;
+        }
       }
     }
   }
@@ -300,12 +328,20 @@ export default {
       margin-bottom: 50px;
     }
 
+    @media print {
+      margin: 20px 0;
+    }
+
     a:hover {
       text-decoration: underline;
     }
 
     * {
       color: var(--text-color);
+
+      @media print {
+        color: $tint;
+      }
     }
   }
 
@@ -332,6 +368,10 @@ export default {
         margin-bottom: 30px;
       }
 
+      @media print {
+        font-size: 1.8rem;
+      }
+
       em {
         font-style: italic;
       }
@@ -351,6 +391,10 @@ export default {
     &::after {
       content: '';
       @include squiggly;
+
+      @media print {
+        display: none;
+      }
     }
 
     > div {
@@ -377,6 +421,11 @@ export default {
     img {
       display: block;
       margin: 0 auto;
+
+      @media print {
+        position: relative;
+        max-width: 450px;
+      }
 
       + em {
         display: inherit;
@@ -463,6 +512,18 @@ export default {
           }
         }
       }
+
+      @media print {
+        position: relative;
+        page-break-inside: avoid;
+        max-width: 450px;
+        margin: 0 auto;
+
+        p {
+          position: relative;
+          page-break-inside: avoid;
+        }
+      }
     }
 
     .wrapper {
@@ -510,6 +571,10 @@ export default {
   h2 {
     margin: 0 0 30px;
     text-align: center;
+  }
+
+  @media print {
+    display: none;
   }
 }
 </style>
