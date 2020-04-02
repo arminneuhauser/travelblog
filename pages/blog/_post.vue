@@ -534,6 +534,10 @@ export default {
         margin-bottom: 30px;
       }
 
+      @media print {
+        display: none;
+      }
+
       > div {
         position: relative;
         width: 100%;
