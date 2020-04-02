@@ -23,7 +23,7 @@
       <header>
         <h1 class="title">{{ story.content.title }}</h1>
         <p class="subtitle">{{ story.content.intro }}</p>
-        <p class="meta">{{ formatDate(story.first_published_at, 'DD. MMM. YYYY') }} • {{ readTime(story.content.body) }} Min. Lesezeit {{ story.content.additional_meta }}</p>
+        <p class="meta">{{ formatDate(story.first_published_at, 'DD. MMM YYYY') }} • {{ readTime(story.content.body) }} Min. Lesezeit {{ story.content.additional_meta }}</p>
       </header>
     </nuxt-link>
   </article>

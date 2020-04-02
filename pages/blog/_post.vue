@@ -19,7 +19,7 @@
               </figure>
               <div>
                 <h2 v-if="author">Geschrieben von <nuxt-link :to="'/' + author.full_slug">{{ author.content.name }}</nuxt-link></h2>
-                <p>{{ formatDate(post.first_published_at, 'DD. MMM. YYYY') }} • {{ readTime(post.content.body) }} Min. Lesezeit</p>
+                <p>{{ formatDate(post.first_published_at, 'DD. MMM YYYY') }} • {{ readTime(post.content.body) }} Min. Lesezeit</p>
               </div>
             </div>
           </div>
