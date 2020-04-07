@@ -129,7 +129,10 @@ export default {
     let version = context.query._storyblok || context.isDev ? 'draft' : 'published'
 
     // load the content-entry at the current path - will be something like: '/posts/first-post'
-    const authorResponse = await context.app.$storyapi.get(`cdn/stories${context.route.path}`, { version: 'draft' })
+    const authorResponse = await context.app.$storyapi.get(`cdn/stories${context.route.path}`, {
+      version: version
+    })
+
     const postsByAuthorResponse = await context.app.$storyapi.get(`cdn/stories`, {
       version: version,
       per_page: 10,

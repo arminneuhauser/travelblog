@@ -6,7 +6,7 @@
   <section id="map" class="map">
     <div class="container narrow">
       <h1>{{ blok.headline }}</h1>
-      <p>Das sind alle Länder, in denen wir <strong class="visited">gewesen sind.</strong></p>
+      <p>Das sind jene Länder, in denen wir <strong class="visited">gewesen sind.</strong></p>
       <!--<p>Das sind alle Länder, in denen wir <strong class="visited">schon gewesen sind</strong> oder in die wir noch <strong class="planned">vorhaben zu reisen.</strong></p>-->
       <div class="map__illustration">
         <span v-bind:style="{ top: this.yPosition + 'px', left: this.xPosition + 'px' }" v-bind:class="{ active: hover }" class="map__tooltip">{{ this.country }}</span>
