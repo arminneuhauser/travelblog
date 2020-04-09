@@ -19,7 +19,7 @@ export default {
 
 <style lang="scss">
 .timeline {
-  padding-left: 15px;
+  padding-left: 20px;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: y mandatory;
@@ -72,12 +72,12 @@ export default {
   }
 
   .timeline__item {
-    flex-basis: 185px;
+    flex-basis: 190px;
     flex-shrink: 0;
     scroll-snap-align: start;
     position: relative;
     padding: 0 0 50px 20px;
-    margin: 0 0 0 15px;
+    margin: 0 0 0 10px;
 
     @include breakpoint(xl) {
       &:first-child {
