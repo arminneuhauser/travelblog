@@ -201,11 +201,9 @@ export default {
   }
 
   .post__header {
-    //background-color: #c5dbf2;
     background: var(--background);
     color: var(--text-color);
     margin-bottom: 30px;
-    min-height: 100vh;
     padding-top: 90px;
     position: relative;
 
