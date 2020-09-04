@@ -46,7 +46,7 @@
     "eslint-loader": "^2.2.1",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "nodemon": "^1.19.1",
     "sass-loader": "^7.1.0",
     "stylus": "^0.54.7",
