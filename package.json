@@ -45,6 +45,7 @@
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
     "nodemon": "^1.19.1",
+    "postcss": "^8.4.12",
     "sass": "^1.49.9",
     "sass-loader": "^7.1.0",
     "stylus": "^0.54.7",
