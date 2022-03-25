@@ -98,6 +98,7 @@ export default {
 
     figure {
       @include ratio-container(math.div(750, 500));
+      
     }
   }
 }
