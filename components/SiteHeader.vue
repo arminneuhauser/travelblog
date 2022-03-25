@@ -352,7 +352,7 @@ export default {
 
           @for $i from 1 through 6 {
             &:nth-child(#{$i}) {
-              transition-delay: .05s + $i/20;
+              transition-delay: .05s + math.div($i, 20);
             }
           }
         }

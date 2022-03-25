@@ -63,7 +63,7 @@ article {
   }
 
   figure {
-    @include ratio-container(750/420);
+    @include ratio-container(math.div(750, 500));
     flex-basis: 100%;
     align-self: flex-start;
   }
